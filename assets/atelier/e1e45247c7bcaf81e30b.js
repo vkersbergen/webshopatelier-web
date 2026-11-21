@@ -1143,11 +1143,34 @@ if (typeof ResizeObserver !== 'undefined' && logobalk?.firstElementChild) {
 }
 
 const suggesties = $('#suggestie-rij');
-$$('[data-suggestie-stap]').forEach(knop => knop.addEventListener('click', () => {
-  const eerste = suggesties.firstElementChild;
-  const afstand = eerste.getBoundingClientRect().width + parseFloat(getComputedStyle(suggesties).columnGap);
-  suggesties.scrollBy({left: afstand * Number(knop.dataset.suggestieStap), behavior: motion.matches ? 'instant' : 'smooth'});
-}));
+if (suggesties) {
+  const knoppen = $$('[data-suggestie-stap]');
+  function werkSuggestiepijlenBij() {
+    const einde = suggesties.scrollWidth - suggesties.clientWidth;
+    knoppen.forEach(knop => {
+      knop.disabled = Number(knop.dataset.suggestieStap) < 0
+        ? suggesties.scrollLeft <= 1
+        : suggesties.scrollLeft >= einde - 1;
+    });
+  }
+  knoppen.forEach(knop => knop.addEventListener('click', () => {
+    const [eerste, tweede] = suggesties.children;
+    const stap = tweede.offsetLeft - eerste.offsetLeft;
+    suggesties.scrollBy({left: stap * Number(knop.dataset.suggestieStap), behavior: motion.matches ? 'instant' : 'smooth'});
+  }));
+  suggesties.addEventListener('scroll', werkSuggestiepijlenBij, {passive:true});
+  new ResizeObserver(werkSuggestiepijlenBij).observe(suggesties);
+  suggesties.addEventListener('keydown', event => {
+    const links = Array.from(suggesties.querySelectorAll('a'));
+    const index = links.indexOf(event.target);
+    if (index < 0) return;
+    const doelen = {ArrowLeft:index - 1, ArrowRight:index + 1, Home:0, End:links.length - 1};
+    if (!Object.hasOwn(doelen, event.key)) return;
+    event.preventDefault();
+    links[Math.max(0, Math.min(links.length - 1, doelen[event.key]))].focus();
+  });
+  werkSuggestiepijlenBij();
+}
 const casepijlen = $$('[data-case-stap]');
 function vertaalPijlen() {
   $$('[data-suggestie-stap]').forEach(knop => knop.setAttribute('aria-label', Number(knop.dataset.suggestieStap) < 0 ? local('Vorige pakketten','Previous packages') : local('Volgende pakketten','Next packages')));

@@ -653,7 +653,7 @@ body .hero .buttons .btn:hover,body .header-inner .actions .btn:hover,
 }
 .suggestie-rij a:hover { border-color:#ffc5a880 }
 .suggestie-rij a span:last-child { color:#ffb29d; font-size:1.2rem }
-@media (min-width:850px) { .suggestie-rij { grid-auto-columns:minmax(165px,22%) } }
+@media (min-width:850px) { .suggestie-rij { grid-auto-columns:clamp(200px,24%,320px) } }
 /* Keep the laptop playback control outside the area covered by the phone. */
 .ellecera-preview-hero.speelt .case-video-toggle { right:15cqw; min-height:25px }
 .ellecera-dia-keuze button { min-width:20px }
@@ -836,3 +836,5 @@ body > header .mega, body > header .kop-talen-lijst {
 @media(max-height:420px){#chat-panel .chat-head{padding-block:3px}#chat-panel .chat-navigation a{min-height:32px}#chat-panel .chat-onder{padding-block:0}}
 #chat-panel .chat-scroll:has(.chat-copy:not(:empty)) .chat-options{display:grid;order:-1;padding-top:8px}
 /* End Atelier assistant */
+
+[data-suggestie-stap]:disabled { opacity:.34; cursor:default }
