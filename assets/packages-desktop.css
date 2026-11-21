@@ -14,3 +14,9 @@
   #pakketten .service-body .price strong{font-size:clamp(18px,1.6vw,24px)}
   #pakketten .service-body .textlink{min-height:34px;padding-block:4px}
 }
+
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  #pakketten :is(.pakket-foto,.commerce-pakket-fotolink){overflow:hidden}
+  #pakketten img[src*="/glas-"]{transition:transform .36s ease-out}
+  #pakketten :is(.service,.commerce-pakket):is(:hover,:focus-within) img[src*="/glas-"]{transform:scale(1.045)}
+}
