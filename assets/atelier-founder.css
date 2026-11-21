@@ -9,3 +9,5 @@ body main #atelier.story .founder-invitation :is(h1,h2) {font-size:clamp(36px,4.
 #atelier .founder-photo figcaption {position:absolute;inset:auto 0 0;padding:45px 22px 18px;background:linear-gradient(transparent,#15111ce8);color:#f9f4ef;display:grid;line-height:1.35;font-size:14px}
 #atelier .founder-photo strong {font-size:21px}
 @media(max-width:700px){#atelier .founder-note {grid-template-columns:1fr;gap:24px}#atelier .founder-photo {grid-row:1}#atelier .founder-photo img {height:clamp(240px,66vw,340px);object-position:50% 28%}}
+
+#atelier .founder-message + .founder-message { margin-top: 12px; }
