@@ -48,3 +48,6 @@
 @media(prefers-reduced-motion:reduce) {
   #bericht:is(:hover,:focus-within) .contact-letter i, #bericht .contact-letter i {transform:translateY(-28%) rotate(4deg);transition:none}
 }
+#bericht .atelier-contact-inline {align-self:center;border:0;border-radius:0;padding:0;background:transparent}
+#bericht .atelier-contact-inline iframe {border-radius:12px;height:465px}
+@media(max-width:759px){#bericht .atelier-contact-inline iframe {height:480px}}

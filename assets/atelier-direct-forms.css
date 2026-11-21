@@ -8,6 +8,7 @@ dialog.atelier-form-dialog[open]{display:flex;flex-direction:column}
 .atelier-form-dialog button{display:grid;place-items:center;background:#332738;color:#ffe9df;border:1px solid #594452;cursor:pointer;border-radius:50%;width:42px;height:42px;font:500 25px/1 system-ui}
 .atelier-form-dialog button:is(:hover,:focus-visible){color:#ff927a;border-color:#ff927a}
 .atelier-form-dialog iframe{box-sizing:border-box;display:block;flex:1;min-height:0;width:100%;border:0;background:#201927;padding:10px 14px 6px}
+@media(max-width:500px){dialog.atelier-form-dialog{height:min(535px,calc(100dvh - 24px))}}
 @media(prefers-reduced-motion:no-preference){dialog.atelier-form-dialog[open]{animation:atelier-form-open .2s ease-out}@keyframes atelier-form-open{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
 
 .atelier-contact-inline{min-width:0;width:100%;background:#201927;border:1px solid #ffffff24;border-radius:16px;overflow:hidden;padding:12px clamp(12px,2vw,26px) 0;box-sizing:border-box;color-scheme:dark}
