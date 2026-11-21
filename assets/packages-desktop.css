@@ -20,3 +20,7 @@
   #pakketten img[src*="/glas-"]{transition:transform .36s ease-out}
   #pakketten :is(.service,.commerce-pakket):is(:hover,:focus-within) img[src*="/glas-"]{transform:scale(1.045)}
 }
+
+#pakketten .service .price-kader strong,
+#pakketten .service .price-kader span,
+#pakketten .commerce-pakket .commerce-tarief{color:#ffab94}
