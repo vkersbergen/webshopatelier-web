@@ -1,0 +1,220 @@
+#commerce-bedrijf {
+  --commerce-ink:#17131d;
+  --commerce-paper:#fff1e9;
+  --commerce-muted:#ddcddf;
+  --commerce-coral:#ff9b82;
+  --commerce-border:#ecc9f135;
+  background:var(--commerce-ink);
+  color:var(--commerce-paper);
+}
+#commerce-bedrijf :is(h1,h2,h3,h4,h5) {
+  color:inherit;
+  font-family:var(--body);
+  text-transform:none;
+  letter-spacing:-.048em;
+}
+#commerce-bedrijf :is(h1,h2) {text-wrap:balance}
+#commerce-bedrijf h2 {font-size:clamp(2rem,4.6vw,4rem);line-height:1.05;margin:0 0 .55em}
+#commerce-bedrijf em {color:var(--commerce-coral);font-style:normal}
+#commerce-bedrijf :is([id],a[href^="#"]) {scroll-margin-top:6rem}
+#commerce-bedrijf :is(a,summary,input,select):focus-visible {
+  outline:2px solid var(--commerce-coral);
+  outline-offset:4px;
+}
+.commerce-hero {
+  background:radial-gradient(ellipse at 72% 32%,#452644 0,transparent 69%),linear-gradient(125deg,#1c1623,#25191e);
+}
+#commerce-bedrijf .pitch {
+  display:grid;
+  align-items:center;
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(24px,5vw,72px);
+  padding-block:clamp(38px,7vw,100px);
+}
+#commerce-bedrijf .kicker {color:var(--commerce-coral);margin:0 0 12px;font-size:.85rem;font-weight:800}
+#commerce-bedrijf h1 {font-size:clamp(2.65rem,5.3vw,5.75rem);line-height:.99;margin:0 0 22px;overflow-wrap:anywhere}
+#commerce-bedrijf .intro {color:var(--commerce-muted);max-width:57ch;margin:0;line-height:1.65}
+#commerce-bedrijf .pitch-beeld {
+  margin:0;
+  overflow:hidden;
+  aspect-ratio:3 / 2;
+  border:1px solid var(--commerce-border);
+  border-radius:clamp(16px,2.8vw,30px);
+  box-shadow:0 22px 60px #100913a0;
+}
+#commerce-bedrijf .pitch-beeld img {display:block;width:100%;height:100%;object-fit:cover}
+.commerce-acties {display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:24px}
+.team-link {display:inline-flex;align-items:center;gap:8px;min-height:44px;padding-block:8px;font-weight:750}
+.commerce-prijs {display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 12px;margin:15px 0 0;color:var(--commerce-muted);font-size:.85rem}
+.commerce-prijs strong {color:var(--commerce-paper);font-size:1.45rem}
+#commerce-bedrijf .part {padding-block:clamp(45px,7vw,96px)}
+#commerce-bedrijf .deel-intro {margin:0 0 24px;max-width:65ch;color:var(--commerce-muted)}
+
+.org-band {
+  background:#24283c;
+  background-image:radial-gradient(ellipse at 65% 50%,#40415d,transparent 74%),linear-gradient(142deg,#30374a,#202334);
+  border-block:1px solid #b4c0ed34;
+}
+#commerce-bedrijf .org-wrap {display:grid;gap:28px;padding-block:clamp(34px,6vw,82px)}
+#commerce-bedrijf .org-intro p {max-width:58ch;margin:0;color:#e1dce9}
+#commerce-bedrijf .org-chart {
+  --org-lijn:#c99fb783;
+  display:grid;
+  min-width:0;
+  width:100%;
+  margin:0;
+  padding:clamp(12px,2.8vw,32px);
+  border:1px solid #c6d0ff39;
+  border-radius:20px;
+  background:radial-gradient(ellipse at 50% 0%,#3a2945,#212435 70%);
+}
+#commerce-bedrijf .org-root {
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  align-items:center;
+  gap:12px;
+  box-sizing:border-box;
+  width:min(100%, 30rem);
+  padding:12px 16px;
+  border:1px solid #f4aa9170;
+  border-radius:14px;
+  background:#272435;
+}
+#commerce-bedrijf .org-root img {display:block;width:44px;height:44px;object-fit:contain;border-radius:9px}
+.org-root strong,.org-root span {display:block;white-space:normal;overflow-wrap:break-word}
+.org-root span {font-size:.84rem;color:#e1dce9}
+.org-branches {
+  position:relative;
+  display:grid;
+  gap:10px;
+  margin:0;
+  padding:14px 0 0 34px;
+  list-style:none;
+}
+.org-branches li {position:relative;min-width:0}
+.org-branches li::before {
+  position:absolute;
+  top:0;
+  bottom:-10px;
+  left:-13px;
+  width:13px;
+  border-left:1px solid var(--org-lijn);
+  content:"";
+}
+.org-branches li:first-child::before {top:-14px}
+.org-branches li:last-child::before {bottom:50%;border-bottom:1px solid var(--org-lijn)}
+.org-branches li:not(:last-child)::after {
+  position:absolute;
+  top:50%;
+  left:-13px;
+  width:13px;
+  border-top:1px solid var(--org-lijn);
+  content:"";
+}
+.org-branches a {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  min-height:64px;
+  height:100%;
+  padding:9px 12px;
+  border:1px solid #c6d0ff45;
+  border-radius:10px;
+  background:#252537;
+  color:var(--commerce-paper);
+  text-decoration:none;
+}
+.org-branches a:hover {border-color:var(--commerce-coral);background:#372b42}
+.org-branches a > span {display:flex;justify-content:space-between;gap:8px;color:#ffc2ad;font-size:.82rem}
+#commerce-bedrijf .team-details > h3 {font-size:clamp(1.5rem,3vw,2.2rem);margin:0 0 14px}
+.afdeling-grid {display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.afdeling {
+  min-width:0;
+  padding:clamp(13px,2.5vw,24px);
+  border:1px solid #c6d0ff39;
+  border-radius:17px;
+  background:#222333;
+}
+.afdeling:target,.collega:target {outline:2px solid var(--commerce-coral);outline-offset:3px}
+.afdeling-kop {margin-bottom:14px}
+.afdeling-titel {display:flex;align-items:center;flex-wrap:wrap;gap:7px 12px}
+#commerce-bedrijf .afdeling h4 {margin:0;color:#ffc2ad;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.15}
+.afdeling-aantal {
+  padding:3px 9px;
+  border-radius:6px;
+  background:#443145;
+  color:#ffd0c1;
+  font-size:.83rem;
+  font-weight:750;
+}
+.afdeling-kop p {margin:7px 0 0;color:var(--commerce-muted);font-size:.9rem}
+.collega-grid {display:grid;grid-auto-rows:1fr;gap:9px}
+.collega {
+  display:grid;
+  align-items:start;
+  grid-template-columns:clamp(52px,16vw,68px) minmax(0,1fr);
+  gap:12px;
+  padding:10px;
+  border:1px solid var(--commerce-border);
+  border-radius:12px;
+  background:linear-gradient(145deg,#342441,#281f32);
+}
+.collega-beeld img {display:block;width:100%;height:auto;border-radius:8px;border:1px solid #c6d0ff30}
+#commerce-bedrijf .collega h5 {font-size:1.04rem;letter-spacing:-.02em;margin:0;overflow-wrap:anywhere;line-height:1.22}
+.collega p {font-size:.89rem;line-height:1.5;margin:4px 0 7px;color:var(--commerce-muted)}
+.collega .vaardigheden {display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none}
+.collega .vaardigheden li {padding:2px 7px;border:1px solid #ffae9b42;border-radius:999px;color:#ffd6c9;font-size:.74rem}
+
+.vaardigheden-band {padding-block:clamp(40px,6vw,84px);background:#231e2d;border-block:1px solid var(--commerce-border)}
+.vaardigheid-filters {display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:680px}
+.vaardigheid-filters label {color:var(--commerce-muted);font-size:.88rem;font-weight:700}
+.vaardigheid-filters :is(input,select) {display:block;width:100%;min-height:44px;margin-top:5px;padding:8px 12px;border:1px solid #bdaac280;border-radius:8px;background:#18141f;color:var(--commerce-paper);font:inherit}
+.vaardigheid-filters input::placeholder {color:#bdabca}
+#vaardigheid-telling {color:var(--commerce-muted);font-size:.87rem}
+.vaardigheid-grid {display:grid;grid-template-columns:minmax(0,1fr);gap:10px;align-items:start}
+.vaardigheid-kaart {padding:0;border:1px solid var(--commerce-border);border-radius:13px;background:#2d2438;overflow:hidden}
+.vaardigheid-kaart[hidden] {display:none}
+.vaardigheid-kaart summary {
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  min-height:70px;
+  padding:10px;
+  cursor:pointer;
+}
+.vaardigheid-kaart summary:hover {background:#392b43}
+.vaardigheid-kaart summary::-webkit-details-marker {display:none}
+.vaardigheid-kaart summary::after {content:"+";color:var(--commerce-coral);font-size:1.3rem}
+.vaardigheid-kaart[open] summary::after {content:"−"}
+.vaardigheid-kaart summary img {width:46px;height:46px;border-radius:8px;object-fit:cover}
+.vaardigheid-kaart summary strong {display:block;line-height:1.2}
+.vaardigheid-cat {display:block;color:#ffc0ab;font-size:.75rem;font-weight:650;margin-bottom:3px}
+.vaardigheid-kaart dl {padding:10px 13px;margin:0;border-top:1px solid var(--commerce-border);color:var(--commerce-muted);font-size:.88rem}
+.vaardigheid-kaart dt {color:var(--commerce-paper);font-weight:740}
+.vaardigheid-kaart dd {margin:0 0 8px}
+#commerce-bedrijf .meer-workflows {margin-top:16px}
+#commerce-bedrijf .meer-workflows[hidden] {display:none}
+#commerce-bedrijf .vragen details {padding:14px 17px;margin:0 0 8px;border:1px solid var(--commerce-border);border-radius:12px;background:#231a2a}
+#commerce-bedrijf .vragen summary {cursor:pointer;font-weight:750}
+#commerce-bedrijf .vragen details p {margin:7px 0 0;color:var(--commerce-muted)}
+
+@media(min-width:600px) {
+  .vaardigheid-filters,.vaardigheid-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:820px) {
+  #commerce-bedrijf .pitch,.afdeling-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:960px) {
+  .vaardigheid-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+  #commerce-bedrijf .org-root {justify-self:center}
+  .org-branches {grid-template-columns:repeat(4,minmax(0,1fr));padding:36px 0 0}
+  .org-branches::before,.org-branches::after {position:absolute;content:""}
+  .org-branches::before {height:18px;left:50%;top:0;border-left:1px solid var(--org-lijn)}
+  .org-branches::after {top:18px;left:calc(12.5% - 3.75px);right:calc(12.5% - 3.75px);border-top:1px solid var(--org-lijn)}
+  .org-branches li::before,.org-branches li:first-child::before,.org-branches li:last-child::before {
+    top:-18px;bottom:auto;left:50%;height:18px;width:0;border-bottom:0;
+  }
+  .org-branches li:not(:last-child)::after {display:none}
+}

@@ -1,0 +1,98 @@
+:root {
+  --grond:#191121;
+  --glas:#2d2039;
+  --coral:#ff927a;
+  --wit:#fff1ec;
+  --zacht:#e0d3e7;
+  --lijn:#edc7fd36;
+}
+* {box-sizing:border-box}
+body {margin:0;background:var(--grond);color:var(--wit);font:1rem/1.6 system-ui,sans-serif}
+header {position:relative;z-index:1}
+header,footer {background:#261933;border-block:1px solid var(--lijn)}
+nav,main {max-width:1280px;width:calc(100% - 2 * clamp(16px,4vw,54px));margin:auto}
+nav {display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px 18px;padding-block:14px}
+nav a {text-decoration:none;font-size:.93rem;font-weight:650}
+nav a:hover,nav a:focus-visible {text-decoration:underline}
+nav .merk {display:inline-flex;align-items:center;gap:8px;color:var(--wit);font-weight:850;font-size:1rem}
+nav img {display:block;border-radius:8px}
+a {color:#ffaf9c}
+a:focus-visible,summary:focus-visible {outline:2px solid var(--coral);outline-offset:4px}
+.pitch {
+  display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:26px;
+  padding:clamp(36px,7vw,100px) 0 24px;
+}
+.kicker {color:#ffac97;font-weight:780;font-size:.88rem;letter-spacing:.02em;margin:0 0 10px}
+h1,h2 {text-wrap:balance}
+h1 {font-size:clamp(2.58rem,6.25vw,6.35rem);line-height:.97;letter-spacing:-.062em;margin:0 0 20px;max-width:14ch}
+h1 em {font-style:normal;color:var(--coral)}
+.intro {max-width:54ch;color:var(--zacht);margin:0}
+.pitch-beeld {
+  margin:0;overflow:hidden;aspect-ratio:3 / 2;
+  border-radius:clamp(13px,2.4vw,26px);border:1px solid var(--lijn);
+  box-shadow:0 18px 60px #120a18;background:#30213d;
+}
+.pitch-beeld img {display:block;width:100%;height:100%;object-fit:cover}
+.keuze {display:flex;flex-wrap:wrap;align-items:center;gap:13px 22px;margin-top:23px}
+.keuze .prijs {display:grid;line-height:1.25;color:var(--zacht);font-size:.84rem}
+.keuze strong {font-size:1.92rem;color:var(--wit)}
+.knop {display:inline-flex;align-items:center;min-height:46px;padding:10px 20px;border-radius:999px;background:var(--coral);color:#251622;font-weight:800;text-decoration:none}
+.knop:hover {background:#ffab98}
+.kern {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));gap:1px;padding:0;margin:0;list-style:none;overflow:hidden;border:1px solid var(--lijn);border-radius:16px;background:var(--lijn)}
+.kern li {padding:clamp(10px,2vw,24px);background:#2a1c37;line-height:1.3;color:var(--zacht)}
+.kern strong {display:block;font-size:clamp(1.2rem,3.3vw,2.2rem);color:var(--wit);margin-bottom:4px}
+.part {margin:clamp(38px,7vw,84px) 0}
+h2 {font-size:clamp(1.85rem,4.5vw,3.75rem);line-height:1.04;letter-spacing:-.048em;margin:0 0 10px}
+.deel-intro {margin:0 0 23px;max-width:63ch;color:var(--zacht)}
+.team-grid {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.afdeling,details {
+  padding:clamp(15px,2.4vw,26px);border:1px solid var(--lijn);border-radius:16px;
+  background:linear-gradient(145deg,#362541,#291c35);
+}
+.afdeling h3 {margin:0 0 10px;color:#ffc1ad;font-size:1.25rem}
+.afdeling ul {margin:0;padding:0;list-style:none}
+.afdeling li {padding:10px 0;border-top:1px solid #edc7fd25}
+.afdeling li:last-child {padding-bottom:0}
+.afdeling strong {display:block}
+.afdeling p,details p {margin:2px 0 0;color:var(--zacht)}
+details + details {margin-top:8px}
+summary {cursor:pointer;font-weight:760}
+@media(min-width:560px) {.team-grid {grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:830px) {.pitch {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,60px)}}
+
+body {font-family:"Avenir Next",Avenir,"Segoe UI",system-ui,sans-serif;background:radial-gradient(ellipse at 54% 8%,#34233e 0,transparent 29rem),var(--grond)}
+.pitch-beeld {border-radius:clamp(16px,2.8vw,32px)}
+.team-link {font-weight:720;font-size:.94rem;text-underline-offset:4px}
+.kern {grid-template-columns:repeat(3,minmax(0,1fr))}
+.kern li {padding:clamp(10px,2.5vw,26px);font-size:clamp(.77rem,1.35vw,1rem)}
+.kern strong {letter-spacing:-.035em}
+.workflow {padding:clamp(18px,4vw,42px);border:1px solid var(--lijn);border-radius:22px;background:linear-gradient(125deg,#322141,#251930)}
+.workflow h2 {max-width:23ch}
+.workflow ol {display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:0;margin:0;list-style:none}
+.workflow a {display:grid;align-content:start;gap:6px;height:100%;padding:14px;border-top:2px solid #ff917e;border-radius:10px;background:#22172d;color:var(--wit);text-decoration:none;transition:background .18s ease}
+.workflow a:hover,.workflow a:focus-visible {background:#48304d}
+.workflow strong {color:#ffc3af;font-size:1.02rem}
+.workflow span {color:var(--zacht);font-size:.91rem;line-height:1.42}
+.afdeling {margin-top:clamp(21px,3.3vw,42px);padding:0;border:0;border-radius:0;background:none;scroll-margin-top:24px}
+.afdeling h3 {font-size:clamp(1.12rem,2.25vw,1.55rem);margin:0 0 12px}
+.afdeling .team-grid {grid-template-columns:minmax(0,1fr);gap:10px}
+.afdeling .collega {
+  display:grid;grid-template-columns:clamp(55px,12vw,74px) minmax(0,1fr);grid-template-rows:auto 1fr;gap:9px 13px;
+  padding:clamp(11px,1.6vw,17px);
+  border:1px solid var(--lijn);border-radius:15px;
+  background:linear-gradient(140deg,#392745,#281c34);
+}
+.collega img {width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:11px;background:#362341;align-self:start}
+.collega h4 {margin:0;font-size:1.02rem;line-height:1.22;overflow-wrap:anywhere}
+.collega p {font-size:.89rem;line-height:1.48;margin:4px 0 0}
+.collega .vaardigheden {grid-column:1/-1;display:flex;flex-wrap:wrap;align-content:start;gap:5px;margin:2px 0 0}
+.collega .vaardigheden li {padding:2px 7px;border:1px solid #ffae9b42;border-radius:999px;background:#ff99730c;color:#ffd6c9;font-size:.75rem;line-height:1.4}
+@media(min-width:560px) {
+  .workflow ol, .afdeling .team-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:1000px) {
+  .workflow ol {grid-template-columns:repeat(4,minmax(0,1fr))}
+  .afdeling .team-grid {grid-template-columns:repeat(4,minmax(0,1fr))}
+  .afdeling .collega {grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto;gap:9px}
+  .collega img {width:80px}
+}

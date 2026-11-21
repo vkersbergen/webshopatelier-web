@@ -1,0 +1,239 @@
+#commerce-bedrijf {
+  --commerce-ink:#17131d;
+  --commerce-paper:#fff1e9;
+  --commerce-muted:#ddcddf;
+  --commerce-coral:#ff9b82;
+  --commerce-border:#ecc9f135;
+  background:var(--commerce-ink);
+  color:var(--commerce-paper);
+}
+#commerce-bedrijf :is(h1,h2,h3,h4) {
+  color:inherit;
+  font-family:var(--body);
+  text-transform:none;
+  letter-spacing:-.048em;
+}
+#commerce-bedrijf :is(h1,h2) {text-wrap:balance}
+#commerce-bedrijf h2 {font-size:clamp(2rem,4.6vw,4rem);line-height:1.05;margin:0 0 .55em}
+#commerce-bedrijf em {color:var(--commerce-coral);font-style:normal}
+#commerce-bedrijf :is([id],a[href^="#"]) {scroll-margin-top:6rem}
+#commerce-bedrijf :is(a,summary,input,select):focus-visible {
+  outline:2px solid var(--commerce-coral);
+  outline-offset:4px;
+}
+.commerce-hero {
+  background:radial-gradient(ellipse at 72% 32%,#452644 0,transparent 69%),linear-gradient(125deg,#1c1623,#25191e);
+}
+#commerce-bedrijf .pitch {
+  display:grid;
+  align-items:center;
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(24px,5vw,72px);
+  padding-block:clamp(38px,7vw,100px);
+}
+#commerce-bedrijf .kicker {color:var(--commerce-coral);margin:0 0 12px;font-size:.85rem;font-weight:800}
+#commerce-bedrijf h1 {font-size:clamp(2.65rem,5.3vw,5.75rem);line-height:.99;margin:0 0 22px;overflow-wrap:anywhere}
+#commerce-bedrijf .intro {color:var(--commerce-muted);max-width:57ch;margin:0;line-height:1.65}
+#commerce-bedrijf .pitch-beeld {
+  margin:0;
+  overflow:hidden;
+  aspect-ratio:3 / 2;
+  border:1px solid var(--commerce-border);
+  border-radius:clamp(16px,2.8vw,30px);
+  box-shadow:0 22px 60px #100913a0;
+}
+#commerce-bedrijf .pitch-beeld img {display:block;width:100%;height:100%;object-fit:cover}
+.commerce-acties {display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:24px}
+.team-link {display:inline-flex;align-items:center;gap:8px;min-height:44px;padding-block:8px;font-weight:750}
+.commerce-prijs {display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 12px;margin:15px 0 0;color:var(--commerce-muted);font-size:.85rem}
+.commerce-prijs strong {color:var(--commerce-paper);font-size:1.45rem}
+#commerce-bedrijf .part {padding-block:clamp(45px,7vw,96px)}
+#commerce-bedrijf .deel-intro {margin:0 0 24px;max-width:65ch;color:var(--commerce-muted)}
+
+.org-band {
+  background:#24283c;
+  background-image:radial-gradient(ellipse at 65% 50%,#40415d,transparent 74%),linear-gradient(142deg,#30374a,#202334);
+  border-block:1px solid #b4c0ed34;
+}
+#commerce-bedrijf .org-wrap {display:grid;gap:28px;padding-block:clamp(34px,6vw,82px)}
+#commerce-bedrijf .org-intro p {max-width:58ch;margin:0;color:#e1dce9}
+.org-chart {min-width:0;display:grid;justify-items:center}
+.org-root {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 20px;
+  border:1px solid #fec3ad8a;
+  border-radius:14px;
+  background:#272435;
+}
+.org-root strong,.org-root span {display:block}
+.org-root span {font-size:.8rem;color:#e1dce9}
+.org-branches {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  width:100%;
+  margin:0;
+  padding:24px 0 0;
+  list-style:none;
+}
+.org-branches::before {content:"";position:absolute;top:0;left:50%;height:24px;border-left:1px solid #f5b19e86}
+.org-branches a {
+  display:grid;
+  align-content:start;
+  gap:6px;
+  height:100%;
+  padding:clamp(10px,2vw,17px);
+  border:1px solid #c0caec65;
+  border-radius:12px;
+  background:#212638;
+  color:var(--commerce-paper);
+}
+.org-branches a:hover {background:#343951;text-decoration:none;border-color:#ffb39c}
+.org-branches strong {line-height:1.2}
+.org-branches span {color:#ded8e8;font-size:.79rem;line-height:1.35}
+.org-branches .org-count {color:#ffc1ac;font-weight:760}
+
+.afdeling-nav {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-bottom:18px;
+}
+.afdeling-nav a {
+  display:grid;
+  align-items:center;
+  min-height:46px;
+  padding:8px 13px;
+  border:1px solid var(--commerce-border);
+  border-radius:10px;
+  color:var(--commerce-paper);
+  font-size:.87rem;
+  font-weight:750;
+}
+.afdeling-nav a[aria-current] {background:#ffb39d;color:#291b27;border-color:#ffb39d}
+.org-branches a[aria-current] {border-color:#ffb39d;background:#3d3750}
+.afdeling[hidden] {display:none}
+.afdeling-kop {margin-bottom:15px}
+#commerce-bedrijf .afdeling h3 {margin:0;color:#ffc2ad;font-size:clamp(1.35rem,2.8vw,1.85rem);line-height:1.15}
+.afdeling-kop p {margin:6px 0 0;color:var(--commerce-muted);font-size:.91rem}
+.collega-grid {display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.collega {
+  display:grid;
+  grid-template-columns:clamp(76px,24vw,112px) minmax(0,1fr);
+  gap:12px;
+  padding:12px;
+  border:1px solid var(--commerce-border);
+  border-radius:16px;
+  background:linear-gradient(145deg,#342441,#241c2c);
+}
+.collega img {width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:11px;align-self:start}
+#commerce-bedrijf .collega h4 {font-size:clamp(1.03rem,1.55vw,1.25rem);letter-spacing:-.02em;margin:0;overflow-wrap:anywhere;line-height:1.22}
+.collega p {font-size:.89rem;line-height:1.5;margin:5px 0 9px;color:var(--commerce-muted)}
+.collega .vaardigheden {display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none}
+.collega .vaardigheden li {padding:2px 7px;border:1px solid #ffae9b42;border-radius:999px;color:#ffd6c9;font-size:.74rem}
+
+.vaardigheden-band {padding-block:clamp(40px,6vw,84px);background:#231e2d;border-block:1px solid var(--commerce-border)}
+.vaardigheid-filters {display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:680px}
+.vaardigheid-filters label {color:var(--commerce-muted);font-size:.88rem;font-weight:700}
+.vaardigheid-filters :is(input,select) {display:block;width:100%;min-height:44px;margin-top:5px;padding:8px 12px;border:1px solid #bdaac280;border-radius:8px;background:#18141f;color:var(--commerce-paper);font:inherit}
+.vaardigheid-filters input::placeholder {color:#bdabca}
+#vaardigheid-telling {color:var(--commerce-muted);font-size:.87rem}
+.vaardigheid-grid {display:grid;grid-template-columns:minmax(0,1fr);gap:10px;align-items:start}
+.vaardigheid-kaart {padding:0;border:1px solid var(--commerce-border);border-radius:13px;background:#2d2438;overflow:hidden}
+.vaardigheid-kaart[hidden] {display:none}
+.vaardigheid-kaart summary {
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  min-height:70px;
+  padding:10px;
+  cursor:pointer;
+}
+.vaardigheid-kaart summary:hover {background:#392b43}
+.vaardigheid-kaart summary::-webkit-details-marker {display:none}
+.vaardigheid-kaart summary::after {content:"+";color:var(--commerce-coral);font-size:1.3rem}
+.vaardigheid-kaart[open] summary::after {content:"−"}
+.vaardigheid-kaart summary img {width:46px;height:46px;border-radius:8px;object-fit:cover}
+.vaardigheid-kaart summary strong {display:block;line-height:1.2}
+.vaardigheid-cat {display:block;color:#ffc0ab;font-size:.75rem;font-weight:650;margin-bottom:3px}
+.vaardigheid-kaart dl {padding:10px 13px;margin:0;border-top:1px solid var(--commerce-border);color:var(--commerce-muted);font-size:.88rem}
+.vaardigheid-kaart dt {color:var(--commerce-paper);font-weight:740}
+.vaardigheid-kaart dd {margin:0 0 8px}
+#commerce-bedrijf .meer-workflows {margin-top:16px}
+#commerce-bedrijf .meer-workflows[hidden] {display:none}
+#commerce-bedrijf .vragen details {padding:14px 17px;margin:0 0 8px;border:1px solid var(--commerce-border);border-radius:12px;background:#231a2a}
+#commerce-bedrijf .vragen summary {cursor:pointer;font-weight:750}
+#commerce-bedrijf .vragen details p {margin:7px 0 0;color:var(--commerce-muted)}
+
+@media(min-width:600px) {
+  .collega-grid,.vaardigheid-filters,.vaardigheid-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:820px) {
+  #commerce-bedrijf .pitch {grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .org-branches {grid-template-columns:repeat(4,minmax(0,1fr));padding-top:37px}
+  .org-branches::before {height:19px}
+  .org-branches::after {content:"";position:absolute;inset:18px 12.5% auto;border-top:1px solid #f5b19e86}
+  .org-branches li {position:relative}
+  .org-branches li::before {content:"";position:absolute;bottom:100%;left:50%;height:19px;border-left:1px solid #f5b19e86}
+}
+
+@media(min-width:960px) {
+  .afdeling-nav,.collega-grid {grid-template-columns:repeat(4,minmax(0,1fr))}
+  .collega {grid-template-columns:minmax(0,1fr);gap:10px;padding:14px}
+  .collega img {aspect-ratio:4 / 3}
+  .vaardigheid-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+#commerce-bedrijf .intro {max-width:55ch}
+#commerce-bedrijf .org-wrap {gap:26px}
+.org-chart {
+  padding:clamp(12px,3.5vw,36px);
+  border:1px solid #c6d0ff39;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 0%,#715b753b,transparent 58%),
+    radial-gradient(circle,#c1b2e035 1px,transparent 1.1px) 0 0 / 16px 16px,
+    #232538;
+}
+.org-root {max-width:100%;border-color:#f4aa91b0;box-shadow:0 5px 22px #ff9f8230}
+.org-root img {flex:none;width:44px;height:44px;object-fit:contain;border-radius:9px}
+.org-branches {gap:10px;grid-template-columns:minmax(0,1fr)}
+.org-branches a {gap:8px;min-width:0}
+.org-branches strong {font-size:1.08rem}
+.org-branches .org-fase {display:flex;align-items:center;gap:7px;color:#ffbfaf;font-weight:750}
+.org-fase b {display:grid;place-items:center;min-width:29px;height:25px;border-radius:5px;background:#5a4058;color:#ffd0c1;font-size:.74rem}
+.org-branches .org-uitkomst {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:5px;
+  padding-top:8px;
+  border-top:1px solid #c6c0e13d;
+  color:#ffbdab;
+  font-weight:760;
+}
+.collega-grid {grid-auto-rows:1fr}
+.collega-beeld {
+  display:grid;
+  place-items:center;
+  align-self:start;
+  aspect-ratio:1;
+  overflow:hidden;
+  border-radius:11px;
+  background:radial-gradient(ellipse at 50% 50%,#52364f,#2b1f34);
+}
+.collega .collega-beeld img {display:block;width:88%;height:88%;object-fit:contain;border-radius:8px;align-self:center}
+.collega-inhoud {display:grid;grid-template-rows:auto 1fr auto;min-width:0;align-self:stretch}
+.collega-inhoud .vaardigheden {align-content:start}
+@media(min-width:540px) {.org-branches {grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:820px) {.org-branches {grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:960px) {
+  .collega {grid-template-rows:auto minmax(0,1fr);align-content:start}
+  .collega-beeld {aspect-ratio:4 / 3}
+  .collega .collega-beeld img {width:75%;height:86%}
+  #commerce-bedrijf .collega h4 {min-height:2.44em}
+}
