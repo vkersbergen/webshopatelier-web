@@ -1,0 +1,16 @@
+@media(min-width:1000px){
+  #pakketten.services{padding-block:30px}
+  #pakketten .split-title{margin-bottom:18px}
+  #pakketten .commerce-pakket{display:grid;grid-template-columns:minmax(160px,28%) minmax(0,1fr);margin-bottom:14px}
+  #pakketten .commerce-pakket-fotolink{position:relative;min-height:122px}
+  #pakketten .commerce-pakket-beeld{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover}
+  #pakketten .commerce-pakket-inhoud{padding:14px 18px;gap:14px}
+  #pakketten .commerce-cta{min-width:0;padding:5px 7px 5px 10px;gap:8px}
+  #pakketten .service-grid{gap:14px}
+  #pakketten .service .pakket-foto{height:clamp(82px,7vw,108px);min-height:0;aspect-ratio:auto}
+  #pakketten .service .service-body{padding:12px 14px;gap:5px;grid-template-rows:auto 1fr auto auto}
+  #pakketten .service-body p{min-height:0;line-height:1.4}
+  #pakketten .service-body .price{margin:4px 0 0;padding:6px 0 0;min-height:0;gap:4px 6px}
+  #pakketten .service-body .price strong{font-size:clamp(18px,1.6vw,24px)}
+  #pakketten .service-body .textlink{min-height:34px;padding-block:4px}
+}
