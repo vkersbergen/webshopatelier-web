@@ -1,11 +1,14 @@
 .atelier-form-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:10px;background:#ffac90;color:#2b1b27;text-decoration:none;font-weight:700;justify-self:start}
 .atelier-form-link:hover,.atelier-form-link:focus-visible{background:#ffc1ac;text-decoration:underline}
-dialog.atelier-form-dialog{position:fixed;inset:0;margin:auto;padding:0;width:min(580px,calc(100vw - 20px));height:min(765px,calc(100dvh - 24px));background:#fff;border:0;border-radius:16px;overflow:hidden;color:#2b1b27}
+dialog.atelier-form-dialog{box-sizing:border-box;position:fixed;inset:0;margin:auto;padding:0;width:min(460px,calc(100vw - 24px));height:min(480px,calc(100dvh - 30px));background:#201927;border:1px solid #594452;border-radius:20px;overflow:hidden;color:#f9f4ef;box-shadow:0 24px 90px #10091888}
 dialog.atelier-form-dialog[open]{display:flex;flex-direction:column}
-.atelier-form-dialog::backdrop{background:#18131cc9}
-.atelier-form-dialog>div{display:flex;justify-content:space-between;align-items:center;background:#281d2f;padding:6px 12px;color:#fff}
-.atelier-form-dialog>div :is(a,button){font:inherit;color:inherit;padding:7px;border:0;min-height:40px;background:transparent}
-.atelier-form-dialog iframe{flex:1;min-height:0;width:100%;border:0}
+.atelier-form-dialog::backdrop{background:#120d19bf;backdrop-filter:blur(5px)}
+.atelier-form-dialog>div{display:flex;align-items:center;justify-content:space-between;padding:18px 22px 14px;border-bottom:1px solid #493748}
+.atelier-form-dialog h2{margin:0;font:800 clamp(24px,4vw,34px)/1.1 var(--body,system-ui);letter-spacing:-.04em;color:#f9f4ef}
+.atelier-form-dialog button{display:grid;place-items:center;background:#332738;color:#ffe9df;border:1px solid #594452;cursor:pointer;border-radius:50%;width:42px;height:42px;font:500 25px/1 system-ui}
+.atelier-form-dialog button:is(:hover,:focus-visible){color:#ff927a;border-color:#ff927a}
+.atelier-form-dialog iframe{box-sizing:border-box;display:block;flex:1;min-height:0;width:100%;border:0;background:#201927;padding:10px 14px 6px}
+@media(prefers-reduced-motion:no-preference){dialog.atelier-form-dialog[open]{animation:atelier-form-open .2s ease-out}@keyframes atelier-form-open{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
 
 .atelier-contact-inline{min-width:0;width:100%;background:#201927;border:1px solid #ffffff24;border-radius:16px;overflow:hidden;padding:12px clamp(12px,2vw,26px) 0;box-sizing:border-box;color-scheme:dark}
 .atelier-contact-inline iframe{display:block;width:100%;height:540px;border:0;background:#201927}
