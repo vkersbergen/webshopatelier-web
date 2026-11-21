@@ -1,4 +1,14 @@
 (() => {
+  const panel = document.getElementById('bericht');
+  if (!panel || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    panel.classList.add('contact-arrived');
+    observer.disconnect();
+  }, {threshold: 0.12});
+  observer.observe(panel);
+})();
+(() => {
   const form = document.getElementById('atelier-enquiry-form');
   if (!form) return;
   const button = form.querySelector('[type="submit"]');

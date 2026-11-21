@@ -1,0 +1,31 @@
+#contact .contact-hero {
+  background:radial-gradient(ellipse at 73% 42%,#3b2a54,#251b36 48%,#15111c 86%);
+}
+#contact .contact-hero .contact-motion {
+  z-index:0;
+  opacity:1;
+  mask-image:none;
+  background:transparent;
+}
+#contact .contact-hero::after {
+  z-index:1;
+  background:linear-gradient(90deg,#15111cde,transparent 59%);
+}
+#contact .contact-hero-copy {
+  position:relative;
+  z-index:2;
+  pointer-events:none;
+}
+#contact .contact-hero-copy a {pointer-events:auto}
+#contact .contact-motion .scene {cursor:grab}
+#contact .contact-motion .scene.pak {cursor:grabbing}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  #contact .contact-motion :is(.scene,.scene-fallback) {
+    transform:translate3d(var(--scene-shift-x,0px),var(--scene-shift-y,0px),0);
+    transition:transform 180ms ease-out;
+  }
+}
+@media(max-width:689px) {
+  #contact .contact-hero .contact-motion {height:68%;min-height:0}
+  #contact .contact-hero::after {background:linear-gradient(0deg,#15111c 9%,#15111ca8 30%,transparent 62%)}
+}
