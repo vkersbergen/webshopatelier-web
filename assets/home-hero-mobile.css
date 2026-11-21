@@ -1,0 +1,88 @@
+@media (max-width: 600px) {
+  main > .hero {
+    min-height: 0;
+    background: radial-gradient(ellipse at 82% 75%, #352447, #20182b 53%, #15101d 91%);
+  }
+
+  main > .hero .hero-inner {
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  main > .hero .hero-copy {
+    padding: clamp(28px, 8vw, 46px) clamp(18px, 5vw, 30px) 0;
+  }
+
+  main > .hero h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 9.5vw, 56px);
+    line-height: .99;
+  }
+
+  main > .hero .hero-title .title-before {
+    display: none;
+  }
+
+  main > .hero .hero-title .title-after {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+  }
+
+  main > .hero .title-after :is(.write, em) span {
+    display: inline-block;
+  }
+
+  main > .hero .title-after :is(.write, em) span + span {
+    margin-inline-start: .18em;
+  }
+
+  main > .hero .hero-copy .lede {
+    margin: 15px 0 18px;
+    max-width: 36ch;
+    font-size: 1rem;
+    line-height: 1.48;
+    text-wrap: pretty;
+  }
+
+  main > .hero .buttons {
+    align-items: center;
+    gap: 8px 14px;
+  }
+
+  main > .hero .buttons .btn {
+    min-height: 44px;
+    gap: 7px;
+    white-space: nowrap;
+    font-size: .93rem;
+  }
+
+  main > .hero .buttons .btn:not(.hot) {
+    padding-inline: 0;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  main > .hero .buttons .btn:not(.hot) .actie-icoon {
+    width: 18px;
+    height: 24px;
+    border: none;
+    background: none;
+  }
+
+  main > .hero .hero-visual {
+    width: 100%;
+    height: clamp(192px, 55vw, 290px);
+    margin: 3px 0 0;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 90%, transparent);
+  }
+}
+
+@media (max-width: 365px) {
+  main > .hero .buttons { column-gap: 8px }
+  main > .hero .buttons .btn { font-size: .84rem; gap: 4px }
+  main > .hero .buttons .btn.hot { padding-inline: 10px 5px }
+}

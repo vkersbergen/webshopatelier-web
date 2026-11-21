@@ -24,3 +24,31 @@
 #pakketten .service .price-kader strong,
 #pakketten .service .price-kader span,
 #pakketten .commerce-pakket .commerce-tarief{color:#ffab94}
+
+@media (max-width: 599px) {
+  #pakketten.services { padding-block: 28px; }
+  #pakketten .split-title { margin-bottom: 16px; }
+  #pakketten .commerce-pakket { margin-bottom: 12px; }
+  #pakketten .commerce-pakket-beeld { width: 100%; height: clamp(96px, 26vw, 150px); object-fit: cover; }
+  #pakketten .commerce-pakket-inhoud { padding: 14px; gap: 12px; }
+  #pakketten .commerce-cta { min-width: 0; min-height: 44px; }
+  #pakketten .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  #pakketten .service-grid > .service { min-width: 0; }
+  #pakketten .service .pakket-foto { aspect-ratio: auto; height: clamp(66px, 19vw, 98px); min-height: 0; }
+  #pakketten .service .service-body { padding: 10px; gap: 5px; grid-template-rows: auto 1fr auto auto; }
+  #pakketten .service-body h3 { font-size: 18px; line-height: 1.15; }
+  #pakketten .service-body p { font-size: 14px; line-height: 1.4; min-height: 0; }
+  #pakketten .service-body .price { margin: 2px 0 0; min-height: 0; padding-top: 6px; gap: 4px; }
+  #pakketten .service-body .price strong { font-size: 18px; }
+  #pakketten .service-body .textlink { min-height: 44px; padding-block: 6px; }
+  #pakketten .service-grid > :nth-child(5), #pakketten .meer-pakketten { grid-column: 1 / -1; }
+  #pakketten .service-grid > .service:nth-child(5) { display: grid; grid-template-columns: 26% minmax(0, 1fr); }
+  #pakketten .service-grid > :nth-child(5) .pakket-foto { height: 100%; }
+  #pakketten .meer-pakketten summary { min-height: 44px; align-content: center; }
+}
+
+@media (max-width: 359px) {
+  #pakketten .service-grid { grid-template-columns: minmax(0, 1fr); }
+  #pakketten .service-grid > .service:not(.meer-pakketten) { display: grid; grid-template-columns: 24% minmax(0, 1fr); }
+  #pakketten .service .pakket-foto { height: 100%; }
+}

@@ -1,0 +1,18 @@
+@media (max-width:720px) {
+  #werk .case-stage { touch-action:pan-y pinch-zoom; }
+  #werk .case-tabs button, #werk .pijlknoppen button { min-height:44px; }
+  #tools .platform-groepen:has(.platform-disclosure) { display:grid;grid-template-columns:1fr;gap:0; }
+  #tools .platform-groep:has(.platform-disclosure) { padding:0;background:transparent;border:none;border-top:1px solid #504356;border-radius:0;box-shadow:none; }
+  #tools .platform-disclosure > summary { display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 2px;min-height:48px;cursor:pointer;list-style:none; }
+  #tools .platform-disclosure > summary::-webkit-details-marker { display:none; }
+  #tools .platform-disclosure > summary::after { content:'+';color:#ff9c82;font:500 22px/1 sans-serif; }
+  #tools .platform-disclosure[open] > summary::after { content:'−'; }
+  #tools .platform-disclosure > summary h3 { margin:0; }
+  #tools .platform-disclosure[open] { padding-bottom:12px; }
+  #tools .platform-disclosure summary:focus-visible { outline:2px solid #ff9c82;outline-offset:2px; }
+}
+
+@media (max-width:360px) {
+  body main#top #atelier .founder-invitation h1 { font-size:clamp(1.65rem,9vw,2rem)!important; }
+  body main#top #privacy .split-title h1 { font-size:clamp(1.4rem,7.6vw,1.7rem)!important; }
+}

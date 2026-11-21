@@ -12,3 +12,12 @@ body main.guide-main>article.atelier-guide{width:100%;max-width:69ch;margin:auto
 .guide-main .guide-photo{margin:clamp(18px,3vw,32px) 0;overflow:hidden;border-radius:16px}
 .guide-main .guide-photo img{display:block;width:100%;aspect-ratio:2.25;object-fit:cover}
 @media(max-width:600px){.guide-main .guide-photo img{aspect-ratio:1.8}}
+
+.guide-main .guide-contents { display:none; }
+@media (max-width:720px) {
+  .guide-main .guide-contents { display:block;border-block:1px solid #55465d; }
+  .guide-main .guide-contents summary { min-height:46px;padding:11px 0;color:#ffac95;font-weight:650;cursor:pointer; }
+  .guide-main .guide-contents ul { margin:0 0 12px; }
+  .guide-main .guide-contents a { display:inline-block;padding-block:6px; }
+  .guide-main .atelier-guide h2[id] { scroll-margin-top:84px; }
+}
