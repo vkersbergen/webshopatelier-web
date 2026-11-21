@@ -1,0 +1,41 @@
+#atelier.story {
+  border-block: 1px solid #3e3544;
+  padding-block: clamp(40px,5vw,72px);
+  background: #201c26;
+}
+#atelier .founder-note {
+  width: min(100% - 40px, 590px);
+  margin-inline: auto;
+}
+#atelier .founder-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 21px;
+}
+#atelier .founder-byline img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+#atelier .founder-byline div { display: flex; flex-direction: column; gap: 1px; }
+#atelier .founder-byline strong { color: #f5efed; font: 650 15px/1.2 var(--body); }
+#atelier .founder-byline span { color: #b8aebc; font: 450 13px/1.3 var(--body); }
+body main #atelier.story .founder-invitation :is(h1,h2) {
+  font: 680 clamp(26px,3.2vw,39px)/1.09 var(--body)!important;
+  letter-spacing: -.035em;
+  text-transform: none!important;
+  margin: 0 0 12px;
+  color:#fff5ee;
+}
+#atelier .founder-invitation :is(h1,h2) * { text-transform:none!important; font-style:normal; }
+#atelier .founder-message { max-width: 46ch; color: #d9d0da; margin: 0; font: 450 clamp(15px,1.1vw,17px)/1.55 var(--body); }
+body main #atelier .founder-actions { margin-top: 21px; }
+#atelier .founder-actions .btn { min-height: 43px; font-size:.91rem; }
+@media(max-width:540px) {
+  #atelier.story {padding-block:36px}
+  #atelier .founder-byline {margin-bottom:16px}
+}
