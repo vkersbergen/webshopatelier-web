@@ -8,3 +8,7 @@ body main.guide-main>article.atelier-guide{width:100%;max-width:69ch;margin:auto
 .guide-main .atelier-guide a{color:#ffad96;text-decoration:underline;text-underline-offset:.18em}
 .guide-main .atelier-guide a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .guide-main .atelier-guide hr{margin:2rem 0;border:0;border-top:1px solid #634e65}
+
+.guide-main .guide-photo{margin:clamp(18px,3vw,32px) 0;overflow:hidden;border-radius:16px}
+.guide-main .guide-photo img{display:block;width:100%;aspect-ratio:2.25;object-fit:cover}
+@media(max-width:600px){.guide-main .guide-photo img{aspect-ratio:1.8}}
