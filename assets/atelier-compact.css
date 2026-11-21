@@ -50,6 +50,6 @@ html body main > article.atelier-guide h1{font-size:clamp(1.6rem,3.36vw,2.84rem)
 .story .founder-prompt{max-width:48ch;margin:1em 0;color:var(--white,#fff4ef);font-weight:600}
 .founder-actions{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap;margin-top:1.2rem}
 .founder-actions .btn{gap:.6rem}
-body main #atelier.story .story-inner :is(h1,h2){font-size:clamp(27px,3.1vw,46px);line-height:1.04;letter-spacing:-.035em;margin-block:10px 16px}
+body main #atelier.story .story-inner :is(h1,h2){font-size:clamp(27px,3.1vw,46px)!important;line-height:1.04;letter-spacing:-.035em;margin-block:10px 16px}
 body main #atelier.story .story-inner .lede{max-width:47ch}
 body main #atelier.story .founder-actions{margin-top:18px}
