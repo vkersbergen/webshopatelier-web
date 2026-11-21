@@ -1,0 +1,52 @@
+/* Keep reading text and touch controls comfortable while tightening the editorial scale. */
+body main .section{padding-block:clamp(28px,3.8vw,68px)}
+body main .split-title{margin-bottom:clamp(16px,2vw,32px)}
+body main .section .split-title :is(h1,h2){font-size:clamp(1.9rem,4.8vw,4.4rem);line-height:1.02}
+body main .section .split-title h2{font-size:clamp(1.8rem,3.1vw,3.5rem)}
+body main .commerce-pakket-beeld{height:clamp(104px,16.8vw,210px);object-fit:cover;object-position:center 46%}
+body main .commerce-pakket-inhoud{padding:clamp(12px,1.8vw,22px);gap:9px 16px}
+body main .commerce-pakket-inhoud h3{font-size:clamp(1.27rem,1.72vw,1.6rem)}
+body main .commerce-pakket-inhoud p{font-size:1rem;line-height:1.46}
+body main .commerce-pakket-inhoud .commerce-cta{min-height:44px}
+body main article .pakket-foto,body main .pakket-foto-link img{max-height:clamp(115px,14vw,180px);object-fit:cover}
+body main.pakket-detail h1,body main>article>h1{font-size:clamp(2rem,5.25vw,4.15rem)}
+@media(min-width:1100px){
+ body main .section>.shell{width:min(69vw,1180px);max-width:1180px;padding-inline:0;margin-inline:auto}
+ body .wa-opening>.shell{max-width:1250px}
+ body main .commerce-pakket-inhoud .commerce-cta{font-size:.92rem}
+ body #commerce-surface .tree{max-width:1160px}
+}
+@media(max-width:600px){
+ body main .section{padding-block:29px}
+ body main .commerce-pakket-inhoud p{margin-block:6px}
+ body main .commerce-pakket-inhoud .commerce-cta{justify-self:start}
+}
+
+/* Route titles compete with ID-scoped legacy rules; keep that override local. */
+body main#top .section h1{font-size:clamp(1.88rem,4.8vw,4.4rem)!important}
+body main#top .section .case-copy h3{font-size:clamp(2.08rem,4.8vw,4.2rem)}
+body main#top .section .aanpak-kop h2{font-size:clamp(1.6rem,4vw,3.6rem)}
+body main#top .services .service-body h3{font-size:clamp(1rem,2.4vw,1.6rem)}
+body main#top .journal .article-copy h3{font-size:clamp(1rem,1.35vw,1.08rem)}
+body main#top .section.journal{padding-block:clamp(28px,3.6vw,70px)}
+body main#top .enquiry-intro h2{font-size:clamp(1.45rem,2.88vw,2.68rem)}
+body main#top .atelier-enquiry{padding:clamp(16px,2.4vw,36px)}
+body main#top .commerce-feature-inner h2{font-size:clamp(1.7rem,8.8cqi,3.56rem)}
+body #commerce-surface .rootnode h1{font-size:clamp(2.08rem,4.04vw,4.8rem)}
+body main#top .hero .wa-opening .hero-title{font-size:clamp(2.08rem,4.04vw,4.8rem)}
+body main.pakket-detail .pakket-opties{padding:clamp(12px,1.76vw,20px)}
+@media(max-width:780px){
+ body main#top .hero .wa-opening .hero-title,body #commerce-surface .rootnode h1{font-size:clamp(1.8rem,7.92vw,3.52rem)}
+}
+@media(max-width:600px){
+ body main#top .section :is(.lede,.service-body>p,.article-copy>p,.case-copy>p:not(.eyebrow),.enquiry-intro p),
+ body main.pakket-detail :is(.pakket-opties li,.pakket-slot p),
+ body #commerce-surface .rootcopy p{font-size:max(1rem,16px)}
+ body #commerce-surface .role summary,.atelier-enquiry :is(input,button),body main#top .section :is(.btn,.commerce-cta,.textlink){min-height:44px}
+ body main#top .section .textlink{display:inline-flex;align-items:center}
+}
+html body main > article.atelier-guide h1{font-size:clamp(1.6rem,3.36vw,2.84rem);line-height:1.04}
+@media(min-width:781px){body main#top .commerce-feature-inner h2{font-size:clamp(1.7rem,10.7cqi,3.56rem)}}
+.story .founder-prompt{max-width:48ch;margin:1em 0;color:var(--white,#fff4ef);font-weight:600}
+.founder-actions{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap;margin-top:1.2rem}
+.founder-actions .btn{gap:.6rem}

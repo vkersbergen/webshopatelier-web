@@ -1,0 +1,98 @@
+/* Keep navigation targets in normal flow. Show the compact menu if the full row won't fit. */
+body .header-inner {justify-content:space-between}
+body .header-inner>.header-links {position:static;transform:none;translate:none;flex:0 1 auto}
+body .header-inner>.actions {margin-inline-start:auto;flex-shrink:0}
+@media(min-width:850px) and (max-width:1420px) {
+ body .header-inner {width:min(92vw,1240px)}
+ body .header-inner>.header-links {display:none}
+ body .header-inner>.actions .menu-toggle {display:inline-flex}
+}
+@media(min-width:1421px) {
+ body .header-inner {width:min(93vw,1680px);gap:18px}
+ body .header-inner>.header-links {margin-inline:auto;gap:clamp(4px,.72vw,14px)}
+ body .header-inner>.actions {margin-inline-start:0}
+}
+@media(max-width:600px) {
+ .site-kennismaking .book-lead h2 {font-size:clamp(1.65rem,8.15vw,3.15rem);line-height:1.04;letter-spacing:-.045em;overflow-wrap:normal;word-break:normal}
+ .site-kennismaking .book-lead h2 :is(em,.woord,.word) {white-space:nowrap}
+}
+:where(a,button,summary,select):focus-visible {outline:2px solid #ff9c77;outline-offset:4px}
+.atelier-signature {position:relative;display:inline-grid;place-items:center;flex:none;min-width:44px;min-height:44px;padding:2px;border:0;background:none;color:inherit;border-radius:10px;cursor:pointer}
+.atelier-signature img {pointer-events:none}
+.atelier-spark {position:absolute;pointer-events:none;inset:50% auto auto 50%;width:7px;height:11px;border-radius:2px;background:#ff7251;z-index:2}
+.atelier-spark:nth-child(even) {background:#f3dfbd}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+ :where(.service,.mega-tile,.pakket-suggesties article,.artikel-raster article) img {transition:scale .32s cubic-bezier(.2,.7,.25,1)}
+ :where(.service,.mega-tile,.pakket-suggesties article,.artikel-raster article):hover img {scale:1.035}
+ .atelier-signature:hover img {rotate:-6deg;transition:rotate .2s}
+}
+@media(prefers-reduced-motion:reduce) {
+ html {scroll-behavior:auto!important}
+ *,*::after,*::before {scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ .hero .hero-title .title-before {display:none!important}
+}
+/* Keep the team photograph and its label in separate, bounded tracks. */
+#mega .mega-commerce {grid-column:1/-1;display:grid;grid-template-columns:clamp(88px,15vw,210px) minmax(0,1fr);min-width:0;gap:clamp(12px,2vw,30px);padding:0;background:#302236;border:1px solid #765262;border-radius:12px}
+#mega .mega-commerce::before {display:none}
+#mega .mega-commerce img {display:block;width:100%;height:auto;aspect-ratio:1.8;object-fit:cover;object-position:50% 42%;border-radius:11px 0 0 11px}
+#mega .mega-commerce a {min-width:0;display:grid;align-content:center;justify-items:start;gap:5px;padding:10px 22px 10px 0;text-align:left}
+#mega .mega-commerce a:after {border-radius:12px}
+#mega .mega-feature-title {font-size:clamp(18px,2vw,31px);line-height:1.05;letter-spacing:-.035em;color:#fff4ea}
+#mega .mega-feature-detail {font-size:clamp(12px,1.1vw,15px);font-weight:500;line-height:1.4;color:#ddcbd8}
+#mega .mega-directory {min-width:0}
+#mega .mega-tile:not(.mega-commerce):before {display:none}
+@media(max-width:600px) {
+ #mega .mega-inner .mega-tiles {grid-template-columns:repeat(2,minmax(0,1fr))}
+ #mega .mega-tiles .mega-tile:not(.mega-commerce){min-width:0;gap:7px}
+ #mega .mega-tiles .mega-tile:not(.mega-commerce) a {min-width:0;overflow-wrap:anywhere}
+ #mega .mega-commerce img {height:100%;min-height:78px}
+}
+@media(max-width:700px) {
+ body.atelier-vrije-actie .as-float:has(.chat-panel[hidden]) .chat-launch:not(:focus-visible) {visibility:hidden;pointer-events:none}
+}
+
+.commerce-pakket-inhoud p.commerce-tarief{color:#ffb19a;font-weight:700;margin-top:.65em}
+
+/* Compact page rhythm, preserving mobile reading and touch sizes. */
+body main .section {padding-block:clamp(38px,4.8vw,86px)}
+body main .section .split-title h2 {font-size:clamp(2.12rem,3.8vw,4.4rem)}
+body main .journal .split-title h2 {font-size:clamp(1.6rem,3.2vw,3.05rem)}
+body .commerce-pakket-beeld {height:clamp(132px,21.6vw,280px)}
+body .commerce-pakket-inhoud {padding:clamp(15px,2.4vw,29px);gap:.75rem 1.2rem}
+body .commerce-pakket-inhoud h3 {font-size:clamp(1.5rem,2.15vw,2rem);line-height:1.1}
+body #pakketten .pakket-foto {max-height:192px;aspect-ratio:2.55}
+body #pakketten .service-body {padding:14px 16px}
+body .commerce-pakket-inhoud .commerce-cta {min-height:44px}
+@media(max-width:600px) {
+ body main .section {padding-block:38px}
+ body #pakketten .service-body {padding:13px}
+ body .commerce-pakket-inhoud p {font-size:1rem}
+}
+@media(max-width:420px){body .story-inner>*{min-width:0;max-width:100%}body .story-inner :is(h2,.studio-uitspraak){overflow-wrap:anywhere}body .story-inner h2{font-size:clamp(2.15rem,10vw,2.65rem)}}
+
+.pakket-opties ul:has([data-feature-icon]){padding-inline-start:0;list-style:none}.pakket-opties li[data-feature-icon]{position:relative;padding-inline-start:1.75em}.pakket-opties [data-feature-icon]::before{content:"";position:absolute;left:0;top:.23em;width:1.13em;height:1.13em;background:#ffa58c;mask:var(--feature-icon) center/contain no-repeat}
+[data-feature-icon="target"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%203a9%209%200%201%200%20.01%200%20M12%207a5%205%200%201%200%20.01%200%20M12%2011a1%201%200%201%200%20.01%200%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="pulse"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M2%2012h5l3-8%204%2016%203-8h5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="branch"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%207v5%20M5%2016v-4h14v4%20M10%203h4v4h-4z%20M3%2016h4v4H3z%20M17%2016h4v4h-4z%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="video"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%206h12v12H3z%20M15%2010l6-3v10l-6-3%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="layers"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M2%208l10-5%2010%205-10%205z%20M3%2012l9%205%209-5%20M3%2016l9%205%209-5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="pause"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%203a9%209%200%201%200%20.01%200%20M9%209v6%20M15%209v6%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="chart"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%203v17h18%20M7%2016v-5%20M12%2016V7%20M17%2016v-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="server"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%204h18v6H3z%20M3%2014h18v6H3z%20M6%207h1%20M6%2017h1%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="globe"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%203a9%209%200%201%200%20.01%200%20M3%2012h18%20M12%203c5%205%205%2013%200%2018-5-5-5-13%200-18z%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="doc"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%20M14%203v6h5%20M8%2013h8%20M8%2017h6%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="chat"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%204h18v13H9l-6%204z%20M7%209h10%20M7%2012h6%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="link"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2015l6-6%20M8%2011l-2%202a3.5%203.5%200%200%200%205%205l3-3%20M16%2013l2-2a3.5%203.5%200%200%200-5-5l-3%203%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="check"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%204h18v16H3z%20M7%2012l3%203%207-7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="search"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M10%203a7%207%200%201%200%20.01%200%20M15%2015l6%206%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="mobile"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6%202h12v20H6z%20M10%2018h4%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="calendar"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%205h18v16H3z%20M7%203v4%20M17%203v4%20M3%2010h18%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="cart"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M2%204h3l3%2011h11l3-8H6%20M9%2019h1%20M17%2019h1%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+[data-feature-icon="team"]{--feature-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%204a3%203%200%201%200%20.01%200%20M2%2020v-2a7%207%200%200%201%2014%200v2%20M16%205a3%203%200%200%201%200%206%20M18%2014q4%201%204%206%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")}
+/* Shared title typography */
+/* Original atelier display type. H1 and utility/dialog headings have their own hierarchy. */
+body main h2:not(dialog h2, [role="dialog"] h2),#commerce-surface main h2:not(dialog h2){
+ font-family:"Avenir Next Condensed","Arial Narrow",Impact,sans-serif!important;
+ font-weight:900!important;text-transform:uppercase!important;letter-spacing:-.045em!important;
+}
+@media(forced-colors:active){main h2{forced-color-adjust:auto}}

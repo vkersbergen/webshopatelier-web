@@ -1,0 +1,10 @@
+body main.guide-main{display:block;width:100%;padding:0 clamp(18px,4vw,54px);margin:0}
+body main.guide-main>article.atelier-guide{width:100%;max-width:69ch;margin:auto;padding-block:clamp(25px,4.8vw,72px);font-size:clamp(1rem,1.15vw,1.1rem);color:#ede4ef}
+.guide-main .guide-back{display:inline-flex;align-items:center;gap:.5em;min-height:44px;margin-bottom:clamp(12px,2vw,24px);font-size:.87rem;font-weight:700}
+.guide-main .atelier-guide h1,.guide-main .atelier-guide h2,.guide-main .atelier-guide h3{color:#fff4ed;letter-spacing:-.035em}
+.guide-main .atelier-guide p,.guide-main .atelier-guide ul,.guide-main .atelier-guide ol{margin:.85em 0}
+.guide-main .atelier-guide ul,.guide-main .atelier-guide ol{padding-inline-start:1.45em}
+.guide-main .atelier-guide li+li{margin-top:.3em}
+.guide-main .atelier-guide a{color:#ffad96;text-decoration:underline;text-underline-offset:.18em}
+.guide-main .atelier-guide a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.guide-main .atelier-guide hr{margin:2rem 0;border:0;border-top:1px solid #634e65}

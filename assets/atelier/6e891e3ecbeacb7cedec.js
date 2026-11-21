@@ -738,6 +738,7 @@ let titelVersie = 0;
 let heroVerlaten = false;
 
 function heroKop(animate) {
+  if (!hoofdtitel) return;
   const begin = local(['Ik bouw','de toekomst.'], ['I build','the future.']);
   const regels = local(['Samen','bouwen','wij de','toekomst.'], ['Together,','we build','the','future.']);
   hoofdtitel.setAttribute('aria-label', regels.join(' '));
@@ -756,7 +757,7 @@ function heroKop(animate) {
   }
 }
 
-$('#replay-title').addEventListener('click', () => heroKop(true));
+
 let vorigeScroll = window.scrollY;
 addEventListener('scroll', () => {
   const positie = window.scrollY;
@@ -766,7 +767,7 @@ addEventListener('scroll', () => {
   vorigeScroll = positie;
 }, {passive:true});
 
-new IntersectionObserver(([item]) => {
+if (hoofdtitel) new IntersectionObserver(([item]) => {
   if (!item.isIntersecting) {
     heroVerlaten = true;
   } else if (heroVerlaten) {
@@ -809,22 +810,49 @@ $('#book-confirm').addEventListener('click', () => {
 
 const chatVraag = $('#chat-vraag');
 const chatSturen = $('#chat-sturen');
-function vertaalChat() {
-  chatVraag.placeholder = local('Vraag het maar', 'Ask away');
+function chatReply(key) {
+  const item = services[key];
+  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
 }
-function chatAnswer(key, vraag) {
+function vertaalChat() {
+  for (const answer of $('#chat-copy').querySelectorAll('[data-reply]')) {
+    answer.textContent = chatReply(answer.dataset.reply);
+  }
+  for (const question of $('#chat-copy').querySelectorAll('[data-preset]')) {
+    question.textContent = document.querySelector('[data-question="' + question.dataset.preset + '"]').textContent;
+  }
+  chatVraag.placeholder = local('Stel je vraag…', 'Type your question…');
+  $('#chat-launch').setAttribute('aria-label', local('Open Atelier-assistent', 'Open Atelier assistant'));
+  $('#chat-close').setAttribute('aria-label', local('Chat sluiten', 'Close chat'));
+  $('#chat-sturen').setAttribute('aria-label', local('Vraag versturen', 'Send question'));
+  chatVraag.setAttribute('aria-label', local('Je vraag', 'Your question'));
+  $('#chat-panel').closest('aside').setAttribute('aria-label', local('Atelier-assistent', 'Atelier assistant'));
+}
+const chatTopicsToggle = $('#chat-topics-toggle');
+chatTopicsToggle?.addEventListener('click', () => {
+  const open = $('#chat-panel').classList.toggle('show-chat-topics');
+  chatTopicsToggle.setAttribute('aria-expanded', String(open));
+  if (open) $('#chat-panel [data-question]').focus({preventScroll:true});
+  const scroll = $('#chat-scroll');
+  scroll.scrollTop = scroll.scrollHeight;
+});
+function chatAnswer(key, vraag, preset = false) {
+  $('#chat-panel').classList.remove('show-chat-topics');
+  chatTopicsToggle?.setAttribute('aria-expanded', 'false');
   const item = services[key];
   const gesteld = document.createElement('p');
   gesteld.className = 'chat-bericht-vraag';
   gesteld.textContent = vraag;
+  if (preset) gesteld.dataset.preset = key;
   const antwoord = document.createElement('p');
   antwoord.className = 'chat-bericht-antwoord';
-  antwoord.textContent = item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
+  antwoord.dataset.reply = key || '';
+  antwoord.textContent = chatReply(key);
   $('#chat-copy').append(gesteld, antwoord);
   const gesprekken = $('#chat-scroll');
   gesprekken.scrollTop = gesprekken.scrollHeight;
 }
-$$('[data-question]').forEach(knop => knop.addEventListener('click', () => chatAnswer(knop.dataset.question, knop.textContent)));
+$$('[data-question]').forEach(knop => knop.addEventListener('click', () => chatAnswer(knop.dataset.question, knop.textContent, true)));
 chatVraag.addEventListener('input', () => { chatSturen.disabled = !chatVraag.value.trim(); });
 $('#chat-form').addEventListener('submit', gebeurtenis => {
   gebeurtenis.preventDefault();
@@ -842,7 +870,7 @@ function setChat(open) {
   $('#chat-panel').hidden = !open;
   if (open) {
     $('#chat-launch i').hidden = true;
-    $('#chat-vraag').focus({preventScroll:true});
+    $('#chat-close').focus({preventScroll:true});
   }
 }
 $('#chat-launch').addEventListener('click', () => setChat($('#chat-panel').hidden));
@@ -1229,7 +1257,7 @@ function kiesTaal(land) {
 }
 function startTaal() {
   let land;
-  try { land = localStorage.getItem('atelier-taal'); } catch {}
+  try { land = localStorage.getItem('atelier-taal'); if (land === 'BE') { land = 'NL'; localStorage.setItem('atelier-taal', land); } } catch {}
   return land ? kiesTaal(land) : false;
 }
 taalKnoppen.forEach(knop => knop.addEventListener('click', () => {

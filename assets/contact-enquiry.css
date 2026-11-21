@@ -1,0 +1,16 @@
+#bericht{scroll-margin-top:6rem}
+.atelier-enquiry{display:grid;gap:1.35rem;padding:clamp(1.2rem,3vw,2.8rem);border:1px solid #594353;border-radius:1.25rem;background:linear-gradient(130deg,#342534,#251d30 75%);color:#fff3eb}
+.enquiry-intro h2{margin:0;font-family:inherit;font-weight:850;font-size:clamp(1.75rem,3.6vw,3.35rem);line-height:1.03;letter-spacing:-.045em;text-wrap:balance}
+.enquiry-intro p,.atelier-enquiry .enquiry-help,.atelier-enquiry .enquiry-feedback{color:#dbcbdc;line-height:1.48;margin:.7rem 0}
+.enquiry-intro p{max-width:39ch}.enquiry-intro a{display:inline-block;color:#ffb29e;text-decoration:underline;text-underline-offset:.22em}
+.atelier-enquiry form{align-self:start;min-width:0}.enquiry-fields{display:grid;gap:.9rem}
+.enquiry-fields label{display:grid;gap:.35rem;font-size:.94rem;font-weight:650}
+.enquiry-fields input,.enquiry-fields textarea,.enquiry-clipboard{box-sizing:border-box;min-height:46px;width:100%;min-width:0;padding:.68rem .8rem;border:1px solid #806d85;border-radius:.55rem;background:#19141e;color:#fff5ed;font:inherit;font-size:16px;line-height:1.35}
+.enquiry-fields textarea{resize:vertical;min-height:100px}
+.atelier-enquiry :is(input,textarea,button,a):focus-visible{outline:3px solid #ffb299;outline-offset:2px}
+.atelier-enquiry .enquiry-help,.atelier-enquiry .enquiry-feedback{font-size:.87rem}
+.enquiry-submit{display:inline-flex;align-items:center;justify-content:space-between;gap:1.2rem;min-height:46px;border:0;border-radius:100px;background:#ffaf97;color:#291923;padding:.65rem 1.05rem;font:inherit;font-weight:750;cursor:pointer}
+.enquiry-submit span[aria-hidden]{font-size:1.25rem}.enquiry-submit:disabled{opacity:.65;cursor:wait}
+.enquiry-fallback[hidden],.enquiry-clipboard[hidden],.enquiry-feedback:empty{display:none}
+.enquiry-fallback button{min-height:44px;background:transparent;border:0;text-decoration:underline;color:#ffb29e;font:inherit;cursor:pointer}
+@media(min-width:760px){.atelier-enquiry{grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,6rem)}.enquiry-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.enquiry-fields label:last-child{grid-column:1/-1}}

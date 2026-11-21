@@ -425,6 +425,7 @@ const services = {
   'artikel-ai': ['Hoe word je vindbaar in AI-antwoorden?','How can your business show up in AI answers?','Begin met toegankelijke pagina’s over je diensten en de vragen van klanten. Geef concrete antwoorden, laat zien wie erachter zit en verwijs naar voorbeelden die een lezer kan controleren. Houd de inhoud actueel en meet welke landingspagina’s bezoeken, aanvragen of verwijzingen opleveren.','Begin with accessible service pages and useful answers to customer questions. Show who is behind the content and link to examples readers can verify. Keep it current and track which landing pages generate visits, enquiries or referrals.']
 };
 
+const portfolioAlt = {"ElleCera": [["De Black Friday-pagina van ElleCera met verzorgingsproducten en actieprijzen.", "ElleCera’s Black Friday page with skincare products and sale prices."], ["De actiepagina van ElleCera met uitgelichte huidverzorging.", "ElleCera’s offers page featuring skincare products."], ["De mobiele ElleCera-winkel met Black Friday-aanbiedingen en productkaarten.", "The mobile ElleCera store with Black Friday offers and product cards."]], "Scillasdotter": [["De homepage van Scillasdotter met een zwart-witportret en de naam Alexandra Scillasdotter.", "The Scillasdotter homepage with a black-and-white portrait and the name Alexandra Scillasdotter."], ["Een zwart-witportret vult de openingspagina van Scillasdotter.", "A black-and-white portrait fills the Scillasdotter landing page."], ["De mobiele Scillasdotter-site met een rood campagnebeeld boven zwart-witfotografie.", "The mobile Scillasdotter site with a red campaign image above black-and-white photography."]], "Doggy & Cats": [["De Doggy & Cats-homepage met een hond in een mand naast de collectielink.", "The Doggy & Cats homepage features a dog in a bed beside the collection link."], ["De collectiepagina ‘Alle producten’ van Doggy & Cats.", "The Doggy & Cats collection page showing all products."], ["De Duitse Doggy & Cats-winkel met een collectieknop onder de openingsfoto.", "The German Doggy & Cats mobile store with a collection button beneath the cover image."]], "The Focus Club": [["De homepage van The Focus Club met een foto van een gezin en een knop naar het assortiment.", "The Focus Club homepage with a family photo and a link to the range."], ["De productcollectie van The Focus Club met drie productkaarten naast elkaar.", "The Focus Club collection shows three product cards side by side."], ["De mobiele homepage van The Focus Club met een familiefoto boven de introductie.", "The Focus Club mobile homepage with a family photo above the introduction."]]};
 const cases = [
   {name:'ElleCera', domain:'ellecera.nl', tag:'Skincare · Shopify', home:'/assets/atelier/697d26062cc8e4658991.webp', video:'/assets/atelier/09059a00375ba0a49ab6.mp4', detail:'/assets/atelier/e08b4f644018ce2c711c.webp', phone:'/assets/atelier/202e97017bfac0073f23.webp'},
   {name:'Scillasdotter', domain:'scillasdotter.com', tag:'Fashion · Design', home:'/assets/atelier/ea25aaee020550f35833.webp', video:'/assets/atelier/a28bdecf6bc8609d4f90.mp4', detail:'/assets/atelier/d099480a1bc6ed575cbc.webp', phone:'/assets/atelier/a44ce816647b89fbd2e4.webp'},
@@ -520,13 +521,15 @@ let caseVisible = false;
 function videostand() {
   const video = $('#case-screen video');
   if (!video) return;
-  if (caseVisible && !document.hidden && !motion.matches) {
+  if (caseVisible && !document.hidden && !motion.matches && !navigator.connection?.saveData && (innerWidth > 700 || video.dataset.handmatig === 'speel')) {
     if (!video.getAttribute('src') && video.dataset.source) video.src = video.dataset.source;
     if (video.dataset.handmatig !== 'pauze') video.play().catch(() => {});
   }
   else video.pause();
 }
+let caseBenaderd = false;
 function toonCase() {
+  if (!caseBenaderd) return;
   const item = cases[activeCase];
   const screen = $('#case-screen');
   const lamp = $('#case-link');
@@ -544,7 +547,9 @@ function toonCase() {
   }));
   lamp.href = 'https://' + item.domain + '/';
   $('#case-phone').src = item.phone;
-  $('#case-phone').alt = item.name + local(' op mobiel', ' on mobile');
+  const phone = $('#case-phone');
+  [phone.dataset.altNl, phone.dataset.altEn] = portfolioAlt[item.name][2];
+  phone.alt = local(phone.dataset.altNl, phone.dataset.altEn);
   const video = activeCase !== 0 && home && item.video && !motion.matches;
   const media = document.createElement(video ? 'video' : 'img');
   media.className = 'case-layer';
@@ -554,11 +559,11 @@ function toonCase() {
     media.playsInline = true;
     media.preload = 'none';
     media.poster = item.home;
-    media.src = item.video;
+    media.dataset.source = item.video;
     media.setAttribute('aria-label', item.name + local(' homepage in beweging', ' animated homepage'));
   } else {
     media.src = home ? item.home : item.detail;
-    media.alt = item.name + local(' websitevoorbeeld', ' website preview');
+    media.alt = local(...portfolioAlt[item.name][home ? 0 : 1]);
   }
   screen.querySelector('video')?.pause();
   const ellecera = activeCase === 0 && home;
@@ -568,6 +573,12 @@ function toonCase() {
   $$('[data-case]').forEach(b => b.setAttribute('aria-pressed', Number(b.dataset.case) === activeCase));
   videostand();
 }
+new IntersectionObserver(([entry], observer) => {
+  if (!entry.isIntersecting) return;
+  caseBenaderd = true;
+  toonCase();
+  observer.disconnect();
+}, {rootMargin:'180px 0px'}).observe($('.case-card'));
 $$('[data-case]').forEach(b => b.addEventListener('click', () => { activeCase = Number(b.dataset.case); caseView = 'home'; toonCase(); }));
 new IntersectionObserver(([entry]) => {
   caseVisible = entry.isIntersecting;
@@ -683,6 +694,7 @@ let titelVersie = 0;
 let heroVerlaten = false;
 
 function heroKop(animate) {
+  if (!hoofdtitel) return;
   const begin = local(['Ik bouw','de toekomst.'], ['I build','the future.']);
   const regels = local(['Samen','bouwen','wij de','toekomst.'], ['Together,','we build','the','future.']);
   hoofdtitel.setAttribute('aria-label', regels.join(' '));
@@ -701,7 +713,7 @@ function heroKop(animate) {
   }
 }
 
-$('#replay-title').addEventListener('click', () => heroKop(true));
+
 let vorigeScroll = window.scrollY;
 addEventListener('scroll', () => {
   const positie = window.scrollY;
@@ -711,7 +723,7 @@ addEventListener('scroll', () => {
   vorigeScroll = positie;
 }, {passive:true});
 
-new IntersectionObserver(([item]) => {
+if (hoofdtitel) new IntersectionObserver(([item]) => {
   if (!item.isIntersecting) {
     heroVerlaten = true;
   } else if (heroVerlaten) {
@@ -721,59 +733,51 @@ new IntersectionObserver(([item]) => {
 }, {threshold:.22}).observe(hoofdtitel);
 
 
-const bookTabs = [$('#agenda-tab'), $('#bericht-tab')];
-function bookTab(selected) {
-  bookTabs.forEach(tab => {
-    const on = tab === selected;
-    tab.setAttribute('aria-selected',on);
-    tab.tabIndex = on ? 0 : -1;
-    document.getElementById(tab.getAttribute('aria-controls')).hidden = !on;
-  });
-}
-bookTabs.forEach(tab => {
-  tab.addEventListener('click', () => bookTab(tab));
-  tab.addEventListener('keydown', (event) => {
-    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
-    event.preventDefault();
-    const next = bookTabs.find(other => other !== tab);
-    bookTab(next);
-    next.focus();
-  });
-});
-const agendaLink = $('#open-calendar');
-agendaLink.addEventListener('click', event => {
-  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  const embed = new URL(agendaLink.href);
-  embed.searchParams.set('embed_domain', location.hostname);
-  embed.searchParams.set('embed_type', 'Inline');
-  const frame = document.createElement('iframe');
-  frame.src = embed.href;
-  frame.title = local('Boek je telefonische kennismaking', 'Book your introductory phone call');
-  frame.style.cssText = 'display:block;width:100%;height:740px;border:0;border-radius:12px;background:white';
-  agendaLink.replaceWith(frame);
-  $('#calendar-fallback').hidden = false;
-  frame.focus();
-});
-
 const chatVraag = $('#chat-vraag');
 const chatSturen = $('#chat-sturen');
-function vertaalChat() {
-  chatVraag.placeholder = local('Vraag het maar', 'Ask away');
+function chatReply(key) {
+  const item = services[key];
+  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
 }
-function chatAnswer(key, vraag) {
+function vertaalChat() {
+  for (const answer of $('#chat-copy').querySelectorAll('[data-reply]')) {
+    answer.textContent = chatReply(answer.dataset.reply);
+  }
+  for (const question of $('#chat-copy').querySelectorAll('[data-preset]')) {
+    question.textContent = document.querySelector('[data-question="' + question.dataset.preset + '"]').textContent;
+  }
+  chatVraag.placeholder = local('Stel je vraag…', 'Type your question…');
+  $('#chat-launch').setAttribute('aria-label', local('Open Atelier-assistent', 'Open Atelier assistant'));
+  $('#chat-close').setAttribute('aria-label', local('Chat sluiten', 'Close chat'));
+  $('#chat-sturen').setAttribute('aria-label', local('Vraag versturen', 'Send question'));
+  chatVraag.setAttribute('aria-label', local('Je vraag', 'Your question'));
+  $('#chat-panel').closest('aside').setAttribute('aria-label', local('Atelier-assistent', 'Atelier assistant'));
+}
+const chatTopicsToggle = $('#chat-topics-toggle');
+chatTopicsToggle?.addEventListener('click', () => {
+  const open = $('#chat-panel').classList.toggle('show-chat-topics');
+  chatTopicsToggle.setAttribute('aria-expanded', String(open));
+  if (open) $('#chat-panel [data-question]').focus({preventScroll:true});
+  const scroll = $('#chat-scroll');
+  scroll.scrollTop = scroll.scrollHeight;
+});
+function chatAnswer(key, vraag, preset = false) {
+  $('#chat-panel').classList.remove('show-chat-topics');
+  chatTopicsToggle?.setAttribute('aria-expanded', 'false');
   const item = services[key];
   const gesteld = document.createElement('p');
   gesteld.className = 'chat-bericht-vraag';
   gesteld.textContent = vraag;
+  if (preset) gesteld.dataset.preset = key;
   const antwoord = document.createElement('p');
   antwoord.className = 'chat-bericht-antwoord';
-  antwoord.textContent = item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
+  antwoord.dataset.reply = key || '';
+  antwoord.textContent = chatReply(key);
   $('#chat-copy').append(gesteld, antwoord);
   const gesprekken = $('#chat-scroll');
   gesprekken.scrollTop = gesprekken.scrollHeight;
 }
-$$('[data-question]').forEach(knop => knop.addEventListener('click', () => chatAnswer(knop.dataset.question, knop.textContent)));
+$$('[data-question]').forEach(knop => knop.addEventListener('click', () => chatAnswer(knop.dataset.question, knop.textContent, true)));
 chatVraag.addEventListener('input', () => { chatSturen.disabled = !chatVraag.value.trim(); });
 $('#chat-form').addEventListener('submit', gebeurtenis => {
   gebeurtenis.preventDefault();
@@ -791,7 +795,7 @@ function setChat(open) {
   $('#chat-panel').hidden = !open;
   if (open) {
     $('#chat-launch i').hidden = true;
-    $('#chat-vraag').focus({preventScroll:true});
+    $('#chat-close').focus({preventScroll:true});
   }
 }
 $('#chat-launch').addEventListener('click', () => setChat($('#chat-panel').hidden));
@@ -1178,7 +1182,7 @@ function kiesTaal(land) {
 }
 function startTaal() {
   let land;
-  try { land = localStorage.getItem('atelier-taal'); } catch {}
+  try { land = localStorage.getItem('atelier-taal'); if (land === 'BE') { land = 'NL'; localStorage.setItem('atelier-taal', land); } } catch {}
   return land ? kiesTaal(land) : false;
 }
 taalKnoppen.forEach(knop => knop.addEventListener('click', () => {
