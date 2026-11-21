@@ -239,7 +239,7 @@ main .section .split-title h2{font-size:clamp(2.65rem,4.7vw,5.5rem)}
 .header-inner>.wordmark{font-size:clamp(1.06rem,5.2vw,1.45rem);gap:.46em;flex:none}
 .header-inner>.wordmark .woord-figuur{width:1.58em;height:1.80em}
 .nav-pakketten{display:inline-flex;align-items:center}
-header .header-inner .nav-pakketten .nav-trigger{width:32px;min-height:44px;padding:0}
+header .header-inner .nav-pakketten .nav-trigger{width:auto;min-height:44px;padding:0 5px;display:inline-flex;align-items:center;gap:7px}
 .nav-pakketten .nav-trigger[aria-expanded=true] svg{transform:rotate(180deg)}
 @media(max-width:500px){
   .header-inner{padding-inline:10px;gap:5px}
