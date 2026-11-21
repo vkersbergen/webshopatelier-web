@@ -23,23 +23,47 @@
   arrangeTools();
   small.addEventListener('change', arrangeTools);
 
-  const work = document.querySelector('#werk:not([hidden])');
-  const stage = work?.querySelector('.case-stage');
-  if (!stage) return;
-  let start;
-  stage.addEventListener('pointerdown', event => {
-    if (!small.matches || !event.isPrimary || event.pointerType !== 'touch') return;
-    start = { id: event.pointerId, x: event.clientX, y: event.clientY };
-    stage.setPointerCapture(event.pointerId);
-  });
-  stage.addEventListener('pointercancel', () => { start = null; });
-  stage.addEventListener('pointerup', event => {
-    if (!start || event.pointerId !== start.id) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    start = null;
-    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+  const card = document.querySelector('#werk:not([hidden]) #case-inhoud');
+  if (!card) return;
+  const work = card.closest('#werk');
+  let origin;
+  let horizontal = false;
+
+  function resetSwipe() {
+    origin = null;
+    horizontal = false;
+    card.style.removeProperty('--swipe-offset');
+  }
+
+  card.addEventListener('touchstart', event => {
+    resetSwipe();
+    if (event.touches.length === 1) origin = event.touches[0];
+  }, { passive: true });
+
+  card.addEventListener('touchmove', event => {
+    if (!origin || event.touches.length !== 1) return;
+    const finger = event.touches[0];
+    const dx = finger.clientX - origin.clientX;
+    const dy = finger.clientY - origin.clientY;
+    if (!horizontal) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+      if (Math.abs(dx) <= Math.abs(dy) * 1.2) return resetSwipe();
+      horizontal = true;
+    }
+    if (event.cancelable) event.preventDefault();
+    card.style.setProperty('--swipe-offset', Math.max(-32, Math.min(32, dx * .32)) + 'px');
+  }, { passive: false });
+
+  card.addEventListener('touchend', event => {
+    if (!origin) return;
+    const finger = event.changedTouches[0];
+    const dx = finger.clientX - origin.clientX;
+    const dy = finger.clientY - origin.clientY;
+    if (!event.touches.length && Math.abs(dx) >= 32 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      if (event.cancelable) event.preventDefault();
       work.querySelector('[data-case-stap="' + (dx < 0 ? '1' : '-1') + '"]')?.click();
     }
-  });
+    resetSwipe();
+  }, { passive: false });
+  card.addEventListener('touchcancel', resetSwipe, { passive: true });
 })();

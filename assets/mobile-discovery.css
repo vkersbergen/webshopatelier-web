@@ -1,5 +1,4 @@
 @media (max-width:720px) {
-  #werk .case-stage { touch-action:pan-y pinch-zoom; }
   #werk .case-tabs button, #werk .pijlknoppen button { min-height:44px; }
   #tools .platform-groepen:has(.platform-disclosure) { display:grid;grid-template-columns:1fr;gap:0; }
   #tools .platform-groep:has(.platform-disclosure) { padding:0;background:transparent;border:none;border-top:1px solid #504356;border-radius:0;box-shadow:none; }
@@ -15,4 +14,12 @@
 @media (max-width:360px) {
   body main#top #atelier .founder-invitation h1 { font-size:clamp(1.65rem,9vw,2rem)!important; }
   body main#top #privacy .split-title h1 { font-size:clamp(1.4rem,7.6vw,1.7rem)!important; }
+}
+
+@media (any-pointer:coarse) {
+  #werk #case-inhoud, #werk #case-inhoud * { touch-action:pan-y pinch-zoom; }
+}
+@media (any-pointer:coarse) and (prefers-reduced-motion:no-preference) {
+  #werk #case-inhoud { overflow:clip; }
+  #werk #case-inhoud > :is(.case-stage,.case-copy) { translate:var(--swipe-offset,0px) 0; }
 }
