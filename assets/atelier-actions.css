@@ -1,0 +1,88 @@
+/* Actions share their proportions. Repeated editorial links stay quieter. */
+:root {
+  --wa-action-coral: #ff805f;
+  --wa-action-ink: #291924;
+  --wa-action-plum: #382b40;
+  --wa-action-soft-white: #f1e8ed;
+  --wa-action-edge: #78647c;
+  --wa-action-relief: inset 0 1px 0 #ffffff47, 0 2px 5px #180e1b30;
+}
+
+html body :is(.btn.hot, .commerce-cta, .call-primary, .enquiry-submit,
+              .atelier-form-link, .tree .offer [data-atelier-booking],
+              .pakket-commerce .action, .commerce-text .action,
+              #atelier-foot noscript a),
+html body :is(.header-inner .btn.menu-toggle, .buttons .btn:not(.hot),
+              .blogs-meer .btn, .advisor-result .btn:not(.hot)) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  min-height: 44px;
+  padding: .625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--wa-action-coral);
+  color: var(--wa-action-ink);
+  box-shadow: var(--wa-action-relief);
+  font: 700 .96rem/1.2 var(--body,system-ui,sans-serif);
+  text-decoration: none;
+}
+
+html body :is(.header-inner #menu.btn, main > .hero .buttons .btn:not(.hot),
+              .blogs-meer .btn, .advisor-result .btn:not(.hot)) {
+  padding:.625rem 1rem;
+  color: var(--wa-action-soft-white);
+  background: var(--wa-action-plum);
+  border-color: var(--wa-action-edge);
+  box-shadow: inset 0 1px 0 #ffffff12;
+}
+
+html body :is(.wa-mobile .pakket-card .action, .werk-copy .action, .article-card .action,
+              .wa-oprichter .action, .guide-back, .pakket-terug, .pagina-terug,
+              #pakketten .textlink, #veldgids .article-copy .textlink,
+              .r2-mail, .r2-contact-question, #bericht .enquiry-intro a) {
+  color: var(--wa-action-soft-white);
+  text-decoration: underline;
+  text-decoration-color: #a695a9;
+  text-decoration-thickness: .065em;
+  text-underline-offset: .22em;
+  font-weight: 550;
+}
+html body :is(.pakket-card, .werk-copy, .article-card, .wa-oprichter) .action {
+  min-height: 44px;
+  padding: .35rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html body :is(.pakket-card p, .pakket-commerce strong) { color: #ffc4a5; }
+.atelier-guide :is(p,li) a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+html body :is(.btn,.commerce-cta,.call-primary,.enquiry-submit,.action)::after { content: none; }
+html body :is(.btn,.commerce-cta) > :is(.actie-icoon,.commerce-cta-pijl),
+html body :is(.call-primary,.enquiry-submit) > :is(i,span)[aria-hidden="true"] { display:none; }
+html body :is(a,button):focus-visible {
+  outline: 2px solid #fff4ed;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #513748;
+}
+@media (hover:hover) {
+  html body :is(.action,.textlink,.guide-back,.pakket-terug,.pagina-terug,.r2-mail,.r2-contact-question):hover {text-decoration-color: currentColor;}
+  html body :is(.btn.hot,.commerce-cta,.enquiry-submit,.call-primary,.atelier-form-link):enabled:hover,
+  html body a:is(.btn.hot,.commerce-cta,.call-primary,.atelier-form-link):hover {filter: brightness(1.055);}
+}
+
+/* The legacy header applies important mobile and desktop paint rules. */
+html body header .header-inner a.header-book.btn.hot,
+html body header .header-inner a.header-book.btn.hot:hover {
+  background:var(--wa-action-coral)!important;
+  color:var(--wa-action-ink)!important;
+  border-radius:12px!important;
+  box-shadow:var(--wa-action-relief);
+}

@@ -1,0 +1,199 @@
+/* Shared surfaces for controls that change a selection or reveal information. */
+:root {
+  --pick-ink: #fff6ef;
+  --pick-accent: #ffd0b7;
+  --pick-edge: #705568;
+  --pick-rail: linear-gradient(180deg, #271b29, #211823);
+  --pick-recess: inset 0 2px 4px #120c1766, 0 1px 0 #fff1e21c;
+  --pick-lens: linear-gradient(165deg, #63495f 0%, #493649 38%, #302332 95%);
+  --pick-face: linear-gradient(155deg, #483247 0%, #352536 56%, #2a202e 100%);
+  --pick-lit: linear-gradient(145deg, #594055, #39283b 80%);
+  --pick-highlight: inset 0 1px 0 #ffe3d529, 0 2px 4px #130d181a;
+}
+
+header .header-inner .actions #menu.menu-toggle,
+header .header-inner .actions #kop-talen > summary,
+#werk .case-tabs button,
+#werk [data-case-stap],
+[data-suggestie-stap],
+.wa-mobile .ec-line button.step {
+  background: var(--pick-face);
+  border: 1px solid var(--pick-edge);
+  box-shadow: var(--pick-highlight);
+  color: var(--pick-ink);
+  min-height: 44px;
+}
+header .header-inner .actions #menu.menu-toggle,
+header .header-inner .actions #kop-talen > summary {
+  border-radius: 12px;
+}
+header .header-inner .actions #kop-talen > summary {
+  justify-content: center;
+  min-width: 44px;
+}
+header .header-inner .actions #kop-talen[open] > summary,
+header .header-inner .actions #menu.menu-toggle[aria-expanded="true"],
+#werk .case-tabs button[aria-pressed="true"] {
+  background: var(--pick-lens);
+  border-color: #a18497;
+  color: var(--pick-ink);
+  box-shadow: inset 0 2px 1px #f8d9df47, 0 1px 3px #100b1252;
+}
+header .header-inner .actions #kop-talen .kop-talen-lijst,
+#pakket-dropdown.pakket-dropdown {
+  background: #302333;
+  border: 1px solid var(--pick-edge);
+  border-radius: 13px;
+  box-shadow: var(--pick-highlight), 0 8px 18px #1710192b;
+}
+header .header-inner .actions #kop-talen [data-menu-taal],
+#pakket-dropdown [data-pakket-keuze] {
+  min-height: 44px;
+  color: var(--pick-ink);
+  border-radius: 8px;
+}
+header .header-inner .actions #kop-talen [aria-pressed="true"],
+#pakket-dropdown [aria-pressed="true"] {
+  color: var(--pick-accent);
+  background: var(--pick-lens);
+  box-shadow: inset 0 1px 0 #f8d9df47;
+}
+#werk .case-tabs {
+  background: var(--pick-rail);
+  border: 1px solid #533e52;
+  border-radius: 15px;
+  box-shadow: var(--pick-recess);
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px;
+  gap: 2px;
+}
+#werk .case-tabs button {
+  border-radius: 11px;
+}
+#werk .case-tabs button:not([aria-pressed="true"]) {
+  border-color: transparent;
+  box-shadow: none;
+  background: transparent;
+  color: #e0cedc;
+}
+.wa-mobile .ec-line .ec-position {
+  height: 3px;
+  background: #694e65;
+  border-radius: 3px;
+}
+.wa-mobile .ec-line .ec-position i {
+  background: #f1b29b;
+  border-radius: inherit;
+}
+.wa-mobile .ec-line button.step {
+  border-radius: 13px;
+  margin: 0;
+}
+.wa-mobile .ec-line .step--prev {
+  border-radius: 13px 0 0 13px;
+  border-right: 0;
+}
+.wa-mobile .ec-line .step--next {
+  border-radius: 0 13px 13px 0;
+  margin-left: -10px;
+}
+.wa-mobile .ec-line button.step[aria-disabled="true"] {
+  background: transparent;
+  border-color: #665263;
+  box-shadow: none;
+  color: #b49fb0;
+  opacity: .72;
+}
+.atelier-faq > details > summary,
+#tools .platform-meer > summary,
+#tools .platform-disclosure > summary,
+.wa-tools details > summary,
+.wa-werk details > summary,
+.wa-case-finished .wa-case-tasks > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 10px 2px;
+  font-weight: 650;
+  color: var(--pick-ink);
+  list-style: none;
+  cursor: pointer;
+}
+:is(.atelier-faq,#tools,.wa-werk,.wa-case-tasks) summary::-webkit-details-marker { display: none; }
+.atelier-faq > details > summary::after,
+#tools .platform-meer > summary::after,
+#tools .platform-disclosure > summary::after,
+.wa-tools details > summary::after,
+.wa-werk details > summary::after,
+.wa-case-finished .wa-case-tasks > summary::after {
+  content: "";
+  flex: 0 0 8px;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  margin-inline: 4px;
+  border: solid #efbaa8;
+  border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-2px) rotate(45deg);
+}
+:is(.atelier-faq,#tools,.wa-werk) details[open] > summary::after,
+.wa-case-finished .wa-case-tasks[open] > summary::after {
+  transform: translateY(2px) rotate(225deg);
+}
+:is(.atelier-faq,#tools,.wa-werk) details[open] > summary,
+.wa-case-finished .wa-case-tasks[open] > summary {
+  color: var(--pick-accent);
+}
+#chat-panel .chat-options {
+  background: var(--pick-rail);
+  border: 1px solid #594456;
+  border-radius: 16px;
+  gap: 2px;
+  padding: 3px;
+  box-shadow: var(--pick-recess);
+}
+#chat-panel .chat-options button[data-question] {
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  color: var(--pick-ink);
+  box-shadow: none;
+}
+#chat-panel .chat-options button[data-question]::before {
+  background: var(--pick-accent);
+  mask: var(--chat-icon) center / contain no-repeat;
+}
+
+@media (hover: hover) {
+  header .header-inner .actions #menu.menu-toggle[aria-expanded="false"]:hover,
+  header .header-inner .actions #kop-talen > summary:hover,
+  #werk .case-tabs button:not([aria-pressed="true"]):hover,
+  #werk [data-case-stap]:hover,
+  [data-suggestie-stap]:hover,
+  .wa-mobile .ec-line button.step:not([aria-disabled="true"]):hover,
+  #chat-panel .chat-options button[data-question]:hover {
+    background: var(--pick-lit);
+    border-color: #aa8294;
+    color: var(--pick-ink);
+  }
+  :is(.atelier-faq,#tools,.wa-werk) summary:hover,
+  .wa-case-finished .wa-case-tasks > summary:hover { color: var(--pick-accent); }
+}
+:is(#menu.menu-toggle,#kop-talen summary,#kop-talen button,#werk button,
+[data-suggestie-stap],#pakket-dropdown summary,#pakket-dropdown button,.ec-line .step,
+.atelier-faq summary,#tools summary,.wa-werk summary,.wa-case-tasks summary,
+#chat-panel .chat-options button):focus-visible {
+  outline: 2px solid #ffe2ca;
+  outline-offset: -3px;
+  box-shadow: inset 0 0 0 4px #352537;
+}
+
+@media(max-width:380px){
+  #contact .atelier-faq h2{font-size:clamp(1.75rem,8vw,2rem);overflow-wrap:anywhere}
+  #contact .suggestie-rij a>span{min-width:0;overflow-wrap:anywhere}
+}

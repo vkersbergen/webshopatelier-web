@@ -36,3 +36,7 @@ html:has(#call-calendar-modal[open]){overflow:hidden}
 #boeken .call-mail-options button:not([hidden]){background:transparent;color:#ffbea8;border:1px solid #745766;border-radius:8px;padding:8px 12px;min-height:44px;cursor:pointer}
 
 #call-calendar-modal .call-modal-foot { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 18px; }
+
+#boeken .atelier-clock{display:block;width:clamp(76px,9vw,126px);height:auto;flex:none;align-self:center}
+@media(min-width:750px){#boeken .atelier-call-copy{flex:1}#boeken.atelier-call .atelier-call-card{column-gap:clamp(20px,3vw,48px)}}
+@media(max-width:749px){#boeken .atelier-clock{position:absolute;right:16px;top:16px;width:clamp(58px,15vw,84px)}#boeken .atelier-call-copy .call-format{min-height:clamp(50px,14vw,75px);max-width:calc(100% - 68px);margin-bottom:20px}}
