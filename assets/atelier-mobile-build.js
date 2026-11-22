@@ -245,7 +245,7 @@ function caseMarkup(c) {
  return `<article class="werk-panel">${devices(c)}<div class="werk-copy"><p class="atelier-label">${esc(c.brand)}</p><h3>${esc(c.title[l])}</h3><p>${esc(c.intro[l])}</p><details><summary>${t('Wat we deden','What we did')}</summary>${groups}</details>${action('/werk/'+c.slug+'/'+t('','en/'),t('Lees de case','Read the case'))}</div></article>`;
 }
 function packageMarkup() {
- const cards=packages.map(([img,nl,en,slug,price,priceEn,id])=>`<article class="pakket-card" data-anchor="pakket-${id}"><img width="512" height="384" loading="lazy" src="/assets/atelier-agents/${img}.webp" alt=""><div><h3>${esc(t(nl,en))}</h3><p>${esc(t(price,priceEn)||t('Prijs op maat','Custom quote'))}</p>${action('/pakketten/'+slug+'/',t('Lees meer','Read more'))}</div></article>`);
+ const cards=packages.map(([img,nl,en,slug,price,priceEn,id])=>`<article class="pakket-card" data-anchor="pakket-${id}"><img width="512" height="384" loading="lazy" src="/assets/atelier-agents/${img}.webp" alt=""><div><h3>${esc(t(nl,en))}</h3>${img==='website' || img==='webshop' ? '<small class="offer-sub">'+(img==='website'?t('Webdesign op maat','Custom web design'):t('Shopify op maat','Custom Shopify store'))+'</small>' : ''}<p>${esc(t(price,priceEn)||t('Prijs op maat','Custom quote'))}</p>${action('/pakketten/'+slug+'/',t('Lees meer','Read more'))}</div></article>`);
  const slides=cards.flatMap((card,i)=>i%2 ? [] : [`<div class="pakket-paar">${card}${cards[i+1]}</div>`]);
  return `<h2>${t('Onze <em>pakketten.</em>','Our <em>packages.</em>')}</h2><article class="pakket-commerce"><img loading="lazy" src="${team}" alt="${t('Het AI-team','The AI team')}"><div><h3>Atelier Commerce 360</h3><p>${t('Ontvang 14 AI-agents voor je webshop.','Get 14 AI agents for your store.')}</p><strong>${t('€ 1.100','€1,100')}</strong>${action('/ai-team/',t('Ontdek Commerce 360','Discover Commerce 360'))}</div></article>${rail(t('Pakketten','Packages'),slides)}`;
 }
@@ -277,10 +277,10 @@ const sections={
  atelier:section=>`<div class="oprichter-lead"><img loading="lazy" src="/assets/atelier/d969fbb15bc2be0a7356.jpg" alt="${t('Oprichter van WebshopAtelier','Founder of WebshopAtelier')}"><div><p class="atelier-label">${t('Even voorstellen','Meet the founder')}</p><h2>${t('Webshopnerds <em>in hart en nieren.</em>','Shop nerds <em>at heart.</em>')}</h2></div></div><p>${location.pathname==='/over-ons/' ? esc(section.querySelector('.founder-message')?.textContent||'') : t('We runnen zelf webshops. Daardoor kennen we de vragen die pas opduiken als de winkel open is.','We run stores ourselves. We know the questions that only surface once your store is open.')}</p>${location.pathname==='/over-ons/' ? '' : action('/over-ons/',t('Over het atelier','About the atelier'))}`,
  ontzorg:()=>`<h2>${t('Wat je kunt <em>uitbesteden.</em>','What you can <em>hand over.</em>')}</h2><ul class="taken"><li>${t('Je productpagina’s bouwen en bijwerken.','Build and update your product pages.')}</li><li>${t('Je campagnes maken, testen en bijsturen.','Create, test and refine your campaigns.')}</li></ul><details><summary>${t('Lees meer','Read more')}</summary><ul class="taken"><li>${t('Klantmails voorbereiden.','Prepare customer emails.')}</li><li>${t('Domein en zakelijke mail inrichten.','Set up your domain and business email.')}</li><li>${t('Je winkelcijfers in één dashboard verzamelen.','Bring your store figures together in one dashboard.')}</li></ul></details>`
 };
-function controls(row, mode) {
+function controls(row) {
  const slides=[...row.children];
  const ui=document.createElement('div');
- ui.className='slider-ui '+mode;
+ ui.className='slider-ui ec-line';
  ui.setAttribute('role','group'); ui.setAttribute('aria-label',row.getAttribute('aria-label'));
  row.after(ui);
  const titles=slides.map(s=>s.querySelector('.werk-copy .atelier-label')?.textContent||[...s.querySelectorAll('h3')].map(h=>h.textContent).join(' · '));
@@ -290,40 +290,29 @@ function controls(row, mode) {
   row.scrollBy({left:slides[destination].getBoundingClientRect().left-row.getBoundingClientRect().left,behavior: instant || reduced.matches?'instant':'smooth'});
  }
  function button(cls,label,cb) {
-  const b=document.createElement('button'); b.type='button';b.className=cls;b.setAttribute('aria-label',label);b.addEventListener('click',cb);return b;
+  const b=document.createElement('button'); b.type='button';b.className=cls;b.setAttribute('aria-label',label);b.addEventListener('click',()=>{if(b.getAttribute('aria-disabled')!=='true')cb();});return b;
  }
  const prev=button('step step--prev',t('Vorige','Previous'),()=>select((destination??selected)-1));
  const next=button('step step--next',t('Volgende','Next'),()=>select((destination??selected)+1));
- const center=document.createElement('div');
- ui.append(prev,center,next);
- const frames=[];
- let position,caption;
- if (mode==='filmstrip') {
-  center.className='frames';
-  slides.forEach((s,i)=>{
-   const frame=button('frame',titles[i],()=>select(i));
-   const source=s.querySelector('video,img');
-   frame.innerHTML=`<span class="still"><img alt="" loading="lazy" src="${esc(source.getAttribute('poster')||source.getAttribute('src'))}"></span>`;
-   center.append(frame);frames.push(frame);
-  });
- } else {
-  center.className='index-readout';
-  center.innerHTML='<output class="position"></output><span class="index-title"></span>';
-  position=center.firstElementChild;caption=center.lastElementChild;
- }
- const fmt=n=>String(n+1).padStart(2,'0');
+ const track=document.createElement('div');
+ track.className='ec-position';
+ const thumb=document.createElement('i');
+ thumb.style.width=(100/slides.length)+'%';
+ track.append(thumb);
+ track.setAttribute('aria-hidden','true');
+ ui.append(track,prev,next);
+ const status=document.createElement('span');
+ status.className='ec-position-label';status.setAttribute('role','status');ui.append(status);
  function update() {
   const x=row.getBoundingClientRect().left;
   let near=0;
   slides.forEach((s,i)=>{if(Math.abs(s.getBoundingClientRect().left-x)<Math.abs(slides[near].getBoundingClientRect().left-x))near=i;});
   selected=near;if(selected===destination)destination=null;
-  prev.disabled=near===0;next.disabled=near===slides.length-1;
-  frames.forEach((frame,i)=>frame.setAttribute('aria-current',String(i===near)));
-  if (position) {position.innerHTML=fmt(near)+'<span class="total">/'+fmt(slides.length-1)+'</span>';caption.textContent=titles[near];}
-  if(frames.length) {
-   const frame=frames[near].getBoundingClientRect(), viewport=center.getBoundingClientRect();
-   if(frame.left<viewport.left || frame.right>viewport.right)center.scrollBy({left:frame.left-viewport.left-(viewport.width-frame.width)/2,behavior:'instant'});
-  }
+  prev.setAttribute('aria-disabled',String(near===0));
+  next.setAttribute('aria-disabled',String(near===slides.length-1));
+  thumb.style.transform='translateX('+near*100+'%)';
+  const label=(near+1)+' / '+slides.length+' · '+titles[near];
+  if(status.textContent!==label)status.textContent=label;
   // The controls follow the visible case directly, including when a single disclosure opens.
   if(row.closest('.wa-werk'))row.style.height=slides[near].offsetHeight+'px';
  }
@@ -382,7 +371,7 @@ function render(section, id) {
  const oldHeading=section.querySelector('h1'),newHeading=contents.querySelector('h2');
  if(oldHeading && newHeading) {const h=document.createElement('h1');h.className='wa-title';h.innerHTML=newHeading.innerHTML;newHeading.replaceWith(h);}
  section.append(block);section.classList.add('wa-enhanced');
- const cleanups=[...block.querySelectorAll('.rail')].map(row=>controls(row,id==='veldgids'?'index':'filmstrip'));
+ const cleanups=[...block.querySelectorAll('.rail')].map(row=>controls(row));
  block.querySelectorAll('video').forEach(v=>videos.observe(v));reveal.observe(block);
  return ()=>{cleanups.forEach(clean=>clean());block.querySelectorAll('video').forEach(v=>{videos.unobserve(v);v.pause();});reveal.unobserve(block);block.remove();section.classList.remove('wa-enhanced');};
 }

@@ -40,3 +40,17 @@ body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex
 .atelier-faq details { border-top: 1px solid #79697e; }
 .atelier-faq summary { padding: 1rem 0; font-weight: 700; cursor: pointer; }
 .atelier-faq details p { margin: 0 0 1rem; }
+
+.offer-with-sub {display:flex;flex-flow:column;align-items:flex-start;gap:3px;min-width:0}
+.offer-sub {display:block;font-family:inherit;font-size:clamp(10px,2.75vw,13px);font-weight:550;line-height:1.3;color:#e9c9ce;letter-spacing:0}
+.wa-mobile .pakket-card .offer-sub {margin:0 0 4px}
+.pakket-detail-hero .offer-sub {font-size:1rem;margin:.4rem 0 .75rem}
+
+.advisor-result .offer-sub {display:none}
+.advisor-result:has(#advies-link[href="/pakketten/website/"]) .advisor-site,.advisor-result:has(#advies-link[href="/pakketten/webshop/"]) .advisor-shop {display:block}
+@media(max-width:720px){
+#mega .mega-tile:has(.offer-with-sub) {flex-wrap:wrap;align-content:flex-start;gap:4px}
+#mega .mega-tile:has(.offer-with-sub) img {margin-left:3px}
+#mega .mega-tile:has(.offer-with-sub) a {flex-basis:100%;padding:2px 4px}
+#mega .offer-sub {white-space:nowrap;font:500 11px/1.35 system-ui,sans-serif}
+}
