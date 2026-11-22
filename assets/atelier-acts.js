@@ -4,9 +4,31 @@
   const onscreen = new Set();
   const lastPlayed = new WeakMap();
 
+  const sheets = new Map();
+  function prepareSheet(actor) {
+    const url = actor.dataset.actSheet;
+    if (!sheets.has(url)) {
+      const image = new Image();
+      image.src = url;
+      sheets.set(url, image.decode().then(() => true, () => {
+        sheets.delete(url);
+        return false;
+      }));
+    }
+    return sheets.get(url);
+  }
+
   function play(actor) {
     if (reduce.matches || document.hidden || actor.classList.contains('act-playing')) return;
     if (performance.now() - (lastPlayed.get(actor) ?? -Infinity) < 4500) return;
+    if (actor.dataset.actSheet && !actor.hasAttribute('data-frames-ready')) {
+      prepareSheet(actor).then(ready => {
+        if (!ready || !actor.isConnected) return;
+        actor.setAttribute('data-frames-ready', '');
+        if (onscreen.has(actor)) play(actor);
+      });
+      return;
+    }
     lastPlayed.set(actor, performance.now());
     actor.classList.add('act-playing');
   }
@@ -46,6 +68,18 @@
     if (registered.has(actor)) return;
     registered.add(actor);
     actor.dataset.atelierAct = action;
+    if (action === 'portrait') {
+      actor.dataset.actSheet = '/assets/atelier-scenes/promotor-spel.webp';
+    } else {
+      const body = actor.querySelector('img[src*="/atelier-crew/"][src$="-body.webp"]');
+      if (body) {
+        const role = body.src.split('/').pop().replace('-body.webp', '');
+        const sheet = '/assets/atelier-crew/acts/' + role + '.webp';
+        actor.dataset.actSheet = sheet;
+        actor.style.setProperty('--role-sheet', 'url("' + sheet + '")');
+        actor.classList.add('act-role');
+      }
+    }
     observer.observe(actor);
   }
   function makeActor(action, role, prop) {
@@ -71,15 +105,6 @@
       register(actor, action);
     }
   }
-  // The same slug identifies the Dutch and English editions.
-  const articleGestures = {
-    website: ['measure', '↔'], webshop: ['count', '€'], ai: ['search', '?'],
-    'seo-geo': ['search', '⌕'], 'social-kosten': ['snap', '✧'], 'meta-budget': ['count', '€'],
-    'ai-agent': ['sort', '✓'], 'chatbot-kosten': ['reply', '···'],
-    'website-onderhoud': ['repair', '✓'], 'webshop-conversie': ['measure', '↗'],
-    checkout: ['tap', '✓'], 'nieuwe-markt': ['map', '⚑']
-  };
-  const article = articleGestures[location.pathname.split('/')[2]];
   function decorate() {
     stage('#newsletter.r2-news > h2', 'post', 'onboarding', false);
     stage('#tools .split-title h2, #tools .wa-mobile h2', 'repair', 'onderhoud', true);
@@ -90,43 +115,17 @@
       register(librarian, 'search');
     }
     for (const actor of document.querySelectorAll('.atelier-cameo')) {
-      const role = actor.querySelector('img')?.src.split('/').pop().split('-body')[0];
-      if (actor.matches('.cameo-reader') && article) {
-        if (!actor.querySelector('.act-signal')) {
-          const signal = document.createElement('i');
-          signal.className = 'act-signal';
-          signal.textContent = article[1];
-          actor.append(signal);
-        }
-        register(actor, article[0]);
-        continue;
-      }
-      const action = {zoeken:'search', advertenties:'announce', onderhoud:'repair', social:'snap', website:'measure', conversie:'measure'}[role];
-      register(actor, action || (actor.matches('.cameo-letter,.cameo-screen') ? 'game' : 'peek'));
+      if (!actor.matches('.cameo-reader,.cameo-screen,.cameo-letter')) register(actor, 'role');
     }
-    for (const [selector, action] of [
-      ['.atelier-speler-telefoon', 'game'], ['.atelier-speler-zwemmer', 'swim'],
-      ['.atelier-speler-promotor', 'announce']
-    ]) {
-      document.querySelectorAll(selector).forEach(actor => register(actor, action));
-    }
-    for (const [selector, role, file] of [
-      ['#werk .wa-mobile .desktop-device', 'game','telefoon'],
-      ['#atelier .wa-mobile .oprichter-lead', 'announce','promotor']
-    ]) {
-      for (const host of document.querySelectorAll(selector)) {
-        if (host.querySelector('.act-mobile')) continue;
-        const actor = document.createElement('span');
-        actor.className = 'atelier-act act-mobile act-' + role;
-        actor.setAttribute('aria-hidden','true');
-        const img = document.createElement('img');
-        img.src = '/assets/atelier-scenes/' + file + '.webp';
-        img.alt = '';
-        img.loading = 'lazy';
-        actor.append(img, document.createElement('i'));
-        host.append(actor);
-        register(actor, role);
-      }
+    for (const portrait of document.querySelectorAll('.founder-photo, #atelier .wa-mobile .oprichter-lead')) {
+      if (portrait.querySelector('.act-portrait')) continue;
+      const oldActor = portrait.querySelector('.atelier-speler-promotor');
+      const actor = document.createElement('span');
+      actor.className = 'atelier-act act-portrait';
+      actor.setAttribute('aria-hidden', 'true');
+      if (oldActor) oldActor.replaceWith(actor);
+      else portrait.append(actor);
+      register(actor, 'portrait');
     }
   }
   decorate();
