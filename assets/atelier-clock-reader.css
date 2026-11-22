@@ -1,0 +1,11 @@
+.reader-clock { overflow: visible; pointer-events: none; aspect-ratio:1 }
+.reader-clock .timekeeper-head { transform-origin: 154px 230px }
+.reader-clock .timekeeper-clock { transform-origin: 132px 253px }
+.reader-clock :is(.timekeeper-hour,.timekeeper-minute) { transform-origin:269px 229px }
+.cameo-photo .cameo-reader.reader-articulated { animation:none; isolation:isolate }
+.cameo-reader.reader-articulated > :is(img,.act-signal) { display:none }
+.reader-puppet {position:absolute;inset:0 8% 0 -5%;background-size:600% 400%;background-repeat:no-repeat}
+.reader-object {position:absolute;right:-2%;bottom:7%;width:30%;height:30%;overflow:visible;transform:rotate(-6deg);transform-origin:25% 80%;filter:drop-shadow(0 1px 1px #21131b)}
+.reader-object path {fill:#623744;stroke:#ffb093;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.reader-object path + path {fill:none;stroke:#fff0d0}
+.reader-object .reader-detail {stroke:#fd9767;stroke-width:2.2}
