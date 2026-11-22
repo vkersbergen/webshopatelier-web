@@ -78,3 +78,34 @@ body #pakketten .service .pakket-foto img {
   max-height:none;
   object-fit:cover;
 }
+
+@media (min-width:1000px) {
+  #pakketten.services .service-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+  #pakketten .service-grid > .service[data-foto] {
+    display:grid;
+    grid-template-columns:minmax(0,38%) minmax(0,1fr);
+    align-items:stretch;
+  }
+  #pakketten .service[data-foto] .pakket-foto-link {
+    position:relative;
+    display:block;
+    min-width:0;
+    overflow:hidden;
+  }
+  body #pakketten .service[data-foto] .pakket-foto {
+    position:absolute;
+    inset:0;
+    height:100%;
+    aspect-ratio:auto;
+  }
+  #pakketten .service[data-foto] .service-body {
+    padding:12px 14px;
+    gap:3px;
+  }
+  #pakketten .service[data-foto] h3 {font-size:clamp(18px,1.4vw,21px);line-height:1.14}
+  #pakketten .service[data-foto] .service-body p {font-size:14px;line-height:1.35}
+  #pakketten .service[data-foto] .textlink {min-height:28px}
+}

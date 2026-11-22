@@ -6,13 +6,13 @@
   const $$ = selector => [...widget.querySelectorAll(selector)];
   const local = (nl,en) => document.documentElement.lang.startsWith('en') ? en : nl;
   const services = {
-  agent: ["AI-agents", "AI agents", "We richten agents in voor taken zoals klantvragen, rapportages en interne opvolging. Jij kiest waar goedkeuring nodig is.", "We build agents for support, reporting and follow-ups. You choose where approval is required."],
+  agent: ["AI-agents", "AI agents", "Kies één bestaande agent vanaf € 250 of het Commerce 360-team van 14 agents vanaf € 1.499. Maatwerk, implementatie en training begroten we apart. Bedragen zijn exclusief btw.", "Choose one existing agent from €250 or the 14-agent Commerce 360 team from €1,499. Custom work, implementation and training are quoted separately. Prices exclude VAT."],
   social: ["Socialmedia", "Social media", "We brengen contentplanning, beeld, goedkeuring en publicatie samen. Zo kun je consistent posten en kwaliteit blijven bewaken.", "We bring planning, creative, approvals and publishing together so you can post consistently and oversee quality."],
-  ads: ["Social advertising", "Social advertising", "We bouwen creatives, testen invalshoeken en meten wat campagnes op Meta en TikTok opleveren.", "We build creatives, test angles and measure what Meta and TikTok campaigns deliver."],
+  ads: ["Social advertising", "Social advertising", "Vanaf € 399 exclusief btw richten we Meta óf TikTok in, koppelen en testen we de pixel, leggen we de strategie uit en starten we één campagne. Advertentiebudget en extra creatives komen daar apart bij.", "From €399 excluding VAT, we set up Meta or TikTok, connect and test the pixel, explain the strategy and launch one campaign. Ad spend and additional creative cost extra."],
 
   website: ['Website','Website','Een website begint bij de klantvraag. We maken eerst een ontwerp met een duidelijke route naar contact of een aanvraag. Daarna bouwen en testen we de site op mobiel en desktop.','A website starts with the customer’s question. We design a clear path to an enquiry, then build and test it on mobile and desktop.'],
   webshop: ['Webshop','Online store','Van navigatie en productpagina’s tot betalen en bevestigen. De eerste versie richt zich op wat klanten nodig hebben om met vertrouwen te bestellen.','From navigation and product pages to payment and confirmation. The first version focuses on what customers need to order with confidence.'],
-  vindbaar: ['Vindbaarheid','Visibility','We beginnen bij de vragen die klanten echt stellen. Elke dienst krijgt een duidelijke pagina, gekoppeld aan cases en inhoudelijke artikelen waar die iets toevoegen.','We start with questions customers actually ask. Each service gets its own page, linked to cases and useful articles where they add context.'],
+  vindbaar: ['Vindbaarheid','Visibility', "Vanaf € 1.250 exclusief btw verzorgen we een nulmeting, Search Console, een indexerings- en sitemapcheck en verbeteringen aan vijf pagina’s. Na 30 dagen bespreken we de cijfers.", "From €1,250 excluding VAT, we cover a baseline, Search Console, indexing and sitemap checks and improvements to five pages. We review the figures after 30 days."],
   };
 const chatVraag = $('#chat-vraag');
 const chatSturen = $('#chat-sturen');
@@ -64,7 +64,7 @@ $('#chat-form').addEventListener('submit', gebeurtenis => {
   const vraag = chatVraag.value.trim();
   if (!vraag) return;
   const woorden = vraag.toLowerCase();
-  const onderwerpen = [[/webshop|store|shopify/,'webshop'],[/seo|geo|google|vindbaar|search/,'vindbaar'],[/agent|automati|chatbot/,'agent'],[/adverten|ads|campagne/,'ads'],[/social|instagram|tiktok/,'social'],[/site|website/,'website']];
+  const onderwerpen = [[/seo|geo|google|vindbaar|search/,'vindbaar'],[/agent|automati|chatbot/,'agent'],[/adverten|ads|campagn|campaign|pixel/,'ads'],[/social|instagram|tiktok/,'social'],[/webshop|store|shopify/,'webshop'],[/site|website/,'website']];
   chatAnswer(onderwerpen.find(([patroon]) => patroon.test(woorden))?.[1], vraag);
   chatVraag.value = '';
   chatSturen.disabled = true;
