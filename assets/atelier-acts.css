@@ -13,35 +13,29 @@
 .founder-photo > .act-portrait,
 #atelier .oprichter-lead > .act-portrait {
   position:absolute; right:8px; bottom:8px; width:clamp(74px,10vw,132px); aspect-ratio:1;
-  background:url('/assets/atelier-scenes/promotor-rust.webp') center / contain no-repeat;
+  background:url('/assets/atelier-scenes/promotor-rust.webp?v=368') center / contain no-repeat;
   z-index:1; pointer-events:auto; cursor:pointer; touch-action:manipulation;
   appearance:none; border:0; margin:0; padding:0; box-shadow:none; border-radius:8px;
 }
 .act-portrait:focus-visible {outline:2px solid #ffd7ba;outline-offset:1px}
-.portrait-control-label {position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.act-portrait canvas {display:block;width:100%;height:100%;pointer-events:none;visibility:hidden}
+@media (prefers-reduced-motion:no-preference) {
+  .act-portrait[data-frames-ready] > canvas {visibility:visible}
+  :is(#atelier .oprichter-lead, .founder-photo) > .act-portrait[data-frames-ready] {background-image:none}
+}
 .founder-photo:has(.act-portrait) figcaption {padding-inline-end:clamp(82px,11vw,145px)}
 #atelier .oprichter-lead > .act-portrait {
-  width:clamp(54px,16vw,68px); left:min(30%,110px); right:auto; bottom:0; transform:translateX(-94%);
+  width:clamp(54px,16vw,68px); left:calc(min(30%,110px) - clamp(54px,16vw,68px)); right:auto; bottom:2px;
 }
 #atelier .oprichter-lead:has(.act-portrait)::after {content:none}
-
-@media (prefers-reduced-motion:no-preference) {
-  :is(#atelier .oprichter-lead, .founder-photo) > .act-portrait[data-frames-ready].act-playing {
-    background-image:url('/assets/atelier-scenes/promotor-spel.webp');
-    background-size:800% 1200%;
-    animation:act-portrait-column .5s steps(8,end) 12, act-portrait-row 6s steps(12,end) !important;
-  }
-}
-@keyframes act-portrait-column {from {background-position-x:0%} to {background-position-x:114.285714%}}
-@keyframes act-portrait-row {from {background-position-y:0%} to {background-position-y:109.090909%}}
 
 /* The tool and the hands follow the same authored poses as their hero counterpart. */
 @media (prefers-reduced-motion:no-preference) {
   .act-role:not(.act-playing) {animation:none !important}
-  .act-post.act-playing > i {animation:act-envelope 2.7s ease-in-out}
+  .act-post.act-playing > i {animation:act-envelope 2.88s ease-in-out infinite}
   .act-role[data-frames-ready].act-playing {
     background:var(--role-sheet) 0 0 / 600% 400% no-repeat;
-    animation:act-role-column .72s steps(6,end) 4, act-role-row 2.88s steps(4,end) !important;
+    animation:act-role-column .72s steps(6,end) infinite, act-role-row 2.88s steps(4,end) infinite !important;
   }
   .act-role[data-frames-ready].act-playing > img {visibility:hidden}
 }

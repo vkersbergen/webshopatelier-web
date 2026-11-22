@@ -29,7 +29,7 @@
       return;
     }
     const filename = compact.matches ? 'atelier-vlucht-mobiel' : 'atelier-vlucht';
-    const src = '/assets/atelier-crew/film/' + filename + '.mp4';
+    const src = '/assets/atelier-crew/film/' + filename + '.mp4?v=glas2';
     if (film.getAttribute('src') !== src) {
       stage.classList.remove('is-playing');
       film.src = src;

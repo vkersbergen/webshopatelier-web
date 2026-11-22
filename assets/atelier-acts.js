@@ -2,64 +2,79 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const registered = new WeakSet();
   const onscreen = new Set();
-  const lastPlayed = new WeakMap();
-
-  const portraitRepeats = new WeakMap();
-  function stop(actor) {
-    clearTimeout(portraitRepeats.get(actor));
-    portraitRepeats.delete(actor);
-    actor.classList.remove('act-playing');
-  }
-
   const sheets = new Map();
-  function prepareSheet(actor) {
-    const url = actor.dataset.actSheet;
+  const portraits = new WeakMap();
+  let portraitPaused = false;
+
+  function prepareSheet(url) {
     if (!sheets.has(url)) {
       const image = new Image();
       image.src = url;
-      sheets.set(url, image.decode().then(() => true, () => {
+      sheets.set(url, image.decode().then(() => image, () => {
         sheets.delete(url);
-        return false;
+        return null;
       }));
     }
     return sheets.get(url);
   }
 
-  function play(actor) {
-    if (reduce.matches || document.hidden || actor.classList.contains('act-playing')) return;
-    if (actor.dataset.atelierAct !== 'portrait' && performance.now() - (lastPlayed.get(actor) ?? -Infinity) < 4500) return;
-    if (actor.dataset.actSheet && !actor.hasAttribute('data-frames-ready')) {
-      prepareSheet(actor).then(ready => {
-        if (!ready || !actor.isConnected) return;
-        actor.setAttribute('data-frames-ready', '');
-        if (onscreen.has(actor)) play(actor);
-      });
-      return;
+  function stop(actor) {
+    const state = portraits.get(actor);
+    if (state) {
+      cancelAnimationFrame(state.request);
+      state.previous = null;
     }
-    lastPlayed.set(actor, performance.now());
+    actor.classList.remove('act-playing');
+  }
+
+  // Integer source rectangles keep every part of the horn inside its own tile
+  // even at fractional mobile display widths and non-integer device scale.
+  function animatePortrait(actor, state) {
+    function draw(now) {
+      if (!actor.classList.contains('act-playing') || !actor.isConnected) return;
+      if (state.previous !== null) state.time += now - state.previous;
+      state.previous = now;
+      const frame = Math.floor(state.time * 16 / 1000) % 96;
+      if (frame !== state.frame) {
+        state.frame = frame;
+        const width = state.sheet.naturalWidth / 8;
+        const height = state.sheet.naturalHeight / 12;
+        state.ctx.clearRect(0, 0, width, height);
+        state.ctx.drawImage(state.sheet, frame % 8 * width, Math.floor(frame / 8) * height,
+          width, height, 0, 0, width, height);
+      }
+      state.request = requestAnimationFrame(draw);
+    }
+    state.request = requestAnimationFrame(draw);
+  }
+
+  async function play(actor) {
+    const allowed = () => !reduce.matches && !document.hidden && onscreen.has(actor) &&
+      !(portraitPaused && portraits.has(actor)) && !actor.classList.contains('act-playing');
+    if (!allowed()) return;
+    const sheet = await prepareSheet(actor.dataset.actSheet);
+    if (!sheet || !actor.isConnected || !allowed()) return;
+    actor.setAttribute('data-frames-ready', '');
     actor.classList.add('act-playing');
+    const state = portraits.get(actor);
+    if (state) {
+      if (!state.sheet) {
+        state.sheet = sheet;
+        state.ctx.canvas.width = sheet.naturalWidth / 8;
+        state.ctx.canvas.height = sheet.naturalHeight / 12;
+      }
+      animatePortrait(actor, state);
+    }
   }
   const observer = new IntersectionObserver(entries => {
-    for (const {target, intersectionRatio} of entries) {
-      if (intersectionRatio >= .5) {
+    for (const {target, isIntersecting} of entries) {
+      if (isIntersecting) {
         onscreen.add(target);
         play(target);
       } else {
-        stop(target);
         onscreen.delete(target);
+        stop(target);
       }
-    }
-  }, {threshold: [0, .5]});
-
-  document.addEventListener('animationend', e => {
-    const actor = e.target;
-    if (!e.animationName.startsWith('act-') || !actor.classList.contains('act-playing')) return;
-    if (actor.matches('.act-portrait') && e.animationName !== 'act-portrait-row') return;
-    stop(actor);
-    if (actor.matches('.act-portrait') && onscreen.has(actor) && !reduce.matches && !document.hidden) {
-      portraitRepeats.set(actor, setTimeout(() => {
-        if (actor.isConnected && onscreen.has(actor)) play(actor);
-      }, 900));
     }
   });
   document.addEventListener('toggle', event => {
@@ -83,7 +98,7 @@
     registered.add(actor);
     actor.dataset.atelierAct = action;
     if (action === 'portrait') {
-      actor.dataset.actSheet = '/assets/atelier-scenes/promotor-spel.webp';
+      actor.dataset.actSheet = '/assets/atelier-scenes/promotor-spel.webp?v=288-96';
     } else {
       const body = actor.querySelector('img[src*="/atelier-crew/"][src$="-body.webp"]');
       if (body) {
@@ -138,18 +153,24 @@
       actor.type = 'button';
       actor.disabled = reduce.matches;
       actor.className = 'atelier-act act-portrait';
-      const label = document.createElement('span');
-      label.className = 'portrait-control-label';
-      label.dataset.en = 'Replay megaphone animation';
-      label.textContent = document.documentElement.lang.startsWith('en')
-        ? label.dataset.en : 'Speel de megafoonanimatie opnieuw';
-      actor.append(label);
+      const canvas = document.createElement('canvas');
+      canvas.setAttribute('aria-hidden', 'true');
+      actor.append(canvas);
+      portraits.set(actor, {ctx: canvas.getContext('2d'), time: 0, frame: -1, previous: null, request: 0});
+      const updateLabel = () => {
+        const en = document.documentElement.lang.startsWith('en');
+        actor.setAttribute('aria-label', en ? 'Pause megaphone animation' : 'Megafoonanimatie pauzeren');
+        actor.setAttribute('aria-pressed', String(portraitPaused));
+      };
+      updateLabel();
       actor.addEventListener('click', () => {
-        if (reduce.matches || !onscreen.has(actor)) return;
-        stop(actor);
-        lastPlayed.delete(actor);
-        void actor.offsetWidth;
-        play(actor);
+        if (reduce.matches) return;
+        portraitPaused = !portraitPaused;
+        document.querySelectorAll('button.act-portrait').forEach(other => {
+          other.setAttribute('aria-pressed', String(portraitPaused));
+          if (portraitPaused) stop(other);
+          else if (onscreen.has(other)) play(other);
+        });
       });
       if (oldActor) oldActor.replaceWith(actor);
       else portrait.append(actor);

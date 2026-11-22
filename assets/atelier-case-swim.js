@@ -20,6 +20,9 @@
     actor.getBoundingClientRect();
     actor.classList.add(reaction ? 'puppet-react' : 'puppet-intro');
   }
+  document.addEventListener('animationend', event => {
+    if (event.animationName === 'case-follow') play(event.target.closest('.case-puppet'));
+  });
   const observer = new IntersectionObserver(entries => {
     for (const e of entries) {
       if (e.intersectionRatio >= .55) {

@@ -9,3 +9,11 @@
 .reader-object path {fill:#623744;stroke:#ffb093;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .reader-object path + path {fill:none;stroke:#fff0d0}
 .reader-object .reader-detail {stroke:#fd9767;stroke-width:2.2}
+
+@keyframes clock-glance {
+  0%,100% { rotate: -2deg }
+  55% { rotate: 5deg }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .reader-clock.clock-in-view .timekeeper-head { animation:clock-glance 3.2s ease-in-out infinite }
+}

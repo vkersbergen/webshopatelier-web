@@ -1,6 +1,7 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finishOnPreference = new Set();
+  const resumeOnPreference = new Set();
   const ns = 'http://www.w3.org/2000/svg';
   const svgElement = (name, attrs = {}) => {
     const element = document.createElementNS(ns, name);
@@ -59,6 +60,7 @@
       }
     };
     image.replaceWith(svg);
+    new IntersectionObserver(([entry]) => svg.classList.toggle('clock-in-view', entry.isIntersecting)).observe(svg);
     hourHand.style.transform='rotate(300deg)';
     minuteHand.style.transform='rotate(60deg)';
     select();
@@ -100,10 +102,11 @@
     function perform() {
       if (!ready || !visible || document.hidden || reduced.matches || puppet.getAnimations().length) return;
       const frames=Array.from({length:24},(_,i)=>({backgroundPosition:(i%6*20)+'% '+(Math.floor(i/6)*100/3)+'%',offset:i/23,easing:'steps(1,end)'}));
-      puppet.animate(frames,{duration:2250});
-      prop.animate([{transform:'rotate(-6deg)'},{transform:'rotate(-6deg)',offset:.2},{transform:'translate(-2px,-2px) rotate(7deg)',offset:.47},{transform:'rotate(2deg)',offset:.72},{transform:'rotate(-6deg)'}],{duration:2250});
-      prop.lastChild.animate([{opacity:.45},{opacity:.45,offset:.43},{opacity:1,offset:.53},{opacity:1}],{duration:2250});
+      puppet.animate(frames,{duration:2250,iterations:Infinity});
+      prop.animate([{transform:'rotate(-6deg)'},{transform:'rotate(-6deg)',offset:.2},{transform:'translate(-2px,-2px) rotate(7deg)',offset:.47},{transform:'rotate(2deg)',offset:.72},{transform:'rotate(-6deg)'}],{duration:2250,iterations:Infinity});
+      prop.lastChild.animate([{opacity:.45},{opacity:.45,offset:.43},{opacity:1,offset:.53},{opacity:1}],{duration:2250,iterations:Infinity});
     }
+    resumeOnPreference.add(perform);
     new IntersectionObserver(async ([entry])=>{
       visible=entry.isIntersecting;
       if (!visible) {stop();return;}
@@ -122,6 +125,10 @@
   }
   document.querySelectorAll('.cameo-reader').forEach(actor=>reader(actor,location.pathname.split('/')[2]));
   const stopAll=()=>finishOnPreference.forEach(stop=>stop());
-  reduced.addEventListener('change',()=>{if(reduced.matches)stopAll();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});
+  function syncMotion() {
+    if (reduced.matches || document.hidden) stopAll();
+    else resumeOnPreference.forEach(perform => perform());
+  }
+  reduced.addEventListener('change',syncMotion);
+  document.addEventListener('visibilitychange',syncMotion);
 })();
