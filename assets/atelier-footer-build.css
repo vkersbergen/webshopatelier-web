@@ -74,9 +74,9 @@ body[data-footer="inkt"] .r2-foot{background:linear-gradient(115deg,#25212c,#191
   background-size:cover,auto 300px;background-position:center,60% top
  }
  #atelier-foot .r2-foot-inner{padding-inline:clamp(18px,5.6vw,28px)}
- #atelier-foot .r2-support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:24px 0;align-items:center}
- #atelier-foot .r2-contact{grid-area:1/1;min-width:0}
- #atelier-foot .r2-portrait{grid-area:1/2;width:clamp(52px,16vw,76px);height:auto;aspect-ratio:1/1.12}
+ #atelier-foot .r2-support{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;padding:24px 0;align-items:center}
+ #atelier-foot .r2-contact{grid-area:1/2;min-width:0}
+ #atelier-foot .r2-portrait{grid-area:1/1;width:clamp(52px,16vw,76px);height:auto;aspect-ratio:1/1.12}
  #atelier-foot .r2-news{padding-block:24px}
  #atelier-foot .af-base{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:9px 4px;padding-top:18px}
  #atelier-foot .af-brand{width:fit-content;font-size:clamp(19px,5.7vw,24px)}
