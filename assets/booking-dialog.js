@@ -210,6 +210,18 @@ function initAtelierBooking(card, api) {
       content.append(button(t('Opnieuw proberen','Try again'),()=>load(week,true),'booking-action'));
     }
   }
+  function renderRateLimit() {
+    stage = 'rate-limited';
+    status.textContent = '';
+    content.replaceChildren(
+      element('h3',t('Kies een tijd via Calendly','Choose a time via Calendly')),
+      element('p',t(
+        'Je afspraak is nog niet geboekt. Open de agenda hieronder om je belafspraak bij Calendly te plannen.',
+        'Your call has not been booked. Open the calendar below to schedule your call with Calendly.'
+      ))
+    );
+    showFallback(true);
+  }
   function renderDetails() {
     stage = 'details'; status.textContent = notice; content.replaceChildren();
     const form = element('form',null,'booking-fields');
@@ -244,6 +256,9 @@ function initAtelierBooking(card, api) {
           headers:{'Content-Type':'application/json','Idempotency-Key':crypto.randomUUID()},
           body:JSON.stringify({...fields,start_time:selectedTime,language:t('nl','en')})
         });
+        if (result.status===429) {
+          renderRateLimit(); focusHeading(); return;
+        }
         if (result.status===409) {
           notice = t('Dit moment is net bezet. Kies een nieuw tijdstip.','This time has just been taken. Choose another.');
           await load(week,true); return;
@@ -277,6 +292,7 @@ function initAtelierBooking(card, api) {
   },{rootMargin:'120px'});
   observe.observe(card);
   new MutationObserver(()=>{
+    if (stage==='rate-limited') renderRateLimit();
     if (stage==='choose') { notice=''; renderPicker(); }
     if (stage==='details') { notice=''; renderDetails(); }
     region.setAttribute('aria-label',t('Plan je kennismaking','Schedule your call'));
