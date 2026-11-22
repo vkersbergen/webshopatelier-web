@@ -27,7 +27,7 @@
 
   function play(actor) {
     if (reduce.matches || document.hidden || actor.classList.contains('act-playing')) return;
-    if (performance.now() - (lastPlayed.get(actor) ?? -Infinity) < 4500) return;
+    if (actor.dataset.atelierAct !== 'portrait' && performance.now() - (lastPlayed.get(actor) ?? -Infinity) < 4500) return;
     if (actor.dataset.actSheet && !actor.hasAttribute('data-frames-ready')) {
       prepareSheet(actor).then(ready => {
         if (!ready || !actor.isConnected) return;
