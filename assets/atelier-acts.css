@@ -1,0 +1,60 @@
+.atelier-act {display:inline-grid;grid-template:1fr / 1fr;position:relative;pointer-events:none;user-select:none;isolation:isolate}
+.atelier-act > img {display:block;grid-area:1/1;width:100%;height:100%;object-fit:contain}
+.atelier-act i {pointer-events:none;position:absolute;display:block}
+.act-post,.atelier-act.act-repair {float:right;width:clamp(44px,5vw,68px);height:clamp(44px,5vw,68px);margin:0 3px 4px 8px}
+#tools .split-title:has(> .act-repair) {position:relative}
+#tools .split-title > .act-repair {float:none;position:absolute;left:0;bottom:100%;width:44px;height:44px;margin:0}
+.act-post i {width:32%;height:20%;top:58%;left:55%;background:linear-gradient(145deg,transparent 48%,#99433c 49% 54%,transparent 56%) top left / 53% 64% no-repeat,linear-gradient(215deg,transparent 48%,#99433c 49% 54%,transparent 56%) top right / 53% 64% no-repeat,#ffc8a5;border:1px solid #854139;border-radius:2px;transform:rotate(-12deg)}
+#werk .wa-mobile .desktop-device:has(.act-game)::before,#atelier .wa-mobile .oprichter-lead:has(.act-announce)::after {content:none}
+#werk .desktop-device > .act-game {position:absolute;left:10%;bottom:calc(100% - 7px);width:52px;height:56px;z-index:1}
+#atelier .oprichter-lead > .act-announce {position:absolute;left:min(calc(30% - 39px),71px);bottom:0;width:43px;height:40px;z-index:1}
+.act-announce i,.act-game i {opacity:0;top:5%;right:0;width:8px;height:8px;background:#ffc990;clip-path:polygon(50% 0,63% 36%,100% 50%,63% 63%,50% 100%,37% 64%,0 50%,37% 36%)}
+@media (prefers-reduced-motion:no-preference) {
+  [data-atelier-act].act-playing {animation:var(--act,act-peek) 2.9s ease-in-out both !important;transform-origin:50% 83%}
+  [data-atelier-act="peek"] {--act:act-peek}
+  [data-atelier-act="game"] {--act:act-game}
+  [data-atelier-act="swim"] {--act:act-swim}
+  [data-atelier-act="announce"] {--act:act-announce}
+  [data-atelier-act="post"] {--act:act-post}
+  [data-atelier-act="repair"],[data-atelier-act="measure"] {--act:act-repair}
+  [data-atelier-act="snap"] {--act:act-snap}
+  [data-atelier-act="search"] {--act:act-search}
+  .act-playing[data-atelier-act="post"] i {animation:act-envelope 2.7s ease-in-out both}
+  .act-playing:is([data-atelier-act="repair"],[data-atelier-act="measure"],[data-atelier-act="search"],[data-atelier-act="announce"]) img:nth-of-type(2) {transform-origin:50% 60%;animation:act-tool 2.4s ease-in-out}
+  .act-playing:is(.act-game,.act-announce) i {animation:act-flash 2.6s ease both}
+}
+@keyframes act-peek {0%,100% {translate:0 0} 20% {translate:-4px 3px;rotate:-9deg} 39% {translate:4px -2px;rotate:7deg} 70% {rotate:0deg}}
+@keyframes act-game {0%,100% {rotate:0deg} 18%,35% {rotate:5deg;translate:0 1px} 28%,44% {rotate:-3deg} 63% {translate:0 -6px;rotate:-8deg} 72% {translate:0 1px;rotate:4deg}}
+@keyframes act-swim {0%,100% {translate:0 0;rotate:0deg} 14% {translate:-15% 3px;rotate:-9deg} 32% {translate:5% -4px;rotate:4deg} 47% {translate:21% 2px;rotate:-5deg} 65% {translate:34% -4px;rotate:4deg} 82% {translate:29% 1px;rotate:-3deg}}
+@keyframes act-announce {0%,100% {rotate:0deg} 20% {translate:-2px -2px;rotate:-9deg} 34%,52% {translate:4px -3px;rotate:9deg} 44%,62% {translate:-2px 0;rotate:-4deg} 79% {rotate:2deg}}
+@keyframes act-post {0%,100% {rotate:0deg} 20% {rotate:8deg} 42% {translate:-4px 0;rotate:-12deg} 56% {translate:2px -4px;rotate:7deg} 80% {rotate:-4deg}}
+@keyframes act-envelope {0%,100% {opacity:1;transform:rotate(-12deg)} 25% {transform:translate(4px,2px) rotate(16deg)} 57% {opacity:1;transform:translate(-16px,-17px) rotate(-22deg)} 74% {opacity:0;transform:translate(-29px,-7px) rotate(-45deg)} 77% {opacity:0;transform:rotate(-12deg)}}
+@keyframes act-repair {0%,100% {rotate:0deg} 18%,45% {translate:-2px -2px;rotate:-8deg} 33%,58% {translate:2px 2px;rotate:6deg} 79% {rotate:-2deg}}
+@keyframes act-snap {0%,100% {rotate:0deg} 24%,45% {translate:0 -4px;rotate:-8deg} 48% {translate:0 -1px;rotate:-5deg} 67% {translate:0 -4px;rotate:4deg}}
+@keyframes act-search {0%,100% {rotate:0deg} 24% {translate:-7px -2px;rotate:-16deg} 59% {translate:6px 1px;rotate:10deg} 82% {translate:2px -3px;rotate:3deg}}
+@keyframes act-tool {0%,100% {transform:rotate(0)} 23%,52% {transform:rotate(-11deg)} 38%,67% {transform:rotate(6deg)}}
+@keyframes act-flash {0%,46%,78%,100% {opacity:0;transform:scale(.4)} 59%,68% {opacity:1;transform:translate(3px,-4px) scale(1.15)}}
+.guide-contents summary:has(.act-librarian) {position:relative;min-height:50px;padding-inline-end:82px}
+.guide-contents summary .act-librarian {position:absolute;right:32px;top:50%;width:39px;height:39px;transform:translateY(-50%)}
+@media (prefers-reduced-motion:no-preference) {
+  .atelier-zwembaan:has(.act-playing)::after,.founder-photo:has(.act-playing)::after {content:"";position:absolute;pointer-events:none;opacity:0}
+  .atelier-zwembaan:has(.act-playing)::after {content:"0  1";left:18%;top:46%;font:700 12px/1 monospace;color:#ffd1ba;animation:act-bubbles 1.15s ease-out 2}
+  .founder-photo:has(.act-playing)::after {right:clamp(72px,10vw,125px);bottom:clamp(58px,6vw,83px);width:21px;height:18px;background:linear-gradient(16deg,transparent 44%,#ffba91 46% 53%,transparent 56%) top / 100% 42% no-repeat,linear-gradient(-16deg,transparent 44%,#ffba91 46% 54%,transparent 56%) bottom / 100% 42% no-repeat;animation:act-sound 1s ease-out .35s 2}
+}
+@keyframes act-bubbles {0% {opacity:0;transform:translate(0,0) scale(.6)} 24% {opacity:1} 100% {opacity:0;transform:translate(-12px,-18px) scale(1.1)}}
+@keyframes act-sound {0%,100% {opacity:0} 42% {opacity:1;transform:translate(-3px) scale(1)} 78% {opacity:0;transform:translate(-7px) scale(1.2)}}
+.act-signal {position:absolute;right:2%;top:12%;opacity:0;color:#ffbe9a;font:800 15px/1 system-ui;text-shadow:0 1px 3px #251824}
+@media (prefers-reduced-motion:no-preference) {
+  [data-atelier-act="count"] {--act:act-count}
+  [data-atelier-act="sort"] {--act:act-sort}
+  [data-atelier-act="reply"] {--act:act-reply}
+  [data-atelier-act="tap"] {--act:act-game}
+  [data-atelier-act="map"] {--act:act-search}
+  [data-atelier-act="measure"] {--act:act-measure}
+  .act-playing > .act-signal {animation:act-signal 2.7s ease both}
+}
+@keyframes act-count {0%,100% {rotate:0deg} 20%,37%,54% {rotate:5deg;translate:2px 1px} 29%,46%,63% {rotate:-4deg;translate:-2px -2px}}
+@keyframes act-sort {0%,100% {rotate:0deg} 24% {translate:-5px 2px;rotate:-8deg} 46% {translate:0 -5px} 64% {translate:6px 2px;rotate:8deg} 79% {translate:4px -2px}}
+@keyframes act-reply {0%,100% {rotate:0deg} 19%,35% {translate:0 2px;rotate:4deg} 46% {translate:0 -1px;rotate:0deg} 61% {translate:2px -5px;rotate:-6deg} 75% {translate:0 1px}}
+@keyframes act-measure {0%,100% {rotate:0deg} 18% {rotate:-8deg;translate:-4px 0} 49% {rotate:4deg;translate:7px 0} 73% {rotate:-4deg;translate:5px -2px}}
+@keyframes act-signal {0%,43%,100% {opacity:0;transform:translateY(2px) scale(.7)} 54%,77% {opacity:1;transform:translateY(-3px) scale(1)} 94% {opacity:0;transform:translateY(-7px)}}
