@@ -40,7 +40,9 @@ body[data-footer="inkt"] .r2-foot{background:linear-gradient(115deg,#25212c,#191
 .r2-letter-paper{position:absolute;inset:1px 9px 7px;display:grid;place-items:start center;background:linear-gradient(125deg,#fff2dd,#e6c7bd);border-radius:4px;transform:rotate(5deg);padding:4px}
 .r2-letter-paper img{width:18px;height:22px;object-fit:contain}
 .r2-letter-front{background:linear-gradient(150deg,#ffa887,#f47553 60%,#bd4d38);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-bottom:1px solid #cc6245}
-#atelier-foot.r2-foot{background:linear-gradient(118deg,#51384f,#463147 64%,#39283d);overflow:hidden;color:#fff6ef}
+#atelier-foot.r2-foot{background-color:#2b1c2c;
+ background-image:linear-gradient(90deg,#271c2b55 40%,#291d2daa 65%,#23152433),linear-gradient(0deg,#231825,#291d2d70 55%,transparent),url("footer-pruimglas.webp");
+ background-position:center,center,center top;background-size:cover,cover,100% auto;background-repeat:no-repeat;overflow:hidden;color:#fff6ef}
 #atelier-foot .r2-news iframe,.r2-news-dialog iframe{display:block;background:transparent;width:100%;border:0;height:290px;color-scheme:normal}
 #atelier-foot [hidden],.r2-news-dialog [hidden]{display:none!important}
 .r2-about summary [data-af-nl]::before{content:none}
@@ -65,3 +67,23 @@ body[data-footer="inkt"] .r2-foot{background:linear-gradient(115deg,#25212c,#191
 }
 .r2-news h2 [data-af-nl],.r2-news-dialog h2 [data-af-nl]{color:inherit}
 #atelier-foot .r2-about summary [data-af-nl]::before{content:none}
+
+@media(max-width:759px){
+ #atelier-foot.r2-foot{
+  background-image:linear-gradient(180deg,transparent 60px,#2b1c2c 270px,#211723 100%),url("footer-pruimglas.webp");
+  background-size:cover,auto 300px;background-position:center,60% top
+ }
+ #atelier-foot .r2-foot-inner{padding-inline:clamp(18px,5.6vw,28px)}
+ #atelier-foot .r2-support{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:24px 0;align-items:center}
+ #atelier-foot .r2-contact{grid-area:1/1;min-width:0}
+ #atelier-foot .r2-portrait{grid-area:1/2;width:clamp(52px,16vw,76px);height:auto;aspect-ratio:1/1.12}
+ #atelier-foot .r2-news{padding-block:24px}
+ #atelier-foot .af-base{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:9px 4px;padding-top:18px}
+ #atelier-foot .af-brand{width:fit-content;font-size:clamp(19px,5.7vw,24px)}
+ #atelier-foot .af-social{flex-wrap:nowrap}
+ #atelier-foot .af-social a{width:44px;height:44px}
+ #atelier-foot .af-company{grid-column:1/-1;gap:3px 12px}
+ #atelier-foot .af-company span:first-child{flex-basis:100%}
+ #atelier-foot .af-legal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:0 12px;padding:12px 0 max(70px,env(safe-area-inset-bottom))}
+ #atelier-foot .af-legal a{padding-block:7px;width:fit-content;max-width:100%;overflow-wrap:anywhere}
+}
