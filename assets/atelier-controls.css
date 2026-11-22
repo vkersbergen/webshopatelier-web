@@ -81,3 +81,9 @@ body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex
   min-height:44px; margin:0 0 4px; padding:0 2px; color:#ffc0ad;
   font-size:.94rem; text-decoration:underline; text-underline-offset:4px;
 }
+
+.mega-directory a:is([href$="/contact/"],[href$="/contact/en/"],[href$="#boeken"]){display:flex;align-items:center;gap:.55em}
+.mega-directory a:is([href$="/contact/"],[href$="/contact/en/"]){margin-top:.4em;padding-top:.65em;border-top:1px solid #ffffff23}
+.mega-directory a:is([href$="/contact/"],[href$="/contact/en/"],[href$="#boeken"])::before{content:"";width:1em;height:1em;flex:none;background:currentColor;mask:var(--directory-icon) center/contain no-repeat}
+.mega-directory a:is([href$="/contact/"],[href$="/contact/en/"]){--directory-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%205.5h18v13H3z%20M4%207l8%206%208-6%22%2F%3E%3C%2Fsvg%3E")}
+.mega-directory a[href$="#boeken"]{--directory-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M7%203v4m10-4v4M3%2010h18m-13%205h5%22%2F%3E%3C%2Fsvg%3E")}

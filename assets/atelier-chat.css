@@ -47,3 +47,9 @@
   #chat-launch[data-greet] img{animation:atelier-hello .55s ease-in-out 1 both}
   @keyframes atelier-hello{0%,100%{transform:rotate(0)}35%{transform:rotate(-7deg)}70%{transform:rotate(3deg)}}
 }
+
+@media(prefers-reduced-motion:no-preference){
+  #chat-launch[aria-expanded="false"]:not([data-greet]) img{transform-origin:50% 85%;animation:atelier-peek 16s ease-in-out 2}
+  #chat-launch:is(:hover,:focus-visible)[aria-expanded="false"] img{animation:atelier-hello .55s ease-in-out 1}
+  @keyframes atelier-peek{0%,83%,94%,100%{transform:none}86%{transform:translateY(1px) rotate(-3deg)}89%{transform:translateY(-3px) rotate(6deg)}92%{transform:translateY(-1px) rotate(-2deg)}}
+}

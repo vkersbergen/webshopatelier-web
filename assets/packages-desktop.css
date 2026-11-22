@@ -22,9 +22,26 @@
   #pakketten :is(.service,.commerce-pakket):is(:hover,:focus-within) img[src*="/glas-"]{transform:scale(1.045)}
 }
 
-#pakketten .service .price-kader strong,
-#pakketten .service .price-kader span,
-#pakketten .commerce-pakket .commerce-tarief{color:#ffab94}
+#pakketten .service[data-foto] .service-body .price-kader :is(strong,span),
+#pakketten .commerce-pakket .commerce-tarief {
+  color:#ffc4a5;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.35;
+}
+#pakketten .service-body .textlink,
+#pakketten .meer-pakketten .textlink {
+  color:#ece2e8;
+  font-weight:550;
+  text-decoration:underline;
+  text-decoration-color:#938393;
+  text-underline-offset:.22em;
+}
+#pakketten .service-body .textlink:is(:hover,:focus-visible),
+#pakketten .meer-pakketten .textlink:is(:hover,:focus-visible) {
+  color:#fff4ee;
+  text-decoration-color:currentColor;
+}
 
 @media (max-width: 599px) {
   #pakketten.services { padding-block: 28px; }
