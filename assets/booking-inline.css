@@ -88,3 +88,8 @@
   #boeken .has-inline-booking .atelier-call-actions {padding:0 18px 12px;background:#302534}
   #boeken .booking-picker {border:0;border-top:1px solid #5c485b;padding:18px 14px 6px}
 }
+
+@media (min-width: 761px) {
+  #boeken .has-inline-booking .atelier-call-copy { container-type:inline-size }
+  #boeken .has-inline-booking #call-heading { font-size:min(4rem, 14cqi) }
+}
