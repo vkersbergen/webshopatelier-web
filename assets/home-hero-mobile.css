@@ -9,10 +9,12 @@
     min-height: 0;
     padding: 0;
     gap: 0;
+    display:flex;
+    flex-direction:column;
   }
 
   main > .hero .hero-copy {
-    padding: clamp(28px, 8vw, 46px) clamp(18px, 5vw, 30px) 0;
+    padding: 16px clamp(18px, 5vw, 30px) 28px;
   }
 
   main > .hero h1.hero-title {
@@ -75,6 +77,7 @@
 
   main > .hero .hero-visual {
     width: 100%;
+    order:-1;
     height: clamp(192px, 55vw, 290px);
     margin: 3px 0 0;
     mask-image: linear-gradient(to bottom, transparent, black 15%, black 90%, transparent);
@@ -85,4 +88,12 @@
   main > .hero .buttons { column-gap: 8px }
   main > .hero .buttons .btn { font-size: .84rem; gap: 4px }
   main > .hero .buttons .btn.hot { padding-inline: 10px 5px }
+}
+
+@media (max-width:600px) and (prefers-reduced-motion:no-preference){
+  main>.hero h1.hero-title .title-before{display:block!important;visibility:visible;animation:mobile-old 4s both!important}
+  main>.hero h1.hero-title .title-before span::after{animation:line-out .68s 1.3s both!important}
+  main>.hero h1.hero-title .title-after{animation:mobile-new 4s both!important}
+  @keyframes mobile-old{0%,63%{opacity:1}78%,100%{opacity:0}}
+  @keyframes mobile-new{0%,73%{opacity:0}100%{opacity:1}}
 }

@@ -801,8 +801,8 @@ $('#book-confirm').addEventListener('click', () => {
   const dag = afspraakDatum(afspraakDagen[gekozenDag], {dateStyle: 'full'});
   const onderwerp = local('Kennismaking plannen', 'Plan an introduction');
   const bericht = local(
-    `Hoi Volkert, ik zou graag kennismaken op ${dag} om ${gekozenTijd} (Nederlandse tijd). Komt dit uit?`,
-    `Hi Volkert, I would like to meet on ${dag} at ${gekozenTijd} (Amsterdam time). Does that work for you?`
+    `Hallo WebshopAtelier, ik zou graag kennismaken op ${dag} om ${gekozenTijd} (Nederlandse tijd). Komt dit uit?`,
+    `Hi WebshopAtelier, I would like to meet on ${dag} at ${gekozenTijd} (Amsterdam time). Does that work for you?`
   );
   $('#booking-status').textContent = local('Verstuur de aanvraag vanuit je e-mailprogramma.', 'Send the request from your email app.');
   location.href = 'mailto:hello@webshopatelier.nl?subject=' + encodeURIComponent(onderwerp) + '&body=' + encodeURIComponent(bericht);
@@ -812,7 +812,7 @@ const chatVraag = $('#chat-vraag');
 const chatSturen = $('#chat-sturen');
 function chatReply(key) {
   const item = services[key];
-  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
+  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Stel je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call and we’ll think it through together.');
 }
 function vertaalChat() {
   for (const answer of $('#chat-copy').querySelectorAll('[data-reply]')) {

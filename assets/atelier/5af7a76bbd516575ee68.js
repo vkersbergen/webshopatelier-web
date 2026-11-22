@@ -784,7 +784,7 @@ const chatVraag = $('#chat-vraag');
 const chatSturen = $('#chat-sturen');
 function chatReply(key) {
   const item = services[key];
-  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Vertel Volkert je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call with Volkert and we’ll think it through together.');
+  return key === 'website' ? local('Een website bij WebshopAtelier begint bij € 999 eenmalig. Het aantal pagina’s en de gewenste functies bepalen je offerte.', 'A website from WebshopAtelier starts at a one-off €999. Your quote depends on the pages and features you need.') : item ? local(item[2],item[3]) : local('Stel je vraag in een korte call. Dan denken we gericht mee.', 'Bring your question to a short call and we’ll think it through together.');
 }
 function vertaalChat() {
   for (const answer of $('#chat-copy').querySelectorAll('[data-reply]')) {
