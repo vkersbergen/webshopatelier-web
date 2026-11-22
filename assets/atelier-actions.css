@@ -86,3 +86,4 @@ html body header .header-inner a.header-book.btn.hot:hover {
   border-radius:12px!important;
   box-shadow:var(--wa-action-relief);
 }
+html body header .header-inner a.header-book.btn.hot > .actie-icoon { display: none !important; }

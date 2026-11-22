@@ -53,22 +53,6 @@ header .header-inner #kop-talen summary {display:flex;gap:5px;align-items:center
 header .header-inner #taal-indicator {font-size:14px;line-height:1}
 header .header-inner #kop-talen summary::after {content:"NL";display:inline;width:auto;height:auto;border:0;transform:none;font:700 11px/1 system-ui;color:#fff2ed}
 html[lang^=en] header .header-inner #kop-talen summary::after {content:"EN"}
-header .header-inner #menu {
-  min-height:44px; gap:9px; padding:0 12px;
-  border:1px solid #ffffff29; border-radius:9px;
-  background:#ffffff07; color:#fff4ed; box-shadow:none;
-  font:600 14px/1 var(--body,system-ui);
-}
-header .header-inner #menu .menu-strepen {color:inherit}
-header .header-inner #menu:is(:hover,[aria-expanded=true]) {background:#ffffff12;border-color:#ffffff52}
-html body header .header-inner a.header-book.btn.hot {
-  min-height:44px; padding:0 16px;
-  background:#ff9377!important; color:#271a24!important;
-  border:0; border-radius:9px!important; box-shadow:none;
-  font:700 14px/1 var(--body,system-ui);
-}
-html body header .header-inner a.header-book.btn.hot:hover {background:#ffab92!important}
-html body header .header-inner a.header-book .actie-icoon {display:none!important}
 header .header-inner #kop-talen summary:focus-visible, header .header-inner #menu:focus-visible {outline:2px solid #ffb79e;outline-offset:2px}
 
 @media(min-width:721px){header .header-inner>.actions{gap:8px}}

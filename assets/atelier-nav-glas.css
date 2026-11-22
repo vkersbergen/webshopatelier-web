@@ -10,8 +10,7 @@ html body > header:has(> .header-inner) {
   backdrop-filter: none;
 }
 body header .header-inner > .actions {gap:clamp(4px,.75vw,12px)}
-html body header .header-inner .actions #kop-talen > summary,
-html body header .header-inner .actions #menu.menu-toggle {
+html body header .header-inner .actions #kop-talen > summary {
   min-height:44px;
   min-width:44px;
   border:0;
@@ -23,11 +22,6 @@ html body header .header-inner .actions #menu.menu-toggle {
 html body header .header-inner .actions #kop-talen > summary {
   gap:5px;
   padding:0 6px;
-}
-html body header .header-inner .actions #menu.menu-toggle {
-  padding:0 10px;
-  gap:10px;
-  font:650 14px/1 var(--body,system-ui,sans-serif);
 }
 html body header .header-inner .actions #menu .menu-strepen {
   position:relative;
@@ -49,29 +43,7 @@ html body header .header-inner .actions #menu .menu-strepen {
 #menu .menu-strepen::after {top:9px;width:70%}
 #menu[aria-expanded=true] .menu-strepen::before {top:5px;transform:rotate(45deg)}
 #menu[aria-expanded=true] .menu-strepen::after {top:5px;width:100%;transform:rotate(-45deg)}
-html body header .header-inner .actions #menu[aria-expanded=true],
 html body header .header-inner .actions #kop-talen[open] > summary {background:#fff0e915}
-html body header .header-inner .actions a.btn.hot.header-book {
-  background:#ffc0a4!important;
-  color:#301b25!important;
-  min-height:44px;
-  padding:4px 5px 4px 16px;
-  gap:10px;
-  border:0;
-  border-radius:999px!important;
-  box-shadow:none;
-  font:750 14px/1 var(--body,system-ui,sans-serif);
-}
-html body header .header-inner .actions a.btn.hot.header-book .actie-icoon {
-  display:grid!important;
-  place-items:center;
-  width:30px;height:30px;
-  border:0;
-  border-radius:50%;
-  background:#432737;
-  color:#ffe5d5;
-}
-html body header .header-inner .actions a.btn.hot.header-book .actie-icoon svg {width:16px;height:16px}
 html body header #mega.mega {
   background-color:#2b1c2b;
   background-image:linear-gradient(100deg,#291d2cea 2%,#291d2caa 51%,#27192759 76%,#26172661),url("/assets/footer-pruimglas.webp");
@@ -87,8 +59,7 @@ html body header #mega.mega {
 #mega .mega-directory {border-color:#efcbd850}
 #mega .mega-directory a {color:#fff2ed}
 @media (hover:hover) {
-  html body header .header-inner .actions :is(#menu.menu-toggle:hover,#kop-talen > summary:hover) {background:#fff0e919}
-  html body header .header-inner .actions a.btn.hot.header-book:hover {background:#ffd1bb!important;transform:none}
+  html body header .header-inner .actions #kop-talen > summary:hover {background:#fff0e919}
   #mega .mega-inner .mega-tile:hover {background:#513446}
 }
 @media(max-width:720px) {
@@ -98,5 +69,7 @@ html body header #mega.mega {
     background-position:center,right 19%;
   }
   #mega.mega {background-position: center,right top}
-  html body header .header-inner .actions #menu.menu-toggle {padding-inline:9px;gap:7px}
+}
+@media (max-width: 720px) {
+  html body header .header-inner .actions #menu.menu-toggle { padding-inline: 9px; gap: 7px; font-size: 14px; }
 }
