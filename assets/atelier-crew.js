@@ -8,13 +8,20 @@
   host.append(field);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const definitions = [
-    ["social", 0.1, 0.26, 35, 39, 7],
-    ["ai", 0.24, 0.59, 48, 63, -8],
-    ["website", 0.62, 0.57, 68, -64, 2],
-    ["onderhoud", 0.85, 0.31, 40, -36, 7],
-    ["advertenties", 0.31, 0.18, 37, 30, -6],
-    ["conversie", 0.59, 0.24, 32, -33, 9],
-    ["zoeken", 0.82, 0.75, 45, -40, -9],
+    ["social", 0.12, 0.18, 32, 30, 7],
+    ["ai", 0.32, 0.76, 52, 43, -8],
+    ["website", 0.69, 0.73, 59, -44, 2],
+    ["onderhoud", 0.87, 0.19, 32, -32, 7],
+    ["advertenties", 0.37, 0.16, 32, 27, -6],
+    ["conversie", 0.61, 0.14, 28, -29, 9],
+    ["zoeken", 0.88, 0.57, 43, -31, -9],
+    ["onboarding", 0.21, 0.37, 39, 32, 8],
+    ["copywriting", 0.45, 0.36, 40, -34, -8],
+    ["merkstrategie", 0.71, 0.35, 41, 35, 7],
+    ["groeistrategie", 0.12, 0.59, 44, -33, 7],
+    ["productpaginas", 0.38, 0.56, 44, 30, -8],
+    ["advertentiebeleid", 0.62, 0.54, 44, -32, 9],
+    ["teamassistent", 0.88, 0.79, 46, 39, -6],
   ];
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   let paused = false;
@@ -30,7 +37,7 @@
   let act = null,
     nextAct = 3.9,
     actCount = 0;
-  const entranceOrder = [2, 0, 4, 3, 1, 6, 5];
+  const entranceOrder = [2, 0, 9, 4, 11, 3, 13, 1, 8, 6, 10, 5, 7, 12];
   const pivots = {
     website: "54% 62%",
     onderhoud: "36% 57%",
@@ -60,7 +67,7 @@
     img.dataset.role = name;
     const puppet = document.createElement("span");
     puppet.className = "agent-puppet";
-    for (const kind of ["body", "prop"]) {
+    for (const kind of pivots[name] ? ["body", "prop"] : ["body"]) {
       const part = new Image();
       part.src = "/assets/atelier-crew/" + name + "-" + kind + ".webp";
       part.alt = "";
@@ -93,7 +100,7 @@
       impact: 0,
       index,
       falling: false,
-      arrival: entranceOrder.indexOf(index) * 0.2,
+      arrival: entranceOrder.indexOf(index) * 0.115,
       face: 1,
       turn: 1,
     };
@@ -211,6 +218,10 @@
       ["advertenties", "onderhoud"],
       ["social", "zoeken"],
       ["onderhoud", "conversie"],
+      ["onboarding", "teamassistent"],
+      ["copywriting", "merkstrategie"],
+      ["productpaginas", "advertentiebeleid"],
+      ["groeistrategie", "ai"],
     ];
     const [lead, other] = roles[actCount++ % roles.length].map((name) =>
       figures.find((f) => f.name === name),
@@ -317,7 +328,7 @@
     elapsed += dt;
     actStep(dt);
     if (elapsed > nextDrop) {
-      const a = figures[[2, 6, 1, 3, 4, 0, 5][drops % 7]];
+      const a = figures[entranceOrder[drops % entranceOrder.length]];
       a.falling = true;
       a.vy = 70;
       a.spin = 65;
@@ -336,7 +347,7 @@
           height * (a.fy + 0.055 * Math.sin(elapsed * 1.13 + a.index));
         a.vy += ((target - a.y) * 1.15 - a.vy * 0.5) * dt;
       }
-      const cruise = 40 + a.index * 2.7;
+      const cruise = 25 + a.fy * 28;
       a.vx += (Math.sign(a.vx || 1) * cruise - a.vx) * dt * 0.2;
       a.vx = clamp(a.vx, -160, 160);
       a.vy = clamp(a.vy, -200, 230);
@@ -358,19 +369,21 @@
     if (!width) return;
     for (const a of figures) {
       const active = !reduce.matches;
-      const [pace, range] = timings[a.name];
+      const [pace, range] = timings[a.name] || [2.1 + a.fy, 5];
       const cycle = elapsed * pace + a.index;
       const rest = act && (a === act.other || a === act.lead);
       const work = active && !a.entering && !rest;
       a.turn = mix(a.turn, active ? a.face : 1, 0.19);
+      const yaw = (1 - a.turn) * 86 + (work ? Math.sin(cycle * 0.55) * 12 : 0);
+      const nod = work ? Math.cos(cycle) * 5 : 0;
       a.puppet.style.transform =
-        "perspective(150px) rotateY(" + ((1 - a.turn) * 86).toFixed(1) + "deg)";
+        "perspective(220px) rotateY(" + yaw.toFixed(1) + "deg) rotateX(" + nod.toFixed(1) + "deg)";
       const swing = work ? Math.sin(cycle) * range : a.gesture || 0;
-      a.prop.style.transform = "rotate(" + swing.toFixed(1) + "deg)";
+      if (a.prop) a.prop.style.transform = "rotate(" + swing.toFixed(1) + "deg)";
       a.work.style.opacity = work
         ? Math.pow(Math.max(0, Math.sin(cycle)), 3) * 0.75
         : 0;
-      const ground = floorAt(a),
+      const ground = Math.min(floorAt(a), Math.max(a.y, a.fy * height) + a.h * 0.49),
         lift = Math.max(0, ground - a.y - a.h * 0.46);
       const angle = clamp(
         a.angle + Math.sin(elapsed * 1.2 + a.index) * 4,
