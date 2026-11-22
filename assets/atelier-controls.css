@@ -35,7 +35,8 @@ body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex
 
 .atelier-skip { position: fixed; top: 8px; left: 8px; z-index: 2147483647; padding: 12px 18px; background: #fff6ee; color: #211927; font-weight: 700; border-radius: 8px; transform: translateY(-180%); }
 .atelier-skip:focus { transform: none; outline: 3px solid #ff7958; }
-.atelier-faq { max-width: 44rem; margin: 2rem 0; }
+.atelier-faq { margin-block: 2rem; }
+.atelier-faq > details { max-width: 44rem; }
 .atelier-faq h2 { margin-bottom: 1rem; }
 .atelier-faq details { border-top: 1px solid #79697e; }
 .atelier-faq summary { padding: 1rem 0; font-weight: 700; cursor: pointer; }
