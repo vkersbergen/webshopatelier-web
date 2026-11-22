@@ -1,0 +1,42 @@
+/* Coral is reserved for the action a visitor can take next. */
+body :is(a.btn.hot, button.btn.hot, a.commerce-cta) {
+  color:#241423;
+  background:#ff805f;
+  border:1px solid transparent;
+  border-radius:12px;
+  box-shadow:inset 0 1px 0 #ffc2a5,0 3px 6px #10091338;
+  min-height:44px;
+  padding:10px 16px;
+  text-decoration:none;
+  align-items:center;
+  justify-content:center;
+}
+body :is(.btn.hot,.commerce-cta) .actie-icoon,
+body .buttons .btn .actie-icoon,
+body .commerce-cta .commerce-cta-pijl { display:none }
+body :is(a.btn.hot,button.btn.hot,a.commerce-cta):focus-visible {
+  outline:3px solid #ffc8af;
+  outline-offset:4px;
+}
+@media(hover:hover) {
+  body :is(a.btn.hot,button.btn.hot,a.commerce-cta):hover {background:#ff987a;color:#241423}
+}
+@media(max-width:720px) {
+  html body>header:has(.header-inner) {background:#493450}
+  body .header-inner .menu-toggle {min-height:44px}
+}
+body .btn.hot>span[aria-hidden="true"],body a.pakket-extra-link>span[aria-hidden="true"],body a[data-atelier-booking]>i[aria-hidden="true"]{display:none}
+body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:12px;background:#ff805f;color:#241423;text-decoration:none;box-shadow:inset 0 1px 0 #ffc2a5,0 3px 6px #10091338}
+@media(max-width:720px){
+  html body header:has(> .header-inner){background:#493450!important}
+  html body :is(a.btn.hot,button.btn.hot,a.commerce-cta){background:#ff805f!important;color:#241423!important;border-radius:12px!important}
+  html body main>.hero .buttons .btn.hot{padding:10px 16px}
+}
+
+.atelier-skip { position: fixed; top: 8px; left: 8px; z-index: 2147483647; padding: 12px 18px; background: #fff6ee; color: #211927; font-weight: 700; border-radius: 8px; transform: translateY(-180%); }
+.atelier-skip:focus { transform: none; outline: 3px solid #ff7958; }
+.atelier-faq { max-width: 44rem; margin: 2rem 0; }
+.atelier-faq h2 { margin-bottom: 1rem; }
+.atelier-faq details { border-top: 1px solid #79697e; }
+.atelier-faq summary { padding: 1rem 0; font-weight: 700; cursor: pointer; }
+.atelier-faq details p { margin: 0 0 1rem; }

@@ -1,0 +1,43 @@
+/* The service palette stays on the tiles; each mark keeps its own identity. */
+#tools :is(.tool-tile,.brandchip) > :is(img,svg) {
+  display:block;
+  width:24px;
+  height:24px;
+  max-width:24px;
+  object-fit:contain;
+  object-position:center;
+  flex:none;
+  opacity:1;
+  filter:none;
+}
+#tools :is(.tool-tile,.brandchip) > svg {
+  fill:currentColor;
+  color:var(--brand,#f7f5f8);
+}
+#tools :is([data-tool="Meta"],[data-tool="Meta Ad Library"],[style*="#76adff"]) > svg {
+  color:#57a4ff;
+}
+#tools :is([data-tool="Canva"],[style*="#7be5ec"]) > svg {
+  color:#4ee4e4;
+}
+#tools :is([data-tool="TikTok"],[style*="#ff82a9"]) > svg {
+  width:24px;
+  height:24px;
+  padding:3px;
+  box-sizing:border-box;
+  color:white;
+  background:#121214;
+  border-radius:6px;
+}
+#tools :is([data-tool="TikTok"],[style*="#ff82a9"]) > svg path {
+  filter:drop-shadow(-.85px -.45px 0 #25f4ee) drop-shadow(.75px .55px 0 #fe2c55);
+}
+#tools :is([data-tool="ChatGPT"],[style*="#f4f1f2"]) > svg {
+  box-sizing:border-box;
+  padding:3px;
+  border-radius:6px;
+  background:#f8f7f4;
+  color:#141414;
+}
+#tools :is(.tool-tile,.brandchip) > img[hidden],
+#tools :is(.tool-tile,.brandchip) > .brand-fallback[hidden] {display:none}
