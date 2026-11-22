@@ -73,29 +73,43 @@ header .header-inner #kop-talen summary:focus-visible, header .header-inner #men
 
 @media(min-width:721px){header .header-inner>.actions{gap:8px}}
 
-/* The headset character listens and greets inside a stationary hit target. */
-@media (prefers-reduced-motion:no-preference) {
-  #chat-launch img {
-    transform-origin:50% 80%;
-    animation:atelier-listen 11s ease-in-out infinite;
+/* Move the glass helmet independently from the body. The button stays in place. */
+#chat-launch .chat-puppet {
+  display: grid;
+  width: 41px;
+  height: 50px;
+  pointer-events: none;
+  transform-origin: 50% 90%;
+}
+#chat-launch .chat-puppet img {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: none;
+}
+#chat-launch .chat-puppet .chat-helmet { transform-origin: 50% 52%; }
+@media (prefers-reduced-motion: no-preference) {
+  #chat-launch[aria-expanded="false"] .chat-helmet { animation: chat-look-around 8s ease-in-out infinite; }
+  #chat-launch[data-greet] .chat-puppet { animation: chat-hop .85s ease-out; }
+  #chat-launch:is(:hover,:focus-visible)[aria-expanded="false"] .chat-helmet {
+    animation: chat-listening .65s ease-out both;
   }
-  @keyframes atelier-listen {
-    0%,18%,35%,100% {transform:none}
-    5% {transform:translateY(-3px) rotate(-7deg)}
-    10% {transform:translateY(-1px) rotate(4deg)}
-    14% {transform:rotate(-2deg)}
-    23%,27% {transform:translate(1px,-1px) rotate(8deg)}
+  #chat-launch:active .chat-puppet { transform: translateY(2px) scale(.95); }
+  @keyframes chat-look-around {
+    0%, 32%, 100% { transform: none; }
+    8%, 12% { transform: translate(1px,-2px) rotate(9deg); }
+    22% { transform: translate(-1px,-1px) rotate(-5deg); }
   }
-  @media (hover:hover) {
-    #chat-launch:hover img {animation:atelier-perk-up .42s ease-out both}
+  @keyframes chat-hop {
+    20% { transform: translateY(1px) scale(1.04,.95); }
+    50% { transform: translateY(-5px) rotate(-4deg); }
+    75% { transform: translateY(1px); }
   }
-  #chat-launch:focus-visible img {animation:atelier-perk-up .42s ease-out both}
-  @keyframes atelier-perk-up {
-    0% {transform:none}
-    55% {transform:translateY(-4px) rotate(-10deg)}
-    100% {transform:translateY(-2px) rotate(-6deg)}
+  @keyframes chat-listening {
+    45% { transform: translateY(-2px) rotate(-13deg); }
+    100% { transform: rotate(-8deg); }
   }
-  #chat-launch:active img {animation:none;transform:translateY(2px) scale(.95)}
   #chat-panel:not([hidden]) .chat-intro::after {
     transform-origin:50% 86%;
     animation:atelier-chat-hello .8s ease-out both;

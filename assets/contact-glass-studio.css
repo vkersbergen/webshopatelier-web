@@ -1,0 +1,61 @@
+#contact .contact-hero {
+  background:
+    radial-gradient(ellipse at 75% 60%, #50334c 0, transparent 45%),
+    linear-gradient(105deg, #18121f 22%, #2b1c31 75%, #211725);
+}
+#contact .contact-hero::after { display: none; }
+#contact .contact-hero-copy { position: relative; z-index: 1; pointer-events: none; }
+#contact .contact-hero-copy a { pointer-events: auto; }
+.contact-glass-studio {
+  position: absolute;
+  width: min(47vw, 680px);
+  aspect-ratio: 1.9;
+  right: max(5%, calc((100% - 1280px) / 2)); top: 50%;
+  transform: translateY(-50%);
+  isolation: isolate;
+  pointer-events: none;
+}
+.contact-glass-studio::before {
+  content: ""; position: absolute;
+  left: 7%; right: 2%; height: 9%; bottom: 4%;
+  background: radial-gradient(ellipse, #0d0914b0, transparent 66%);
+}
+.contact-glass-studio img {display:block; position:absolute; height:auto; object-fit:contain;}
+.contact-glass-studio .dispatch-hero {width:24%; left:6%; bottom:13%;}
+.contact-glass-studio .dispatch-reader {width:25%; right:17%; bottom:2%; z-index:2;}
+.dispatch-desk {
+  position:absolute; width:40%; height:22%; right:6%; bottom:8%;
+  border-radius:6px 6px 15px 15px;
+  border:1px solid #b98c98;
+  background:linear-gradient(110deg,#3e2a3c,#634556 55%,#60404c);
+  box-shadow:inset 0 2px 0 #e9c5bd6b, inset -4px -5px 9px #2a172d61;
+}
+.dispatch-desk::before, .dispatch-desk::after {
+  content:""; position:absolute; inset:0;
+  clip-path:polygon(0 0,50% 62%,100% 0,100% 5%,50% 68%,0 5%);
+  background:#b68b96;
+}
+.dispatch-flight {
+  position:absolute; left:24%; top:13%; width:31%; height:28%;
+  border-top:1px dashed #d29e9d9c;
+  border-radius:50% 80% 0 0; transform:rotate(-14deg);
+}
+.dispatch-plane {
+  position:absolute; top:7%; left:46%; width:11%; height:14%;
+  clip-path:polygon(0 26%,100% 0,61% 91%,42% 59%,30% 84%,31% 49%);
+  background:conic-gradient(from 213deg at 100% 0,#f3b8a1 0 13deg,#ae6163 13deg 19deg,#f8d3bc 19deg 45deg,#c48679 45deg);
+  transform:rotate(8deg);
+}
+@media (prefers-reduced-motion:no-preference) {
+  .dispatch-plane {animation:dispatch-arrives 2.4s ease-out both;}
+  @keyframes dispatch-arrives {
+    from {opacity:0;transform:translate(-65%,42%) rotate(-10deg)}
+    28% {opacity:1}
+    to {opacity:1;transform:translate(0) rotate(8deg)}
+  }
+}
+@media(max-width:689px) {
+  #contact .contact-hero {display:flex; flex-direction:column; justify-content:flex-end; align-items:stretch; min-height:0; padding-top:16px}
+  .contact-glass-studio {position:relative; width:min(88vw,380px); align-self:center; right:auto;top:auto;transform:none;}
+  #contact .contact-hero-copy {padding-top:2px; padding-bottom:24px}
+}
