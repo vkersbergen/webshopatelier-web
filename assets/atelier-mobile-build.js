@@ -253,7 +253,7 @@ function articles(section) {
  const cards=[...section.querySelectorAll('#blograster [data-blogkaart]')].map(card=>{
   const i=card.querySelector('img'), a=card.querySelector('a'), h=card.querySelector('h3'), label=card.querySelector('.eyebrow');
   const path=new URL(a.href).pathname.replace(/\/en\/$/,'/')+t('','en/');
-  return `<article class="article-card"><img loading="lazy" src="${esc(i.getAttribute('src'))}" srcset="${esc(i.srcset)}" sizes="82vw" width="${i.getAttribute('width')}" height="${i.getAttribute('height')}" alt="${esc(t(i.dataset.altNl,i.dataset.altEn)||'')}"><div><p class="atelier-label">${esc(t(label.textContent,label.dataset.en))}</p><h3>${esc(t(h.textContent,h.dataset.en))}</h3>${action(path,t('Lees artikel','Read article'))}</div></article>`;
+  return `<article class="article-card"><img loading="lazy" src="${esc(i.getAttribute('src'))}" alt="${esc(t(i.dataset.altNl,i.dataset.altEn)||'')}"><div><p class="atelier-label">${esc(t(label.textContent,label.dataset.en))}</p><h3>${esc(t(h.textContent,h.dataset.en))}</h3>${action(path,t('Lees artikel','Read article'))}</div></article>`;
  });
  return `<h2>${t('Tips en <em>inzichten.</em>','Tips and <em>insights.</em>')}</h2>${rail(t('Artikelen','Articles'),cards)}`;
 }
