@@ -1,0 +1,80 @@
+/* Decorative actors occupy their own space and never receive pointer events. */
+.atelier-cameo {
+  display: inline-grid;
+  width: var(--cameo-size, 64px);
+  height: var(--cameo-size, 64px);
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  aspect-ratio: 1;
+  vertical-align: bottom;
+  pointer-events: none;
+  user-select: none;
+  isolation: isolate;
+  transform-origin: 50% 90%;
+}
+.atelier-cameo > img {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cameo-photo {
+  position: relative;
+  margin-block: clamp(22px, 4vw, 38px) clamp(38px, 5vw, 52px);
+}
+.cameo-photo .guide-photo {margin: 0}
+.cameo-reader {
+  position: absolute;
+  right: clamp(14px, 4%, 32px);
+  bottom: -21px;
+  --cameo-size: clamp(62px, 10vw, 87px);
+  filter: drop-shadow(0 3px 2px #17121b75);
+}
+.cameo-monitor {position: relative; padding-top: 12px}
+.cameo-monitor .wa-case-devices {margin-top: 14px}
+.cameo-screen {
+  position: absolute;
+  left: 15%;
+  top: 0;
+  z-index: 1;
+  --cameo-size: clamp(55px, 11vw, 84px);
+}
+.cameo-options, .cameo-desk {
+  display: flex;
+  align-items: end;
+  gap: clamp(6px, 1.2vw, 16px);
+  flex-wrap: wrap;
+}
+.cameo-assistant {--cameo-size: clamp(49px, 7vw, 74px)}
+.cameo-desk {align-items: center}
+.cameo-desk .pagina-terug {margin-block: 0}
+.cameo-archive {--cameo-size: 46px}
+.cameo-onboard {float: right; margin: -9px 0 4px 12px; --cameo-size: clamp(44px, 7vw, 68px)}
+.team-setup > ol {clear: both}
+.cameo-letter {position: absolute; z-index: 1; right: -24%; bottom: 9%; --cameo-size: 70%}
+.cameo-ledge {display: flex; justify-content: flex-end; padding-inline-end: 4%; margin-block: -8px 2px}
+.cameo-index {--cameo-size: clamp(50px, 9vw, 75px)}
+.cameo-lost {--cameo-size: 110px; transform: rotate(-7deg)}
+@media (prefers-reduced-motion: no-preference) {
+  .cameo-photo:hover .cameo-reader, .cameo-options:hover .cameo-assistant,
+  .team-setup:hover .cameo-onboard, .cameo-ledge:hover .cameo-index {
+    animation: cameo-nod .8s ease-in-out;
+  }
+  .enquiry-intro:hover .cameo-letter, .cameo-monitor:hover .cameo-screen {
+    animation: cameo-tap .55s ease-in-out 2;
+  }
+  main:hover > .cameo-lost {animation: cameo-search 2s ease-in-out}
+}
+@keyframes cameo-nod {35% {transform: rotate(-7deg)} 68% {transform: rotate(3deg)}}
+@keyframes cameo-tap {50% {transform: translateY(-2px) rotate(3deg)}}
+@keyframes cameo-search {25% {transform: rotate(-15deg)} 65% {transform: rotate(5deg)}}
+.team-setup:has(.cameo-onboard) > h2 {display: flow-root}
+.pakket-detail-hero > div {min-width: 0}
+.pakket-detail-hero h1 {overflow-wrap: anywhere}
+.section > .cameo-ledge {
+  width: min(100% - 36px, 1180px);
+  margin: 0 auto;
+  padding: 0;
+}
+/* The mobile card renderer hides the desktop section children; this ledge is shared. */
+:is(#pakketten, #veldgids).wa-enhanced > .cameo-ledge {display: flex !important}

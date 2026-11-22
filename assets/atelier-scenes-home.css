@@ -1,0 +1,134 @@
+.atelier-speler {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* His legs hang over the monitor bezel. Reserve the height above the case. */
+#werk .case-card .toestellen:has(.atelier-speler-telefoon) {
+  padding-top: clamp(48px, 5.5vw, 83px);
+}
+#werk .macbook:has(.atelier-speler-telefoon) {
+  position: relative;
+}
+#werk .atelier-speler-telefoon {
+  position: absolute;
+  bottom: 100%;
+  left: 12%;
+  width: auto;
+  height: clamp(62px, 7vw, 105px);
+  z-index: 2;
+  transform: translateY(21%);
+  transform-origin: 50% 76%;
+}
+
+/* Keep the swimming lane separate from the copy and the package selector. */
+#keuze .aanpak-kop:has(.atelier-zwembaan) {
+  position: relative;
+  max-width: none;
+  padding-inline-end: 32%;
+}
+.atelier-zwembaan {
+  position: absolute;
+  inset: 0 1% 0 auto;
+  width: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.atelier-speler-zwemmer {
+  width: clamp(80px, 10vw, 140px);
+  height: auto;
+}
+#atelier .founder-photo .atelier-speler-promotor {
+  position: absolute;
+  inset: auto 12px 12px auto;
+  width: clamp(68px, 9vw, 120px);
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  transform-origin: 60% 90%;
+}
+#atelier .founder-photo:has(.atelier-speler-promotor) figcaption {
+  padding-inline-end: clamp(90px, 12vw, 148px);
+}
+
+@media (max-width: 650px) {
+  #keuze .aanpak-kop:has(.atelier-zwembaan) {
+    padding-inline-end: 0;
+    padding-bottom: 54px;
+  }
+  .atelier-zwembaan {
+    inset: auto 2% 0 auto;
+    width: 60%;
+    height: 52px;
+  }
+  .atelier-speler-zwemmer {
+    width: 73px;
+    max-height: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .atelier-speler-zwemmer {
+      animation: atelier-doorslag linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+  @media (hover: hover) {
+    #werk .case-stage:hover .atelier-speler-telefoon {
+      animation: atelier-telefoontik .75s ease-in-out 2;
+    }
+    #atelier .founder-photo:hover .atelier-speler-promotor {
+      animation: atelier-aankondiging .7s ease-in-out 2;
+    }
+  }
+}
+@keyframes atelier-doorslag {
+  0% { transform: translate(-48%, 3px) rotate(-7deg); }
+  35% { transform: translate(-17%, -5px) rotate(2deg); }
+  68% { transform: translate(16%, 3px) rotate(-4deg); }
+  100% { transform: translate(48%, -3px) rotate(2deg); }
+}
+@keyframes atelier-telefoontik {
+  50% { transform: translateY(21%) rotate(-3deg); }
+}
+@keyframes atelier-aankondiging {
+  50% { transform: rotate(-5deg) translateY(-2px); }
+}
+
+/* The compact carousel and founder intro have their own mobile markup. */
+#werk .wa-mobile .devices {
+  padding-top: 48px;
+}
+#werk .wa-mobile .desktop-device::before,
+#atelier .wa-mobile .oprichter-lead::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+}
+#werk .wa-mobile .desktop-device::before {
+  width: 52px;
+  height: 56px;
+  left: 10%;
+  bottom: calc(100% - 7px);
+  background-image: url("/assets/atelier-scenes/telefoon.webp");
+}
+#atelier .wa-mobile .oprichter-lead {
+  position: relative;
+}
+#atelier .wa-mobile .oprichter-lead::after {
+  width: 43px;
+  height: 40px;
+  left: min(calc(30% - 39px), 71px);
+  bottom: 0;
+  background-image: url("/assets/atelier-scenes/promotor.webp");
+}
