@@ -4,6 +4,13 @@
   const onscreen = new Set();
   const lastPlayed = new WeakMap();
 
+  const portraitRepeats = new WeakMap();
+  function stop(actor) {
+    clearTimeout(portraitRepeats.get(actor));
+    portraitRepeats.delete(actor);
+    actor.classList.remove('act-playing');
+  }
+
   const sheets = new Map();
   function prepareSheet(actor) {
     const url = actor.dataset.actSheet;
@@ -38,15 +45,21 @@
         onscreen.add(target);
         play(target);
       } else {
-        target.classList.remove('act-playing');
+        stop(target);
         onscreen.delete(target);
       }
     }
   }, {threshold: [0, .5]});
 
   document.addEventListener('animationend', e => {
-    if (e.animationName.startsWith('act-') && e.target.classList.contains('act-playing')) {
-      e.target.classList.remove('act-playing');
+    const actor = e.target;
+    if (!e.animationName.startsWith('act-') || !actor.classList.contains('act-playing')) return;
+    if (actor.matches('.act-portrait') && e.animationName !== 'act-portrait-row') return;
+    stop(actor);
+    if (actor.matches('.act-portrait') && onscreen.has(actor) && !reduce.matches && !document.hidden) {
+      portraitRepeats.set(actor, setTimeout(() => {
+        if (actor.isConnected && onscreen.has(actor)) play(actor);
+      }, 900));
     }
   });
   document.addEventListener('toggle', event => {
@@ -56,8 +69,9 @@
     }
   }, true);
   function syncPreference() {
+    document.querySelectorAll('button.act-portrait').forEach(actor => { actor.disabled = reduce.matches; });
     for (const actor of onscreen) {
-      if (reduce.matches || document.hidden) actor.classList.remove('act-playing');
+      if (reduce.matches || document.hidden) stop(actor);
       else play(actor);
     }
   }
@@ -120,9 +134,23 @@
     for (const portrait of document.querySelectorAll('.founder-photo, #atelier .wa-mobile .oprichter-lead')) {
       if (portrait.querySelector('.act-portrait')) continue;
       const oldActor = portrait.querySelector('.atelier-speler-promotor');
-      const actor = document.createElement('span');
+      const actor = document.createElement('button');
+      actor.type = 'button';
+      actor.disabled = reduce.matches;
       actor.className = 'atelier-act act-portrait';
-      actor.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span');
+      label.className = 'portrait-control-label';
+      label.dataset.en = 'Replay megaphone animation';
+      label.textContent = document.documentElement.lang.startsWith('en')
+        ? label.dataset.en : 'Speel de megafoonanimatie opnieuw';
+      actor.append(label);
+      actor.addEventListener('click', () => {
+        if (reduce.matches || !onscreen.has(actor)) return;
+        stop(actor);
+        lastPlayed.delete(actor);
+        void actor.offsetWidth;
+        play(actor);
+      });
       if (oldActor) oldActor.replaceWith(actor);
       else portrait.append(actor);
       register(actor, 'portrait');
@@ -137,6 +165,7 @@
         if (el.nodeType !== 1 || el.isConnected) continue;
         for (const actor of [el, ...el.querySelectorAll('[data-atelier-act]')]) {
           if (!registered.has(actor)) continue;
+          stop(actor);
           observer.unobserve(actor);
           onscreen.delete(actor);
           registered.delete(actor);

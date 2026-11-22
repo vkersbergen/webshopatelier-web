@@ -14,16 +14,19 @@
 #atelier .oprichter-lead > .act-portrait {
   position:absolute; right:8px; bottom:8px; width:clamp(74px,10vw,132px); aspect-ratio:1;
   background:url('/assets/atelier-scenes/promotor-rust.webp') center / contain no-repeat;
-  z-index:1; pointer-events:none;
+  z-index:1; pointer-events:auto; cursor:pointer; touch-action:manipulation;
+  appearance:none; border:0; margin:0; padding:0; box-shadow:none; border-radius:8px;
 }
+.act-portrait:focus-visible {outline:2px solid #ffd7ba;outline-offset:1px}
+.portrait-control-label {position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
 .founder-photo:has(.act-portrait) figcaption {padding-inline-end:clamp(82px,11vw,145px)}
 #atelier .oprichter-lead > .act-portrait {
-  left:min(calc(30% - 46px),64px); right:auto; bottom:0; width:clamp(46px,13vw,58px);
+  width:clamp(54px,16vw,68px); left:min(30%,110px); right:auto; bottom:0; transform:translateX(-94%);
 }
 #atelier .oprichter-lead:has(.act-portrait)::after {content:none}
 
 @media (prefers-reduced-motion:no-preference) {
-  .act-portrait[data-frames-ready].act-playing {
+  :is(#atelier .oprichter-lead, .founder-photo) > .act-portrait[data-frames-ready].act-playing {
     background-image:url('/assets/atelier-scenes/promotor-spel.webp');
     background-size:800% 1200%;
     animation:act-portrait-column .5s steps(8,end) 12, act-portrait-row 6s steps(12,end) !important;
