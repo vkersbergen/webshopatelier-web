@@ -78,3 +78,25 @@
 }
 /* The mobile card renderer hides the desktop section children; this ledge is shared. */
 :is(#pakketten, #veldgids).wa-enhanced > .cameo-ledge {display: flex !important}
+
+@media (max-width:720px) {
+  /* Anchor the actor to the title row of the compact renderer. */
+  :is(#pakketten, #veldgids).wa-enhanced:has(> .cameo-ledge) {
+    position:relative;
+    --ledge-size:clamp(58px, 17vw, 76px);
+  }
+  :is(#pakketten, #veldgids).wa-enhanced > .cameo-ledge {
+    position:absolute;
+    top:28px;
+    right:clamp(14px, 5vw, 26px);
+    width:var(--ledge-size);
+    z-index:1;
+    pointer-events:none;
+  }
+  .wa-enhanced > .cameo-ledge .cameo-index {--cameo-size:var(--ledge-size)}
+  :is(#pakketten, #veldgids).wa-enhanced:has(> .cameo-ledge) .atelier-s > :is(h1,h2) {
+    min-height:calc(var(--ledge-size) - 8px);
+    padding-inline-end:calc(var(--ledge-size) + 12px);
+    align-content:center;
+  }
+}

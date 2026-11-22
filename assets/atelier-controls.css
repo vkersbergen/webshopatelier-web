@@ -49,12 +49,7 @@ body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex
 
 .advisor-result .offer-sub {display:none}
 .advisor-result:has(#advies-link[href="/pakketten/website/"]) .advisor-site,.advisor-result:has(#advies-link[href="/pakketten/webshop/"]) .advisor-shop {display:block}
-@media(max-width:720px){
-#mega .mega-tile:has(.offer-with-sub) {flex-wrap:wrap;align-content:flex-start;gap:4px}
-#mega .mega-tile:has(.offer-with-sub) img {margin-left:3px}
-#mega .mega-tile:has(.offer-with-sub) a {flex-basis:100%;padding:2px 4px}
-#mega .offer-sub {white-space:nowrap;font:500 11px/1.35 system-ui,sans-serif}
-}
+
 
 /* A single list keeps the optional packages legible inside their parent card. */
 .meer-pakketten .extra-grid {gap:0}

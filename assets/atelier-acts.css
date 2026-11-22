@@ -41,3 +41,40 @@
 }
 @keyframes act-role-column {from {background-position-x:0%} to {background-position-x:120%}}
 @keyframes act-role-row {from {background-position-y:0%} to {background-position-y:133.333333%}}
+
+@media (max-width:720px) {
+  #atelier .wa-mobile .oprichter-lead {
+    display:grid;
+    grid-template-columns:minmax(0, 42%) minmax(0, 1fr);
+    align-items:center;
+    gap:clamp(12px, 4vw, 20px);
+  }
+  #atelier .oprichter-lead > img {
+    grid-area:1/1;
+    display:block;
+    width:100%;
+    max-width:none;
+    height:auto;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:50% 25%;
+  }
+  #atelier .oprichter-lead > .act-portrait {
+    position:relative;
+    grid-area:1/1;
+    place-self:end;
+    inset:auto;
+    width:clamp(65px, 20vw, 98px);
+    margin:0 2px 2px 0;
+  }
+  #atelier .oprichter-lead > div {grid-area:1/2}
+  #atelier .wa-mobile .oprichter-lead :is(h1,h2) {margin:0;text-align:start}
+
+  #tools .wa-mobile .act-repair, #newsletter.r2-news > .act-post {
+    width:clamp(58px, 17vw, 76px);
+    height:auto;
+    aspect-ratio:1;
+    margin:0 0 6px 12px;
+  }
+  #tools .wa-mobile .tool-tiles {clear:both}
+}

@@ -71,29 +71,6 @@
   }
 })();
 
-// Give the booking and email controls the bottom-right corner when they pass behind the assistant.
-(() => {
-  const launcher = document.querySelector('.chat-launch');
-  if (!launcher) return;
-  const controls = document.querySelectorAll('.atelier-call-actions a,#newsletter button');
-  let observer;
-  function watchCorner() {
-    observer?.disconnect();
-    document.body.classList.remove('atelier-vrije-actie');
-    if (innerWidth > 700) return;
-    const engaged = new Set();
-    observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) engaged.add(entry.target);
-        else engaged.delete(entry.target);
-      }
-      document.body.classList.toggle('atelier-vrije-actie',engaged.size>0);
-    }, {rootMargin: (90-innerHeight)+'px 0px 0px '+(90-innerWidth)+'px'});
-    controls.forEach(control => observer.observe(control));
-  }
-  watchCorner();
-  addEventListener('resize', watchCorner, {passive:true});
-})();
 /* Shared title typography */
 /* Extend the studio's scroll typography to service pages, articles and Commerce.
    Highlight ranges preserve the original selection, semantic text, translations and link names. */

@@ -76,14 +76,18 @@ header .header-inner #kop-talen summary:focus-visible, header .header-inner #men
 @media (prefers-reduced-motion: no-preference) {
   #chat-launch[aria-expanded="false"] .chat-helmet { animation: chat-look-around 8s ease-in-out infinite; }
   #chat-launch[data-greet] .chat-puppet { animation: chat-hop .85s ease-out; }
-  #chat-launch:is(:hover,:focus-visible)[aria-expanded="false"] .chat-helmet {
-    animation: chat-listening .65s ease-out both;
+  @media (hover:hover) and (pointer:fine) {
+    #chat-launch:is(:hover,:focus-visible)[aria-expanded="false"] .chat-helmet {
+      animation: chat-listening .65s ease-out both;
+    }
   }
   #chat-launch:active .chat-puppet { transform: translateY(2px) scale(.95); }
   @keyframes chat-look-around {
-    0%, 32%, 100% { transform: none; }
+    0%, 32%, 56%, 78%, 100% { transform: none; }
     8%, 12% { transform: translate(1px,-2px) rotate(9deg); }
     22% { transform: translate(-1px,-1px) rotate(-5deg); }
+    62%, 69% { transform: translateY(1px) rotate(-7deg); }
+    66%, 74% { transform: translateY(-1px) rotate(-3deg); }
   }
   @keyframes chat-hop {
     20% { transform: translateY(1px) scale(1.04,.95); }
@@ -104,4 +108,38 @@ header .header-inner #kop-talen summary:focus-visible, header .header-inner #men
     72% {transform:rotate(5deg)}
     100% {transform:rotate(3deg)}
   }
+}
+
+@media (max-width: 720px) {
+  body .as-float {
+    --chat-right: max(14px, env(safe-area-inset-right));
+    --chat-bottom: max(14px, env(safe-area-inset-bottom));
+    right: var(--chat-right);
+    bottom: var(--chat-bottom);
+  }
+  .as-float #chat-launch {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: 1px solid #d5abb7;
+    background: radial-gradient(circle at 32% 16%, #a37b96, #53354f 65%, #302132);
+    box-shadow: inset 0 1px 1px #ffe3df94, 0 4px 12px #190f254d;
+  }
+  #chat-launch .chat-puppet { width: 36px; height: 44px; }
+  .as-float:has(#chat-panel:not([hidden])) {
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: var(--chat-bottom);
+    max-width: none;
+  }
+  .as-float #chat-panel {
+    width: min(100%, 392px);
+    max-height: calc(100dvh - var(--chat-bottom) - max(12px, env(safe-area-inset-top)));
+  }
+  .as-float[data-corner="raised"] #chat-launch { transform: translateY(-68px); }
+  .as-float[data-corner="busy"] #chat-launch:not(:focus-visible) { visibility: hidden; }
+  .as-float #chat-panel:not([hidden]) ~ #chat-launch,
+  body:has(#menu[aria-expanded="true"]) .as-float { display: none; }
 }

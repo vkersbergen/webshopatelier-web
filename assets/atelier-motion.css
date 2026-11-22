@@ -47,9 +47,7 @@ body .header-inner>.actions {margin-inline-start:auto;flex-shrink:0}
  #mega .mega-tiles .mega-tile:not(.mega-commerce) a {min-width:0;overflow-wrap:anywhere}
  #mega .mega-commerce img {height:100%;min-height:78px}
 }
-@media(max-width:700px) {
- body.atelier-vrije-actie .as-float:has(.chat-panel[hidden]) .chat-launch:not(:focus-visible) {visibility:hidden;pointer-events:none}
-}
+
 
 .commerce-pakket-inhoud p.commerce-tarief{color:#ffb19a;font-weight:700;margin-top:.65em}
 
