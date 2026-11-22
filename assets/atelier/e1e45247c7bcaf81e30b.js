@@ -665,11 +665,19 @@ document.addEventListener('click', event => {
   dialog.showModal();
 });
 $('#dialog-contact').addEventListener('click', () => dialog.close());
+const adviesRegels = {
+  website: ['We maken contact opnemen eenvoudig.', 'We make it easy to get in touch.'],
+  webshop: ['We maken bestellen eenvoudig.', 'We make ordering easy.'],
+  vindbaar: ['We verbeteren je zichtbaarheid in Google.', 'We improve your visibility on Google.'],
+  agent: ['Automatiseer een vaste taak met AI.', 'Automate a routine task with AI.'],
+  social: ['Wij maken en plannen je posts.', 'We create and schedule your posts.'],
+  ads: ['Start je eerste Meta- of TikTok-campagne.', 'Launch your first Meta or TikTok campaign.']
+};
 function adviseer() {
   const key = $('#advies').value;
   const item = services[key];
   $('#advies-title').textContent = local(item[0], item[1]);
-  $('#advies-text').textContent = local(item[2], item[3]);
+  $('#advies-text').textContent = local(...adviesRegels[key]);
   $('#advies-link').href = {"website": "/pakketten/website/", "webshop": "/pakketten/webshop/", "agent": "/pakketten/ai-agents/", "social": "/pakketten/socialmedia/", "ads": "/pakketten/social-advertising/", "vindbaar": "/pakketten/vindbaarheid/", "conversie": "/pakketten/conversie-optimalisatie/", "onderhoud": "/pakketten/onderhoud-uitbreiding/"}[key] || '/pakketten/';
 }
 $('#advies').addEventListener('change', adviseer);
