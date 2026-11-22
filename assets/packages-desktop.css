@@ -1,10 +1,11 @@
 @media(min-width:1000px){
   #pakketten.services{padding-block:30px}
   #pakketten .split-title{margin-bottom:18px}
-  #pakketten .commerce-pakket{display:grid;grid-template-columns:minmax(160px,28%) minmax(0,1fr);margin-bottom:14px}
-  #pakketten .commerce-pakket-fotolink{position:relative;min-height:122px}
+  #pakketten .commerce-pakket{display:grid;grid-template-columns:minmax(180px,32%) minmax(0,1fr);margin-bottom:14px}
+  #pakketten .commerce-pakket-fotolink{position:relative;min-height:clamp(158px,12vw,184px)}
   #pakketten .commerce-pakket-beeld{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover}
-  #pakketten .commerce-pakket-inhoud{padding:14px 18px;gap:14px}
+  #pakketten .commerce-pakket-inhoud{padding:16px 20px;gap:14px}
+  #pakketten .commerce-pakket-inhoud h3{font-size:clamp(25px,2.1vw,33px);line-height:1.1}
   #pakketten .commerce-cta{min-width:0;padding:5px 7px 5px 10px;gap:8px}
   #pakketten .service-grid{gap:14px}
   #pakketten .service .pakket-foto{height:auto;min-height:0;max-height:none;aspect-ratio:4/3}
@@ -86,7 +87,7 @@ body #pakketten .service .pakket-foto img {
   }
   #pakketten .service-grid > .service[data-foto] {
     display:grid;
-    grid-template-columns:minmax(0,38%) minmax(0,1fr);
+    grid-template-columns:minmax(0,34%) minmax(0,1fr);
     align-items:stretch;
   }
   #pakketten .service[data-foto] .pakket-foto-link {
@@ -102,8 +103,8 @@ body #pakketten .service .pakket-foto img {
     aspect-ratio:auto;
   }
   #pakketten .service[data-foto] .service-body {
-    padding:12px 14px;
-    gap:3px;
+    padding:9px 12px;
+    gap:2px;
   }
   #pakketten .service[data-foto] h3 {font-size:clamp(18px,1.4vw,21px);line-height:1.14}
   #pakketten .service[data-foto] .service-body p {font-size:14px;line-height:1.35}
