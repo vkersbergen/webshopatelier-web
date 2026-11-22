@@ -54,3 +54,29 @@ body :is(.atelier-call,.tree .offer) a[data-atelier-booking]{display:inline-flex
 #mega .mega-tile:has(.offer-with-sub) a {flex-basis:100%;padding:2px 4px}
 #mega .offer-sub {white-space:nowrap;font:500 11px/1.35 system-ui,sans-serif}
 }
+
+/* A single list keeps the optional packages legible inside their parent card. */
+.meer-pakketten .extra-grid {gap:0}
+.meer-pakketten .extra-grid details {
+  border:0; border-top:1px solid #ffffff26; border-radius:0;
+  padding:0; background:transparent; box-shadow:none;
+}
+.meer-pakketten .extra-grid summary {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  min-height:48px; padding:9px 2px; margin:0;
+  list-style:none; cursor:pointer; color:#fff3ed;
+  font-size:1rem; line-height:1.3;
+}
+.meer-pakketten .extra-grid summary::-webkit-details-marker {display:none}
+.meer-pakketten .extra-grid summary::after {
+  content:""; flex:none; width:8px; height:8px; margin:0 6px;
+  border:solid #f3b6a6; border-width:0 1.5px 1.5px 0; transform:rotate(45deg);
+}
+.meer-pakketten .extra-grid details[open] summary::after {transform:rotate(225deg)}
+.meer-pakketten .extra-grid summary:focus:not(:focus-visible) {outline:none}
+.meer-pakketten .extra-grid summary:focus-visible {outline:2px solid #ffc1ad;outline-offset:-2px;border-radius:5px}
+.meer-pakketten .extra-grid details p {margin:0; padding:0 2px; line-height:1.5}
+.meer-pakketten .extra-grid .pakket-extra-link {
+  min-height:44px; margin:0 0 4px; padding:0 2px; color:#ffc0ad;
+  font-size:.94rem; text-decoration:underline; text-underline-offset:4px;
+}
