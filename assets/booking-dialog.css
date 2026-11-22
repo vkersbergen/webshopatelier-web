@@ -34,3 +34,5 @@ html:has(#call-calendar-modal[open]){overflow:hidden}
 #boeken .call-mail-options>div{display:grid;gap:6px;justify-items:start;padding:8px 0}
 #boeken .call-mail-options a{overflow-wrap:anywhere;user-select:all}
 #boeken .call-mail-options button:not([hidden]){background:transparent;color:#ffbea8;border:1px solid #745766;border-radius:8px;padding:8px 12px;min-height:44px;cursor:pointer}
+
+#call-calendar-modal .call-modal-foot { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 18px; }

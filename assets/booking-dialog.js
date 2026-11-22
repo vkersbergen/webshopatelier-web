@@ -21,6 +21,11 @@
       const fallback=modal.querySelector('a');
       fallback.href=link.href;
       fallback.textContent=english?'Open Calendly in a new tab ↗':'Open Calendly in een nieuw tabblad ↗';
+      const requestCall=document.createElement('a');
+      requestCall.href='/contact/#bericht';
+      requestCall.textContent=english?'Request a call via the contact form':'Vraag een belafspraak aan via het formulier';
+      requestCall.addEventListener('click',()=>modal.close());
+      fallback.before(requestCall);
       frame.title=english?'Book your introductory call with WebshopAtelier':'Boek je kennismaking met WebshopAtelier';
       const url=new URL(link.href);
       if(location.hostname)url.searchParams.set('embed_domain',location.hostname);
