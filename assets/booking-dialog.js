@@ -252,9 +252,14 @@ function initAtelierBooking(card, api) {
           notice = t('Controleer je naam, e-mailadres en telefoonnummer, inclusief landcode.','Check your name, email and phone number, including country code.');
           renderDetails(); focusHeading(); return;
         }
-        if (!result.ok || (await result.json()).confirmed!==true) throw Error('unconfirmed');
+        const confirmation = await result.json();
+        if (!result.ok || confirmation.confirmed!==true) throw Error('unconfirmed');
         stage = 'confirmed'; status.textContent = ''; content.replaceChildren();
         content.append(element('h3',t('Je belafspraak staat gepland.','Your call is booked.')),element('p',summary()));
+        if (/^https:\/\/calendly\.com\/cancellations\/[a-zA-Z0-9-]+$/.test(confirmation.cancel_url)) {
+          const cancel = element('a',t('Annuleer je afspraak','Cancel your call'),'booking-back');
+          cancel.href = confirmation.cancel_url; cancel.referrerPolicy = 'no-referrer'; content.append(cancel);
+        }
         fields = {name:'',email:'',phone:''}; focusHeading();
       } catch {
         stage = 'unknown'; status.textContent = ''; content.replaceChildren();
