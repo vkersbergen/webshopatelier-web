@@ -108,3 +108,38 @@ html body header #mega.mega {
 @media (max-width: 520px) {
   #mega .mega-inner .mega-tiles { grid-template-columns: minmax(0,1fr); }
 }
+
+@media (max-width: 720px) {
+  #mega .mega-inner.mega-catalog { gap: 8px; }
+  #mega .mega-directory { border-top: 0; padding-top: 0; }
+  #mega .mega-catalog .menu-caption[hidden] { display: none; }
+  #mega .mega-package-group > summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid #d0a8ba40;
+    border-radius: 10px;
+    color: #fff2ed;
+    background: #291c2bdc;
+    font-weight: 700;
+    list-style: none;
+  }
+  #mega .mega-package-group > summary::-webkit-details-marker { display: none; }
+  #mega .mega-package-group > summary::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-inline-end: 3px;
+    border: solid currentColor;
+    border-width: 0 1.5px 1.5px 0;
+    transform: translateY(-2px) rotate(45deg);
+  }
+  #mega .mega-package-group[open] > summary::after { transform: translateY(2px) rotate(225deg); }
+  #mega .mega-package-group > a { display:flex; align-items:center; min-height:44px; width:fit-content; }
+  #mega .mega-package-group[open] > .mega-tiles { margin-top: 6px; }
+  html:not(:lang(en)) #mega .mega-package-group [lang="en"],
+  html:lang(en) #mega .mega-package-group [lang="nl"] { display: none; }
+}

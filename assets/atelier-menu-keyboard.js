@@ -4,8 +4,43 @@
   const desktop = document.getElementById('mega-trigger');
   if (!panel || !mobile || !desktop) return;
 
+  const catalog = panel.querySelector('.mega-catalog');
+  const tiles = catalog?.querySelector('.mega-tiles');
+  const caption = catalog?.querySelector('.menu-caption');
+  if (tiles && caption) {
+    const narrow = matchMedia('(max-width: 720px)');
+    const group = document.createElement('details');
+    group.className = 'mega-package-group';
+    const summary = document.createElement('summary');
+    summary.innerHTML = '<span lang="nl">Bekijk pakketten</span><span lang="en">Explore packages</span>';
+    group.append(summary);
+    const overview = catalog.querySelector('.mega-directory a[href="/pakketten/"]');
+    const originalPosition = document.createComment('service overview');
+    overview?.before(originalPosition);
+
+    function arrangePackages() {
+      if (narrow.matches) {
+        caption.hidden = true;
+        group.open = false;
+        group.append(tiles);
+        if (overview) group.append(overview);
+        catalog.append(group);
+      } else {
+        caption.hidden = false;
+        caption.after(tiles);
+        if (overview) originalPosition.after(overview);
+        group.remove();
+      }
+    }
+    arrangePackages();
+    narrow.addEventListener('change', arrangePackages);
+    new MutationObserver(() => {
+      if (panel.hidden) group.open = false;
+    }).observe(panel, {attributes: true, attributeFilter: ['hidden']});
+  }
+
   const selectors = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex="0"]';
-  const stops = root => [...root.querySelectorAll(selectors)].filter(el => el.tabIndex >= 0 && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+  const stops = root => [...root.querySelectorAll(selectors)].filter(el => el.tabIndex >= 0 && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden' && !el.closest('details:not([open]) > :not(summary)'));
   let opener;
   for (const trigger of [desktop, mobile]) {
     trigger.addEventListener('click', () => { opener = trigger; }, true);

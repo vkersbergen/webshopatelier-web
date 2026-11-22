@@ -87,3 +87,38 @@ body[data-footer="inkt"] .r2-foot{background:linear-gradient(115deg,#25212c,#191
  #atelier-foot .af-legal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:0 12px;padding:12px 0 max(70px,env(safe-area-inset-bottom))}
  #atelier-foot .af-legal a{padding-block:7px;width:fit-content;max-width:100%;overflow-wrap:anywhere}
 }
+
+#atelier-foot .r2-news {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  column-gap:12px;
+}
+#atelier-foot .r2-news h2 {grid-area:1/1;font-size:clamp(22px,4vw,30px)}
+#atelier-foot .r2-news p {grid-area:2/1;margin:4px 0 0;font-size:14px}
+#atelier-foot .r2-news .af-subscribe {
+  grid-area:1/2/3/3;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:44px;
+  color:#ffd1b9;
+  font-weight:700;
+  text-underline-offset:4px;
+}
+#atelier-foot .r2-news:has(.act-post) {grid-template-columns:auto minmax(0,1fr) auto}
+#atelier-foot .r2-news:has(.act-post) h2 {grid-column:2}
+#atelier-foot .r2-news:has(.act-post) p {grid-column:2}
+#atelier-foot .r2-news:has(.act-post) .af-subscribe {grid-column:3}
+#atelier-foot #newsletter.r2-news > .act-post {
+  --post-size:clamp(40px,11vw,52px);
+  grid-area:1/1/3/2;
+  align-self:center;
+  width:var(--post-size);
+  height:var(--post-size);
+  margin:0;
+}
+@media(max-width:759px) {
+  #atelier-foot .r2-news {padding-block:16px}
+  #atelier-foot .r2-support {padding-block:16px}
+}
