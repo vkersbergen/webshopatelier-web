@@ -2,7 +2,8 @@
 (() => {
   const cases = document.querySelector('#werk');
   const lane = document.querySelector('.atelier-zwembaan');
-  if (!cases && !lane) return;
+  const perches = document.querySelectorAll('.cameo-screen:has(img[src$="/telefoon.webp"]), .cameo-letter:has(img[src$="/telefoon.webp"])');
+  if (!cases && !lane && !perches.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const actors = new Set();
   const visible = new WeakSet();
@@ -71,6 +72,7 @@
     return actor;
   }
   if (lane) lane.append(makeActor('swimmer'));
+  for (const perch of perches) perch.append(makeActor('phone'));
   const mountPhones = () => {
     for (const host of cases.querySelectorAll('.macbook:has(.atelier-speler-telefoon), .wa-mobile .desktop-device')) {
       if (!host.querySelector('.case-puppet')) host.append(makeActor('phone'));

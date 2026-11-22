@@ -41,3 +41,7 @@
 @keyframes swim-inspect{17%{transform:rotate(-5deg)}41%{transform:rotate(3deg)}61%{transform:rotate(-7deg)}73%,84%{transform:rotate(10deg)}}
 @keyframes swim-zero{0%{opacity:0;transform:translate(161px,-6px) scaleX(.82)}10%{opacity:1}50%{transform:translate(69px,-4px)}62%{transform:translate(0,0)}69%{transform:translate(-4px,1px)}75%,100%{opacity:1;transform:translate(0,0)}}
 @keyframes swim-exhale{0%{opacity:0}20%{opacity:.8}100%{opacity:0;transform:translate(14px,-12px)}}
+
+.atelier-cameo:is(.cameo-screen,.cameo-letter):has(>.case-puppet){animation:none!important}
+:is(.cameo-screen,.cameo-letter):has(>.case-puppet)>img{visibility:hidden}
+:is(.cameo-screen,.cameo-letter)>.case-puppet{grid-area:1/1;height:100%;width:auto;aspect-ratio:150/262;justify-self:center}
