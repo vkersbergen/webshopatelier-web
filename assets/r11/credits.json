@@ -1,0 +1,90 @@
+[
+ {
+  "bestand": "stock-website.webp",
+  "bron": "https://www.pexels.com/photo/10948185/",
+  "pexels_id": 10948185,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-webshop.webp",
+  "bron": "https://www.pexels.com/photo/12811301/",
+  "pexels_id": 12811301,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-vindbaarheid.webp",
+  "bron": "https://www.pexels.com/photo/5561921/",
+  "pexels_id": 5561921,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-adverteren.webp",
+  "bron": "https://www.pexels.com/photo/7278915/",
+  "pexels_id": 7278915,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-social.webp",
+  "bron": "https://www.pexels.com/photo/11391948/",
+  "pexels_id": 11391948,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-conversie.webp",
+  "bron": "https://www.pexels.com/photo/6943446/",
+  "pexels_id": 6943446,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-ai.webp",
+  "bron": "https://www.pexels.com/photo/17489153/",
+  "pexels_id": 17489153,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-onderhoud.webp",
+  "bron": "https://www.pexels.com/photo/17489157/",
+  "pexels_id": 17489157,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "bestand": "stock-ai2.webp",
+  "bron": "https://www.pexels.com/photo/17323801/",
+  "pexels_id": 17323801,
+  "licentie": "Pexels-licentie: gratis, ook commercieel, naamsvermelding niet verplicht (https://www.pexels.com/license/)",
+  "gedownload": "2026-11-25",
+  "bewerking": "3:2 uitsnede 1200x800, warme kleurlijn, vignet, korrel"
+ },
+ {
+  "afgekeurd": [
+   {
+    "id": 10020092,
+    "reden": "Google Analytics-scherm zichtbaar"
+   },
+   {
+    "id": 15940010,
+    "reden": "ChatGPT-scherm en MacBook Air-opschrift zichtbaar"
+   },
+   {
+    "id": 30871151,
+    "reden": "merknaam Rollei op de lamp"
+   }
+  ]
+ }
+]

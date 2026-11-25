@@ -1,10 +1,35 @@
-# WebshopAtelier
+# Webshopatelier
 
-> Websites, Shopify-webshops, vindbaarheid en AI voor ondernemers.
+> Webshopatelier is een atelier in Amsterdam voor ondernemers in Nederland en België. We bouwen websites en Shopify-webshops en leveren Atelier Commerce 360: een AI-team van 10 agents in vijf afdelingen (plus 8 optionele specialisten) voor webshop, campagnes en klantenservice, vanaf € 1.499 eenmalig exclusief btw.
 
-- [Ons werk en klantcases](https://webshopatelier.nl/werk/): Bekijk wat WebshopAtelier heeft gebouwd voor ElleCera, Scillasdotter, Doggy & Cats en The Focus Club.
-- [Pakketten voor websites, webshops en AI](https://webshopatelier.nl/pakketten/): Websites vanaf € 999 en Shopify-webshops vanaf € 2.900 eenmalig. Een bestaande AI-agent begint bij € 250. Atelier Commerce 360 bundelt 14 agents vanaf € 1.499. Online vindbaarheid begint bij € 1.250 en een eerste campagne op Meta of TikTok vanaf € 399, exclusief advertentiebudget.
-- [Atelier Commerce 360](https://webshopatelier.nl/ai-team/): Een e-commerceteam met 14 AI-medewerkers dat de ondernemer aanstuurt. Het basispakket begint bij € 1.499 eenmalig, exclusief btw. Inrichting en training op offerte.
-- [Over het atelier](https://webshopatelier.nl/over-ons/): Bespreek je website of Shopify-webshop met WebshopAtelier. Samen kijken we wat je als eerste kunt bouwen of verbeteren.
-- [Tips en inzichten](https://webshopatelier.nl/inzichten/): Lees over de kosten van een webshop, vindbaarheid in Google en AI, advertenties en het verbeteren van je checkout.
-- [Contact en kennismaken](https://webshopatelier.nl/contact/): Neem contact op met WebshopAtelier over een website, Shopify-webshop, automatisering of online groei.
+Contact: hello@webshopatelier.nl. Een kennismaking duurt 15 minuten en is telefonisch; plannen kan direct op /contact/#boeken.
+
+## Diensten
+- [Website](https://webshopatelier.nl/diensten/#website): Webdesign op maat Vanaf € 999.
+- [Shopify-webshop](https://webshopatelier.nl/diensten/#webshop): Shopify op maat Vanaf € 2.900.
+- [AI-agents op maat](https://webshopatelier.nl/diensten/#ai-agents): Eén agent voor één taak Vanaf € 250.
+- [Online vindbaarheid](https://webshopatelier.nl/diensten/#vindbaarheid): Google en AI-zoekdiensten Vanaf € 1.250.
+- [Adverteren op Meta en TikTok](https://webshopatelier.nl/diensten/#adverteren): Eén platform, één campagne Vanaf € 399.
+- [Socialmediabeheer](https://webshopatelier.nl/diensten/#social): Plannen, maken, publiceren Prijs op maat.
+- [Conversie en optimalisatie](https://webshopatelier.nl/diensten/#conversie): Meer bestellingen uit dezelfde bezoekers Prijs op maat.
+- [Onderhoud en uitbreiding](https://webshopatelier.nl/diensten/#onderhoud): Je site en winkel in topvorm Prijs op maat.
+- [Atelier Commerce 360](https://webshopatelier.nl/ai-team/): AI-team voor je webshop, vanaf € 1.499.
+
+## AI-team (voorstel)
+- Directie: Chief of Staff, Operations Associate
+- Marketing: Head of Copy, Creative Director, Media Buyer, Brand Strategist (uitbreiding), Google Ads Specialist (uitbreiding)
+- Webshop en design: Design Director, E-commerce Developer, Onboarding Specialist
+- Data en financiën: Performance Analyst, Market Research Analyst, Financial Controller, Bookkeeper (uitbreiding)
+- Klant en kwaliteit: Customer Service Manager, Quality Auditor, Compliance Officer (uitbreiding), Supply Chain Monitor (uitbreiding)
+
+## Werk
+- [ElleCera](https://webshopatelier.nl/werk/ellecera/): Een meertalige Shopify-winkel met een eigen dashboard en AI-team voor het dagelijkse werk.
+- [Scillasdotter](https://webshopatelier.nl/werk/scillasdotter/): Een meertalig portfolio brengt de ontwerpen en een afspraak in het atelier bij elkaar.
+- [Doggy & Cats](https://webshopatelier.nl/werk/doggy-en-cats/): Een AI-team bereidt klantvragen en productcontent voor. Het dashboard bundelt de dagelijkse winkelcijfers.
+- [The Focus Club](https://webshopatelier.nl/werk/the-focus-club/): Van concurrentieonderzoek naar advertentiebeelden en video’s over focus en welzijn.
+
+## Pagina's
+- [Werkwijze](https://webshopatelier.nl/werkwijze/): van gesprek tot livegang in drie stappen.
+- [Over ons](https://webshopatelier.nl/over-ons/)
+- [Inzichten](https://webshopatelier.nl/inzichten/): artikelen over bouwen, vindbaarheid en verkopen.
+- [Contact](https://webshopatelier.nl/contact/)
