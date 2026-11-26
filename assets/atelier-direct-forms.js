@@ -31,6 +31,7 @@
     url.pathname = '/embed/' + formId(container);
     url.searchParams.set('hideTitle','1');
     url.searchParams.set('alignLeft','1');
+    url.searchParams.set('dynamicHeight','1');
     frame.title = english() ? 'Send WebshopAtelier a message' : 'Stuur WebshopAtelier een bericht';
     if (frame.getAttribute('src') !== url.href) frame.src = url.href;
   }
@@ -81,3 +82,6 @@
     close.focus();
   });
 })();
+
+// r14: Tally meldt zijn hoogte; het iframe groeit mee
+window.addEventListener('message',function(e){if(!/tally\.so$/.test(new URL(e.origin).hostname))return;var d=e.data;try{if(typeof d==='string')d=JSON.parse(d)}catch(x){return}if(!d||d.event!=='Tally.FormResized'||!d.payload)return;document.querySelectorAll('.atelier-contact-inline iframe').forEach(function(f){if(f.contentWindow===e.source){f.style.minHeight='0';f.style.height=d.payload.height+'px'}})});
