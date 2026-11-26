@@ -29,7 +29,7 @@ Contact: hello@webshopatelier.nl. Een kennismaking duurt 15 minuten en is telefo
 - [The Focus Club](https://webshopatelier.nl/werk/the-focus-club/): Van concurrentieonderzoek naar advertentiebeelden en video’s over focus en welzijn.
 
 ## Pagina's
-- [Werkwijze](https://webshopatelier.nl/werkwijze/): van gesprek tot livegang in drie stappen.
+- [Werkwijze](https://webshopatelier.nl/werk/#werkwijze): van gesprek tot livegang in drie stappen.
 - [Over ons](https://webshopatelier.nl/over-ons/)
 - [Inzichten](https://webshopatelier.nl/inzichten/): artikelen over bouwen, vindbaarheid en verkopen.
 - [Contact](https://webshopatelier.nl/contact/)
