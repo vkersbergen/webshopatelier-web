@@ -1367,25 +1367,524 @@ details.pakket11 .inhoud .pbeeld{width:100%;aspect-ratio:21/8;object-fit:cover;b
 .tekst11 a{color:var(--accent-donker);text-decoration:underline}.tekst11 table{border-collapse:collapse;margin-top:16px;width:100%}.tekst11 td,.tekst11 th{border-top:1px solid #ececf0;padding:10px 8px;text-align:left;font-size:16px;vertical-align:top}
 .tekst11 .inhoud11{border-radius:18px;background:#f5f5f7;padding:14px 18px;margin-top:20px}.tekst11 .inhoud11 li{margin-top:2px;font-size:16px}.tekst11 figure img{width:100%;height:auto;border-radius:18px;margin-top:18px}
 .tekst11 dl{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:8px 18px;margin-top:20px}.tekst11 dt{font-weight:600}.tekst11 dd{margin:0;overflow-wrap:anywhere}
+.chat9 .pillen a.chatknop11{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:980px;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);color:var(--accent-donker);font-size:14px;font-weight:500;margin:6px 6px 0 0;text-decoration:none}
+.taal11{margin:0 0 10px;font-size:15px;color:var(--grijs)}.taal11 a{color:var(--accent-donker)}.taal11 [aria-current]{color:var(--inkt);font-weight:600;text-decoration:none}
 .terug11{display:inline-block;color:var(--accent-donker);margin-bottom:14px}
+
+/* ===== r12 (25 nov): afwerking op Apple-niveau, bovenop r10/r11 ===== */
+.pil12{display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:999px;background:var(--zacht);color:var(--inkt);font-size:13px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.zachtvlak .pil12{background:#fff}
+
+/* P1 en P2: hero. Film staat stil op zijn plek, de gluurder hangt over de bovenrand, ruimte tot de zwarte sectie */
+.hero12{padding-bottom:clamp(56px,8vw,104px)!important}
+.hero12 .film,.hero12 .gluurder{animation:none!important}
+.hero12 .film{transform:none!important}
+.hero12 .gluurder .contact,.hero12 .gluurder::before,.hero12 .gluurder::after{display:none!important}
+/* carrouselpijlen: geen zwevende minion tussen de knoppen */
+.pijlen .duwer{display:none!important}
+
+/* P3: kennismaken, r10-blok met echte agenda */
+.slot12 h2 em,.slot12 h1 em{font-style:normal}
+.slot12 .feiten{display:grid;gap:10px}
+.slot12 .feiten li{display:flex;gap:10px;align-items:flex-start}
+.slot12 .feiten svg{flex:none;margin-top:2px;color:var(--accent)}
+.slot12 .kiezer .demo{color:var(--grijs)}
+.slot12 .kiezer .knop{margin-top:12px}
+.slot12 .melding9{color:var(--accent-donker);font-size:14px;margin:6px 0}
+
+/* P4: logomuur, monochroom en traag */
+.lm12{padding:clamp(56px,8vw,96px) 0;overflow:hidden}
+.lm12 h2{margin-bottom:clamp(20px,3vw,32px)}
+.lm12band{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.lm12spoor{display:flex;width:max-content;animation:lm12 70s linear infinite}
+.lm12band:hover .lm12spoor{animation-play-state:paused}
+.lm12rij{display:flex;gap:12px;padding:6px 12px 10px 0;list-style:none}
+.lm12rij li{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 20px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.05),1px 4px 12px -6px rgba(29,29,31,.18);font-size:15px;font-weight:500;color:#3a3a3c;white-space:nowrap}
+.lm12rij li .svgl,.lm12rij li img{display:grid;place-items:center;width:22px;height:22px;flex:none}
+.lm12rij li svg,.lm12rij li img{width:22px;height:22px;filter:grayscale(1) brightness(.42) contrast(1.2)}
+.lm12meer{display:flex;justify-content:center;margin-top:18px}
+.lm12meer .pil12{min-height:34px;padding:0 16px;font-size:15px;font-weight:500;color:var(--grijs)}
+@keyframes lm12{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.lm12spoor{animation:none;width:auto}.lm12spoor .lm12rij[aria-hidden="true"]{display:none}.lm12rij{flex-wrap:wrap;justify-content:center;padding:0}.lm12band{-webkit-mask-image:none;mask-image:none;width:min(var(--breed),100% - 2*var(--rand));margin:auto}}
+
+/* P5 en P6: footer, zonder casenamen en zonder toolraster; iconen precies in het midden */
+.voet12 .kol12{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:28px;margin-top:28px}
+.voet12 .kol12>div:not(.intro12){display:flex;flex-direction:column;gap:2px}
+.voet12 .kol12 a{padding:5px 0}
+.voet12 .intro12 .merkvoet9{margin:0 0 6px}
+.voet12 .zin12{color:var(--grijs);max-width:32ch}
+.voet12 .mail12{color:var(--accent-donker)!important;padding:0!important;display:inline-block;margin-top:8px}
+.soc12{display:flex;gap:10px;margin-top:14px}
+.soc12 a{display:grid!important;place-items:center;width:40px;height:40px;padding:0!important;border-radius:50%;background:#fff;color:var(--inkt);line-height:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:background-color .2s ease,transform .16s var(--uit)}
+.soc12 a svg{display:block;width:18px;height:18px}
+.soc12 a:active{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.soc12 a:hover{background:var(--zacht2)}}
+@media (max-width:700px){.voet12 .kol12{grid-template-columns:1fr 1fr;gap:24px 16px}.voet12 .intro12{grid-column:1/-1}}
+
+/* P7: e-book */
+.post12{margin-bottom:8px}
+.boekje12 .inschrijf12{margin-top:16px}
+.boekje12 .inschrijf12 .knop{text-decoration:none}
+
+/* P10: AI-team, vijf afdelingen als één raster */
+.breed12{width:min(1200px,100% - 2*var(--rand));margin-inline:auto}
+.agents12 .binnen h2{margin-bottom:clamp(24px,3.4vw,40px)}
+.afdelingen12{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.afd12 h3{font-size:16px;font-weight:600;letter-spacing:-.01em;padding:0 2px 12px;margin-bottom:12px;border-bottom:1px solid var(--lijn);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kaarten12{display:grid;grid-auto-rows:1fr;gap:12px}
+.ag12{display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:10px 10px 16px;box-shadow:var(--diep);min-width:0}
+.podium12{display:grid;place-items:end center;height:148px;border-radius:14px;margin-bottom:12px;background:radial-gradient(70% 55% at 50% 92%,#e2e2e7 0%,#ececf0 45%,#f5f5f7 100%);overflow:hidden}
+.podium12 img{height:84%;width:auto;max-width:86%;object-fit:contain;object-position:50% 100%;margin-bottom:6%;filter:drop-shadow(3px 8px 7px rgba(29,29,31,.22))}
+.ag12 b{font-size:15.2px;font-weight:600;line-height:1.25;padding:0 6px}
+.ag12 p{font-size:14px;line-height:1.42;color:var(--grijs);margin-top:4px;padding:0 6px}
+.werklog12{margin-top:24px!important;width:100%!important;max-width:none!important}
+@media (max-width:999px){
+  .afdelingen12{grid-template-columns:1fr;gap:28px}
+  .kaarten12{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .afd12 h3{border-bottom:0;padding-bottom:0;margin-bottom:10px;font-size:18px}
+  .podium12{height:124px}
+}
+@media (max-width:360px){.podium12{height:104px}.ag12 b{font-size:14.4px}}
+
+/* P9: Jij geeft de opdracht, video met echte tekst erop */
+.vid12{padding:clamp(8px,2vw,16px) 0 clamp(40px,6vw,72px)}
+.vbreed12{width:min(1200px,100% - 2*var(--rand));margin-inline:auto}
+.vkaart12{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/9;background:#d9d9de;box-shadow:var(--diep-hoog);margin:0}
+.vkaart12 video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vkaart12::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,18,20,.74) 0%,rgba(18,18,20,.38) 34%,rgba(18,18,20,0) 62%);pointer-events:none}
+.vtekst12{position:absolute;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);bottom:clamp(20px,4vw,44px);z-index:2;color:#fff}
+.vtekst12 h2{color:#fff;font-size:clamp(34px,5.4vw,64px);line-height:1.02;letter-spacing:-.035em}
+.vtekst12 p{color:#e8e8ed;font-size:clamp(16px,1.6vw,19px);max-width:44ch;margin-top:10px}
+.vposter12{display:none}
+@media (max-width:699px){.vkaart12{aspect-ratio:4/5;border-radius:24px}}
+
+/* P11: founder in de huisstijl */
+.founder12{padding:clamp(48px,7vw,96px) 0;background:var(--zacht)}
+.founder12 .binnen{width:min(1040px,100% - 2*var(--rand))}
+.fkaart12{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:center;background:#fff;border-radius:32px;padding:clamp(16px,2.4vw,28px);box-shadow:var(--diep)}
+.founder12 .fotokader{position:relative;margin:0}
+.founder12 .fotokader .foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;display:block}
+.founder12 .leunfig{position:absolute;right:-26px;bottom:-6px;width:84px;z-index:2}
+.founder12 .leunfig img{width:100%;height:auto;filter:drop-shadow(3px 8px 7px rgba(29,29,31,.28))}
+.ftekst12{padding:clamp(4px,1vw,16px) clamp(4px,1.6vw,24px) clamp(8px,1vw,16px) 0}
+.ftekst12 h1,.ftekst12 h2{font-size:clamp(30px,4.4vw,48px);line-height:1.04;letter-spacing:-.035em;margin-bottom:18px}
+.quote12{position:relative;font-size:clamp(22px,2.6vw,30px);line-height:1.18;font-weight:600;letter-spacing:-.025em;color:var(--inkt);margin:0 0 18px;padding-left:0}
+.quote12 .ac{color:var(--accent)}
+.quote12 .aanh{display:block;font-size:72px;line-height:.6;height:30px;color:var(--accent);font-weight:700}
+.ftekst12>p{color:var(--grijs);margin-top:10px;max-width:52ch}
+.ftekst12 .wie{margin-top:18px;color:var(--inkt);font-weight:600;display:flex;flex-direction:column}
+.ftekst12 .wie span{font-weight:400;color:var(--grijs);font-size:14px}
+.ftekst12 .verder{margin-top:20px}
+@media (max-width:760px){.fkaart12{grid-template-columns:1fr;border-radius:28px}.founder12 .fotokader .foto{aspect-ratio:4/4.2}.founder12 .leunfig{right:10px;width:70px}.ftekst12{padding:4px 6px 10px}}
+
+/* P13: dienstenmenu als kaarten met beeld, prijs en knop; zelfde familie als AI-team en Werk */
+.m12{padding:14px!important}
+.m12in{display:flex;flex-direction:column}
+.dkol12{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 14px}
+.dg12 h4{font-size:13px;font-weight:500;color:var(--grijs);margin:4px 10px 6px}
+.dk12{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:start;padding:8px 10px;border-radius:14px;color:var(--inkt);transition:background-color .2s ease}
+@media (hover:hover) and (pointer:fine){.dk12:hover{background:rgba(0,0,0,.04)}}
+.dt12{width:52px;height:52px;border-radius:12px;overflow:hidden;background:var(--zacht);display:block}
+.dt12 img{width:100%;height:100%;object-fit:cover}
+.dk12 .dt12 img[src*="/m-"]{object-fit:contain;padding:4px}
+.dx12{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.dx12 b{font-size:15px;font-weight:600;line-height:1.25}
+.dx12 small{font-size:13px;line-height:1.35;color:var(--grijs);margin:2px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.m12 .voet11,.mega .voet11{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding:12px 10px 4px;border-top:1px solid rgba(0,0,0,.06)}
+.m12 .voet11 span,.mega .voet11 span{display:flex;flex-direction:column;font-size:13px;color:var(--grijs)}
+.m12 .voet11 b,.mega .voet11 b{font-size:17px;color:var(--inkt);font-weight:600}
+.m12 .voet11 .knop,.mega .voet11 .knop{min-height:38px;padding:0 16px;font-size:14px}
+/* mobiel (M1): lijst met kleine beelden, knop vast onderaan */
+.lijst12{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:2px}
+.mr12{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:8px 4px;border-radius:12px;color:var(--inkt)}
+.mr12 img{width:44px;height:44px;border-radius:10px;object-fit:cover;background:var(--zacht)}
+.mr12 img[src*="/m-"]{object-fit:contain;padding:3px}
+.mr12 span{display:flex;flex-direction:column}
+.mr12 b{font-size:17px;font-weight:500}
+.mr12 small{font-size:14px;color:var(--grijs)}
+.mvast12{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,255,255,0),#fff 30%)}
+.mvast12 .knop{width:100%;min-height:46px}
+
+/* P14 en P16: diensten-overzicht, één veegrij met filters, vlakke kaarten die naar hun eigen pagina gaan */
+.overzicht12 .h2-12{font-size:clamp(27.2px,5.6vw,51.2px);line-height:1.05;letter-spacing:-.028em}
+.filter12{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.filter12 button{border:0;font:inherit;font-size:15px;font-weight:500;min-height:38px;padding:0 16px;border-radius:999px;background:#fff;color:var(--inkt);box-shadow:inset 0 0 0 1px var(--lijn);cursor:pointer;transition:background-color .2s ease,color .2s ease,transform .16s var(--uit)}
+.filter12 button:active{transform:scale(.97)}
+.filter12 button[aria-pressed="true"]{background:var(--inkt);color:#fff;box-shadow:none}
+.overzicht12 .spoor .dienst{animation:none!important;transform:none!important}
+.overzicht12 .spoor{align-items:stretch}
+a.dienst12{color:inherit;text-decoration:none;transition:transform .2s var(--uit),box-shadow .2s ease}
+a.dienst12[hidden]{display:none}
+@media (hover:hover) and (pointer:fine){a.dienst12:hover{transform:translateY(-3px);box-shadow:var(--diep-hoog)}}
+a.dienst12:active{transform:scale(.985)}
+.meer12{position:absolute;right:14px;bottom:14px;z-index:2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--inkt);font-size:20px;line-height:1;box-shadow:0 0 0 1px rgba(0,0,0,.06),1px 4px 10px -4px rgba(29,29,31,.3)}
+.dienst.groot .meer12{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.overzicht12 .pijlen{align-items:center;gap:16px}
+.stip12{flex:0 1 220px;height:3px;border-radius:3px;background:rgba(0,0,0,.1);overflow:hidden}
+.stip12 i{display:block;height:100%;width:var(--d,25%);border-radius:inherit;background:var(--inkt);transform:translateX(var(--x,0));transition:transform .2s ease}
+
+/* diensten-kop: warme film van het atelier in plaats van een koud serverrek */
+.dkop12{margin-top:22px;border-radius:24px;overflow:hidden;aspect-ratio:21/9;position:relative;box-shadow:var(--diep-hoog);background:#d9d9de}
+.dkop12 video{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:699px){.dkop12{aspect-ratio:4/5}}
+
+/* dienstpagina's: hero, wat je krijgt, prijs met case, vaak gevraagd */
+.dp12 .dphero12{padding:clamp(24px,4vw,40px) 0 clamp(40px,6vw,72px)}
+.dphero12 h1{font-size:clamp(34px,6vw,64px);line-height:1.02;letter-spacing:-.04em;margin-top:10px;max-width:18ch}
+.dphero12 .lede{font-size:clamp(17px,1.8vw,21px);color:var(--grijs);margin-top:14px;max-width:46ch}
+.dphero12 .acties{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+.dphero12 .acties .pil12{min-height:36px;padding:0 14px;font-size:15px}
+.dpbeeld12{width:min(1100px,100% - 2*var(--rand));margin:clamp(28px,4vw,44px) auto 0;border-radius:28px;overflow:hidden;aspect-ratio:21/9;box-shadow:var(--diep-hoog);background:#d9d9de}
+.dpbeeld12 img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:699px){.dpbeeld12{aspect-ratio:4/3;border-radius:22px}}
+.dp12 section.zachtvlak,.dp12 section{padding:clamp(48px,7vw,88px) 0}
+.dp12 .dphero12{padding-bottom:clamp(24px,4vw,40px)}
+.wkrij12{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:clamp(20px,3vw,32px)}
+.wk12{background:#fff;border-radius:22px;padding:22px 22px 24px;box-shadow:var(--diep)}
+.wk12 h3{font-size:19px;letter-spacing:-.02em;margin-bottom:12px}
+.wk12 ul{list-style:none;padding:0;display:grid;gap:10px}
+.wk12 li{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;font-size:15.2px;line-height:1.45}
+.wk12 .v{color:var(--accent);margin-top:2px}
+.prijs12{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:stretch}
+.prkaart12{border-radius:26px;padding:clamp(22px,3vw,34px);background:radial-gradient(120% 80% at 0% 0%,#3a1c12,#1d1d1f 62%);color:#f5f5f7;box-shadow:var(--diep-hoog);display:flex;flex-direction:column;align-items:flex-start}
+.prkaart12 h2{color:#fff;font-size:clamp(40px,5.4vw,60px);letter-spacing:-.04em;display:flex;align-items:baseline;gap:10px}
+.prkaart12 h2 small{font-size:16px;font-weight:500;color:#a1a1a6;letter-spacing:0}
+.prkaart12 p{color:#c7c7cc;margin:10px 0 22px;max-width:36ch}
+.prkaart12 .knop{margin-top:auto}
+.case12{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:26px;overflow:hidden;background:#fff;box-shadow:var(--diep);color:var(--inkt)}
+.case12 img{width:100%;height:100%;object-fit:cover;object-position:50% 0;min-height:240px;background:var(--zacht)}
+.ct12{display:flex;flex-direction:column;padding:22px}
+.ct12 small{color:var(--grijs);font-size:13px}
+.ct12>b{font-size:22px;letter-spacing:-.02em;margin-top:2px}
+.cc12{display:grid;gap:10px;margin:16px 0}
+.cc12 div{display:flex;align-items:baseline;gap:8px}
+.cc12 b{font-size:22px;letter-spacing:-.02em;color:var(--accent)}
+.cc12 span{color:var(--grijs);font-size:14px}
+.cl12{margin-top:auto;font-weight:500;color:var(--accent-donker)}
+@media (max-width:760px){.prijs12{grid-template-columns:1fr}.case12{grid-template-columns:1fr}.case12 img{aspect-ratio:16/10;min-height:0}}
+.smal12{width:min(760px,100% - 2*var(--rand))!important}
+.faq12{background:#fff;border-radius:18px;box-shadow:0 0 0 1px rgba(0,0,0,.05),1px 4px 12px -8px rgba(29,29,31,.2);margin-top:10px}
+.faq12 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-weight:600;font-size:17px}
+.faq12 summary::-webkit-details-marker{display:none}
+.faq12 summary span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--zacht);font-weight:500;transition:transform .2s var(--uit)}
+.faq12[open] summary span{transform:rotate(45deg)}
+.faq12 p{padding:0 20px 18px;color:var(--grijs);max-width:64ch}
+.terug12{margin-top:22px}.terug12 a{color:var(--accent-donker);font-weight:500}
+.dp12 h2 .zacht{color:var(--grijs)}
+
+/* artikelbeelden */
+.abeeld12{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:18px}
+
+.founder12 .binnen{display:block!important}
+.slot12 h2,.slot12 h1{color:var(--inkt)!important;animation:none!important}
+.dphero12 .lede{margin-left:0!important}
+.boekje12{width:min(1080px,100% - 2*var(--rand));margin:clamp(56px,8vw,96px) auto!important}
+@media (min-width:800px){.boekje12{grid-template-columns:1fr 1fr!important}.boekje12 .krijg{border-radius:0 25.6px 25.6px 0!important}.boekje12 .form{padding:32px!important}.boekje12 .krijg{padding:32px!important}}
+.boekje12 .boek3d{top:auto!important}
+.opties12{display:block!important;max-width:760px;margin-inline:auto}
+
+/* dienstpagina-kop: tekst links, beeld rechts (beeld blijft scherp op elke breedte) */
+.dpgrid12{width:min(1100px,100% - 2*var(--rand));margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:clamp(24px,4vw,56px);align-items:center}
+.dpgrid12 .dpbeeld12{width:100%;margin:0;aspect-ratio:4/3}
+.dpbeeld12 video{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:860px){.dpgrid12{grid-template-columns:1fr}.dpgrid12 .dpbeeld12{aspect-ratio:4/3}}
+.case12 img{object-position:0 0}
+/* founder: foto nooit groter dan het bronbestand */
+.fkaart12{grid-template-columns:minmax(0,360px) minmax(0,1fr)}
+@media (max-width:760px){.fkaart12{grid-template-columns:1fr}.founder12 .fotokader{max-width:240px;margin-inline:auto}.founder12 .fotokader .foto{aspect-ratio:2/3}}
+
+/* ===== ronde 2 na keuring ===== */
+/* founder: foto in verhouding, minion naast de foto */
+.founder12 .fotokader .foto{height:auto!important}
+.fkaart12{column-gap:clamp(40px,6vw,88px)}
+.founder12 .leunfig{right:-50px;bottom:0;width:72px}
+@media (max-width:760px){.founder12 .leunfig{right:-34px;width:60px}}
+/* AI-team: portretten van de glasminions, kaarten even hoog */
+.podium12{height:auto!important;aspect-ratio:1/1;background:#232325;place-items:stretch;border-radius:14px}
+.podium12 img{width:100%!important;height:100%!important;max-width:none!important;margin:0!important;object-fit:cover;object-position:50% 46%;filter:none!important}
+.ag12 b{min-height:2.5em;display:flex;align-items:flex-start}
+.ag12 p{min-height:calc(3 * 1.42em)}
+@media (max-width:999px){.ag12 b{min-height:0}.ag12 p{min-height:0}}
+/* menu-duimpjes: minionportret */
+.dt12{background:#232325}.dt12 img{object-position:50% 40%}
+.mr12 img{object-fit:cover;object-position:50% 40%;background:#232325}
+/* dienstpagina's: alles op één raster van 1100 px */
+.dp12 .binnen{width:min(1100px,100% - 2*var(--rand))!important}
+.dp12 .smal12 .faq12,.dp12 .smal12 .terug12{max-width:760px}
+.dpgrid12 .dpbeeld12{aspect-ratio:1/1;background:#232325}
+.dpbeeld12 img{object-position:50% 45%}
+@media (max-width:860px){.dpgrid12 .dpbeeld12{aspect-ratio:5/4}}
+.prkaart12 h2 small{white-space:nowrap}
+/* footer: e-bookknop zoals elke andere knop */
+.voet12 .post12{display:flex;align-items:center;gap:14px}
+.voet12 .post12 .knop{color:#fff!important;min-height:40px!important;padding:0 18px!important;margin-left:auto;font-size:15px!important}
+@media (max-width:600px){.voet12 .post12{flex-wrap:wrap}.voet12 .post12 .knop{width:100%;margin-left:0}}
+/* optionele specialisten: op de telefoon een veegrij in plaats van een stapel */
+@media (max-width:699px){
+  .opt11rij{display:grid!important;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--rand));padding:6px var(--rand) 16px;scroll-padding-inline:var(--rand);scrollbar-width:none}
+  .opt11rij::-webkit-scrollbar{display:none}.opt11rij>*{scroll-snap-align:start}
+}
+/* home: afdelingen-veegrij binnen de goot, vliegminion binnen beeld */
+@media (max-width:699px){.aiblok .groepen{padding-inline:var(--rand)!important;scroll-padding-inline:var(--rand);margin-inline:calc(-1 * var(--rand))!important}}
+img[src*="m-vlieg"]{max-width:100%}
+/* ai-team kop: knop direct onder de tekst */
+.phero .metbord{display:block}
+h2 + p.lede{margin-top:12px}
+/* M1: de vaste knop bedekt geen items en is geen tweede oranje knop */
+.lijst12{padding-bottom:12px}
+.mvast12 .knop{background:#fff!important;color:var(--inkt)!important;box-shadow:inset 0 0 0 1px var(--lijn)!important}
+/* beweging (emil): kortere onthulling, snellere hover, menu ease-out, geen eindeloos duwen */
+[data-in]{transition-duration:.6s!important;transition-timing-function:var(--uit)!important}
+.artikel img.b,.case .desk,.mega .uitgelicht img{transition-duration:.35s!important}
+.mini[data-schuif]{transition-duration:.6s!important}
+.pijlen button{animation-iteration-count:1!important}
+html.is-start .hero12 .oud{transition-delay:1s,1s!important}
+html.is-start .hero12 .nieuw .w{transition-delay:calc(1.3s + var(--i) * 70ms)!important}
+/* bedrijfsgegevens: netjes in een kaart op het raster */
+.tekst11 dl{display:grid;grid-template-columns:max-content 1fr;gap:12px 28px;background:#fff;border-radius:22px;padding:24px 28px;box-shadow:var(--diep);margin-top:20px}
+.tekst11 dt{color:var(--grijs)}.tekst11 dd{margin:0;font-weight:500}
+@media (max-width:520px){.tekst11 dl{grid-template-columns:1fr;gap:2px}.tekst11 dd{margin-bottom:10px}}
+/* 404 */
+.slaap12{width:min(280px,70vw);aspect-ratio:1/1;object-fit:cover;object-position:50% 50%;border-radius:28px;margin:24px auto;box-shadow:var(--diep-hoog);background:#232325}
+
+/* ===== ronde 3 na keuring 2 ===== */
+.voet12 .post12 .knop{display:inline-flex!important;align-items:center!important;justify-content:center!important;line-height:1!important}
+@media (max-width:360px){.voet12 .post12{display:grid;grid-template-columns:44px 1fr;align-items:center}.voet12 .post12 .knop{grid-column:1/-1}}
+/* hero: het verhaal blijft (oud doorgestreept, nieuw erin), maar leesbaar binnen 1,6 s */
+html.is-start .hero12 .oud .s::after{transition-delay:.2s!important;transition-duration:.5s!important}
+html.is-start .hero12 .oud{transition-delay:.7s,.7s!important;transition-duration:.6s,.4s!important}
+html.is-start .hero12 .nieuw .w{transition-duration:.5s!important;transition-delay:calc(.85s + var(--i) * 50ms)!important}
+/* M1: knop met dekkende achtergrond, laatste items scrollen erboven */
+.lijst12{padding-bottom:76px!important}
+.mvast12{background:linear-gradient(to bottom,rgba(255,255,255,0),#fff 22px)!important;padding-top:22px!important}
+/* megamenu: geen spookband onder het glas */
+.mega.open{clip-path:inset(0 round 20.8px)!important}
+/* contact: het Tally-formulier is donker, dus de hele kaart is donker en hoort erbij */
+.opties12 .optie{background:#201927!important;color:#f5f5f7;border-radius:28px;padding:clamp(20px,3vw,32px)!important;box-shadow:var(--diep-hoog)}
+.opties12 .optie h2{color:#fff}.opties12 .optie p,.opties12 .optie li{color:#d9d4de}.opties12 .optie .link{color:#ffb39b}
+.opties12 .optie svg{color:#ff8a66}
+/* over-ons: tools op het raster, geen zwevende vlieger */
+ul.logos9{padding-left:0!important}
+@media (max-width:699px){main ul.logos9{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+/* dienstpagina's: kaarten vullen het raster, vragen naast de kop, telefoon als veegrij */
+.wkrij12{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))!important}
+@media (min-width:900px){.dp12 .smal12{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:40px;align-items:start}.dp12 .smal12 h2{grid-row:1 / span 6}.dp12 .smal12 .faq12,.dp12 .smal12 .terug12{grid-column:2;max-width:none}.dp12 .smal12 .faq12:first-of-type{margin-top:0}}
+@media (max-width:699px){.wkrij12{display:grid!important;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--rand));padding:6px var(--rand) 16px;scroll-padding-inline:var(--rand);scrollbar-width:none}.wkrij12::-webkit-scrollbar{display:none}.wk12{scroll-snap-align:start}}
+/* werk: de vierde case over de volle breedte, ritme 1-2-1 */
+@media (min-width:700px){.werkraster>.wkaart:nth-child(4):last-child{grid-column:1/-1}}
+/* telefoon: secties niet verder uit elkaar dan nodig */
+@media (max-width:699px){main>section:not(.hero):not(.phero):not(.dphero12):not(.werk):not(.vid12):not(.statement){padding-top:52px!important;padding-bottom:52px!important}footer.voet12{padding-top:40px!important}}
+/* werk/case: het uitgangspunt als kaart met accent */
+.probleem{background:#fff;border-radius:22px;padding:22px 24px;box-shadow:var(--diep);margin-top:16px}
+.probleem p{font-size:clamp(18px,2vw,22px);line-height:1.35;font-weight:600;letter-spacing:-.015em;color:var(--inkt)}
+.probleem p::first-line{color:var(--accent)}
+/* home AI-blok: afdelingskoppen even hoog, minions gelijk */
+.aiblok .groep h3{min-height:2.6em}
+@media (max-width:600px){.aiblok .vlieger2{right:4px!important;width:88px!important}}
+/* filters: één rij die veegt */
+@media (max-width:699px){.filter12{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * var(--rand));padding-inline:var(--rand)}.filter12::-webkit-scrollbar{display:none}.filter12 button{flex:none}}
+/* footer: wettelijke regel netjes */
+.voet12 .wettelijk{display:flex;flex-wrap:wrap;column-gap:16px;row-gap:6px}.voet12 .wettelijk span{flex-basis:100%}
+/* kopknop: groter klikvlak */
+.balk .acties .knop{position:relative}.balk .acties .knop::after{content:"";position:absolute;inset:-7px -2px}
+/* juridische pagina's en bedrijfsgegevens op het raster */
+.tekst11{width:min(var(--breed),100% - 2*var(--rand))!important}
+.kruimel a{text-decoration:none!important}
+/* 404 */
+.n404{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:clamp(24px,4vw,56px);align-items:center}
+.n404 .slaap12{margin:0;width:100%}
+.n404 ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.n404 ul a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--lijn);font-weight:500;text-decoration:none}
+@media (max-width:699px){.n404{grid-template-columns:1fr}.n404 .slaap12{max-width:240px;margin-inline:auto;grid-row:1}}
+
+/* ===== levende minions: ze zitten, leunen, duwen en gluren tegen de secties aan (licht van linksboven) ===== */
+.leef12{position:absolute;z-index:3;pointer-events:none;display:block}
+.leef12 .lb12{display:block;transform-origin:50% 100%;animation:adem12 4.8s ease-in-out infinite}
+.leef12 img{display:block;width:100%;height:auto;filter:drop-shadow(5px 12px 9px rgba(29,29,31,.24)) drop-shadow(1px 2px 1.5px rgba(29,29,31,.18))}
+.leef12 .cs12{position:absolute;left:50%;bottom:-3px;width:62%;height:10px;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(20,20,22,.42),rgba(20,20,22,0));filter:blur(1.5px);z-index:-1}
+@keyframes adem12{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-1.5px) scaleY(1.012)}}
+@media (prefers-reduced-motion:reduce){.leef12 .lb12{animation:none}}
+/* kennismaken: staat op de bovenrand van de agendakaart, rechts */
+.kaart9{position:relative}
+.leef12--klok{width:92px;right:clamp(18px,4vw,40px);bottom:calc(100% - 8px)}
+.leef12--klok .cs12{bottom:4px;width:56%}
+/* AI-team video: gluurt over de bovenrand, achter de kaart */
+.vbreed12{position:relative}.vkaart12{z-index:2}
+.leef12--gluur{width:150px;left:auto;right:10%;top:0;translate:0 calc(-100% + 6px);z-index:1}
+.leef12--gluur .cs12{display:none}
+/* werklog: zit op de bovenrand, benen over de rand */
+.werklog12{position:relative;overflow:visible!important}
+.leef12--zit{width:66px;right:40px;bottom:calc(100% - 22px)}
+.werklog12{margin-top:96px!important}
+@media (max-width:699px){.werklog12{margin-top:72px!important}}
+.leef12--zit .cs12{bottom:18px;width:70%}
+/* dienstpagina: duwt de prijskaart vanaf links */
+.prkaart12{position:relative;overflow:visible}
+.leef12--duw{width:92px;left:auto;right:-62px;bottom:-4px}.leef12--duw img{transform:scaleX(-1)}
+.prijs12{position:relative}
+@media (max-width:1240px){.leef12--duw{display:none}}
+.leef12--duw .cs12{bottom:0;width:70%}
+/* bestaande r10-figuren krijgen dezelfde contactschaduw */
+.hero12 .gluurder .lijf img,.founder12 .leunfig img{filter:drop-shadow(5px 12px 9px rgba(29,29,31,.24)) drop-shadow(1px 2px 1.5px rgba(29,29,31,.18))!important}
+.founder12 .leunfig::after{content:"";position:absolute;left:18%;bottom:-2px;width:64%;height:9px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,20,22,.4),rgba(20,20,22,0));filter:blur(1.5px);z-index:-1}
+/* telefoon: kleiner, nooit over tekst of knoppen; op heel smal weg */
+@media (max-width:699px){
+  .leef12--klok{width:64px}
+  .leef12--gluur{width:104px}
+  .leef12--zit{width:52px;right:16px}
+  .leef12--duw{display:none}
+}
+@media (max-width:359px){.leef12--zit,.leef12--klok{display:none}}
+
+/* ===== ronde 4 na keuring 3 ===== */
+/* klok staat op de bovenrand van de agendakaart, buiten de afgeronde kaart */
+.boek9{position:relative}
+.leef12--klok{bottom:auto;top:0;translate:0 calc(-100% + 8px)}
+@media (max-width:600px){.leef12--klok{width:56px;right:20px}.slot12 .boek9{margin-top:40px}}
+/* gluurminions krijgen grip: een dun schaduwrandje onder de vingers */
+.leef12--gluur .cs12{display:block;bottom:4px;width:40%;height:4px;opacity:.55}
+@media (max-width:699px){.vbreed12{margin-top:56px}}
+/* duwminion: handen tegen de rand, spiegelen in het beeld en de schaduw op de houder (licht blijft linksboven) */
+.leef12--duw{right:-86px}
+.leef12--duw img{transform:scaleX(-1)!important;filter:none!important}
+.leef12--duw .lb12{filter:drop-shadow(5px 12px 9px rgba(29,29,31,.24)) drop-shadow(1px 2px 1.5px rgba(29,29,31,.18))}
+@media (max-width:1240px){.leef12--duw{display:block}}
+@media (max-width:1239.98px){.leef12--duw{display:none!important}}
+/* werklog: genoeg lucht voor de zitminion op de telefoon */
+@media (max-width:699px){.werklog12{margin-top:100px!important}}
+/* over-ons: geen schaduw onder niets */
+.statement .vloerschaduw{display:none!important}
+.statement{padding-block:clamp(48px,7vw,96px)!important}
+/* home AI-blok: figuren op de kaartrand, niet tegen de knop, niet afgesneden in de veegrij */
+.aiblok .groep .mini{bottom:calc(100% - 12px)!important}
+.aiblok .acties{margin-bottom:28px}
+@media (max-width:699px){.aiblok .groepen{padding-top:100px!important;margin-top:-100px!important}}
+/* M1: knopvlak op de kleur van het paneel, laatste item vrij */
+.mvast12{background:linear-gradient(to bottom,rgba(250,250,252,0),#fafafc 20px)!important;margin-inline:-16px;padding:20px 16px 16px!important}
+.lijst12{padding-bottom:96px!important}
+/* hero: binnen een seconde leesbaar, het doorstrepen blijft */
+html.is-start .hero12 .oud .s::after{transition-delay:.1s!important;transition-duration:.35s!important}
+html.is-start .hero12 .oud{transition-delay:.35s,.35s!important;transition-duration:.45s,.3s!important}
+html.is-start .hero12 .nieuw .w{transition-duration:.3s!important;transition-timing-function:cubic-bezier(.23,1,.32,1)!important;transition-delay:calc(.45s + var(--i) * 40ms)!important}
+html.js-hero:not(.is-start) .hero12 .nieuw .w{filter:blur(4px)}
+html.is-start .hero12 .nieuw .w{filter:blur(0)!important}
+/* witruimte telefoon */
+@media (max-width:600px){footer.voet12{padding-top:32px!important}}
+/* 404-alinea op de lijn */
+.n404 .lede{margin-inline:0!important;max-width:44ch}
+/* over-ons tools: gelijke tegels, telefoon als veegrij */
+ul.logos9 li{white-space:nowrap}
+ul.logos9{grid-auto-rows:1fr}
+@media (max-width:699px){main ul.logos9{display:grid!important;grid-auto-flow:column;grid-template-columns:none!important;grid-template-rows:repeat(2,auto);grid-auto-columns:max-content;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * var(--rand));padding:4px var(--rand) 12px}main ul.logos9::-webkit-scrollbar{display:none}}
+/* inzichten: minionportretten, op de telefoon compacte rijen na het eerste artikel */
+a.artikel img.b[src*="/mn-"]{object-fit:cover;object-position:50% 42%;background:#232325}
+@media (max-width:699px){
+  a.artikel:not(:first-of-type){display:grid!important;grid-template-columns:96px minmax(0,1fr);column-gap:14px;align-items:start}
+  a.artikel:not(:first-of-type) img.b{width:96px!important;height:96px!important;aspect-ratio:1/1;border-radius:14px;grid-row:1 / span 4}
+}
+/* bedrijfsgegevens en juridisch: op het raster vanaf de nav-lijn */
+.tekst11{max-width:none!important;margin-inline:auto!important}
+/* megamenu: ease-out bij openen */
+.mega{transition-timing-function:cubic-bezier(.23,1,.32,1)!important}
+/* nieuwe transparante minions: 16-duw-links duwt al naar links, dus niet spiegelen */
+.leef12--duw img{transform:none!important}
+img.mt12{object-fit:contain}
+
+.leef12--klok{width:62px!important}
+@media (max-width:600px){.leef12--klok{width:46px!important}}
+
+/* ===== ronde 5 na keuring 4 ===== */
+@media (max-width:600px){.slot12 .boek9{margin-top:96px!important}}
+.leef12--zit{bottom:calc(100% - 46px)!important}
+.leef12--zit .cs12{bottom:44px!important;width:76%!important}
+.aiblok .groep .mini.zitrand{bottom:auto!important;top:0!important;translate:0 -62%}
+@media (max-width:699px){.aiblok .groepen{padding-top:84px!important;margin-top:-40px!important}}
+.lijst12{padding-bottom:150px!important}
+#optioneel{padding-top:clamp(32px,4vw,56px)!important}
+@media (max-width:699px){.founder12{padding-block:40px!important}}
+.post11 .cov11 img{height:auto!important;width:100%!important;object-fit:contain}
+ul.logos9{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))!important}
+ul.logos9 li{min-width:max-content}
+a.artikel h2,a.artikel h3{hyphens:manual!important}
+.hero12 .gluurder .lijf::after{content:"";position:absolute;left:30%;bottom:46%;width:40%;height:4px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,20,22,.35),rgba(20,20,22,0));filter:blur(1px)}
+/* ===== ronde 6 na keuring 5 ===== */
+#kennismaken .binnen>p{margin-bottom:clamp(64px,9vw,104px)!important}
+img.mt12{height:auto}
+@media (max-width:1099px){.founder12 .leunfig{display:none}}
+@media (min-width:700px) and (max-width:999px){.leef12--zit{width:50px!important}}
+.statement .vluchtbaan{display:none!important}
+#optioneel{padding-top:8px!important}
+.lijst12{padding-bottom:190px!important}
+@media (max-width:360px){main ul.logos9 li{font-size:14px}}
+.werklog12 .demo,.werklog .demo{font-size:14px}
+@media (min-width:700px){ul.logos9{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media (max-width:360px){a.artikel:not(:first-of-type){grid-template-columns:1fr!important}a.artikel:not(:first-of-type) img.b{width:100%!important;height:150px!important;grid-row:auto!important}}
+h1,h2,h3{hyphens:manual}
+/* ===== ronde 7 na keuring 6 ===== */
+@media (min-width:700px) and (max-width:999px){.leef12--zit{display:none!important}}
+section[aria-labelledby="pr-kop"]{padding-bottom:32px!important}
+.mvast12{box-shadow:0 60px 0 0 #fafafc}
+@media (max-width:360px){.logos9 li,.toolgroep li{font-size:14px!important}}
+.founder12 .fotokader{overflow:visible!important}.founder12 .leunfig{z-index:3}
+.founder12 .leunfig::after{z-index:0}
+.opt11 img{width:52px!important;height:64px!important;object-fit:contain;object-position:50% 100%}
+/* inzichten: uitgelicht en laatste artikel naast elkaar (beeld blijft scherp, raster sluit) */
+@media (min-width:1000px){
+  .artraster>a.artikel:first-child{grid-column:1/-1;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+  .artraster>a.artikel:first-child img.b{height:100%!important;min-height:300px;aspect-ratio:auto!important}
+  .artraster>a.artikel:first-child .tekst{align-self:center;padding:28px!important}
+}
+@media (min-width:1000px){
+  .artraster>a.artikel:first-child img.b{min-height:0!important;height:360px!important}
+  .artraster>a.artikel:first-child .tekst h3{font-size:clamp(22px,2.2vw,28px);line-height:1.15}
+}
+
+/* ===== ronde 8 na keuring 7 ===== */
+@media (max-width:1099px){.aiblok .groepen{--rk:calc((100vw - min(var(--breed), 100vw - 2 * var(--rand))) / 2);margin-inline:calc(-1 * var(--rk))!important;padding-inline:var(--rk)!important;scroll-padding-inline:var(--rk)!important}}
+#optioneel{padding-top:clamp(48px,6vw,72px)!important}
+.boekje12 .voorkant>span:not(.held9),.boekje12 .voorkant>b{max-width:62%}
+@media (min-width:601px) and (max-width:759px){.leef12--klok{display:none!important}}
+@media (min-width:1000px){
+  .artraster{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+  .artraster>a.artikel{grid-column:span 2}
+  .artraster>a.artikel:first-child{grid-column:1/-1}
+  .artraster>a.artikel:nth-last-child(-n+2){grid-column:span 3}
+}
+@media (min-width:700px) and (max-width:999px){.artraster>a.artikel:last-child{grid-column:1/-1}.wkrij12>:last-child:nth-child(odd){grid-column:1/-1}}
+.mvast12{box-shadow:0 240px 0 0 #fafafc!important}
+.zoomvak .label small,.schuif .ijk,.schuif .ijk span{font-size:14px!important}
+
+@media (min-width:1000px){.artraster>a.artikel:nth-last-child(-n+2) img.b{height:auto!important;aspect-ratio:2/1!important}}
+@media (min-width:700px) and (max-width:999px){.artraster>a.artikel:last-child img.b{height:auto!important;aspect-ratio:2/1!important}}
+/* ===== ronde 9 na keuring 8 ===== */
+.spoor{padding-inline:max(var(--rand), calc(50vw - 432px))!important;scroll-padding-inline:max(var(--rand), calc(50vw - 432px))!important}
+@media (min-width:897px) and (max-width:1119px){.aiblok .groepen{grid-auto-flow:row!important;grid-template-columns:repeat(5,1fr)!important;gap:9.6px!important;overflow:visible!important;margin:0!important;padding:76.8px 0 16px!important}}
+@media (min-width:601px) and (max-width:899px){.leef12--klok{display:none!important}}
+.mmenu .niv.n2{padding-bottom:0!important}.mmenu .mvast12{bottom:108px!important;box-shadow:none!important}.mmenu .m1onder{background:#fbfbfd!important}
+.boekje12 .voorkant>span:not(.held9),.boekje12 .voorkant>b{max-width:56%!important}
+@media (min-width:1100px){.boek3d .voorkant .held9{width:38%!important;bottom:-4%!important}}
+
+/* ===== ronde 10 na keuring 9 ===== */
+.boekje12 .voorkant .nb12{all:unset;white-space:nowrap}
+@media (max-width:1299px){.founder12 .leunfig{display:none!important}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://webshopatelier.nl/404.html", "url": "https://webshopatelier.nl/404.html", "name": "Pagina niet gevonden · Webshopatelier", "inLanguage": "nl", "isPartOf": {"@id": "https://webshopatelier.nl/#site"}}]}</script>
 <link rel="icon" type="image/png" href="/assets/atelier/b8701834ad455966bb27.png"><meta name="atelier-booking-api" content="https://atelier-booking-api.atelier-booking-api.workers.dev"><link rel="stylesheet" href="/assets/booking-dialog.css"><link rel="stylesheet" href="/assets/booking-inline.css"><link rel="stylesheet" href="/assets/atelier-direct-forms.css"></head>
 <body>
 <header class="balk">
   <div class="pil glas">
-    <a class="merk" href="/" aria-label="Webshopatelier, naar de homepage"><span class="held9 " aria-hidden="true"><img loading="lazy" decoding="async" src="/assets/r11/m-cape.webp" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg106" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg106)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span><span>WebshopAtelier<i>.</i></span></a>
-    <nav class="hoofdnav" aria-label="Hoofdmenu"><button type="button" data-mega="mega-ai-team" aria-expanded="false" aria-controls="mega-ai-team">AI-team<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><button type="button" data-mega="mega-diensten" aria-expanded="false" aria-controls="mega-diensten">Diensten<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><button type="button" data-mega="mega-werk" aria-expanded="false" aria-controls="mega-werk">Werk<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/" aria-current="page">Over ons</a><a href="/inzichten/">Inzichten</a></nav>
+    <a class="merk" href="/" aria-label="Webshopatelier, naar de homepage"><span class="held9 " aria-hidden="true"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-01-cape-600.webp" srcset="/assets/r12/mt-01-cape-300.webp 300w, /assets/r12/mt-01-cape-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="1014" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg106" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg106)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span><span>WebshopAtelier<i>.</i></span></a>
+    <nav class="hoofdnav" aria-label="Hoofdmenu"><button type="button" data-mega="mega-ai-team" aria-expanded="false" aria-controls="mega-ai-team">AI-team<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><button type="button" data-mega="mega-diensten" aria-expanded="false" aria-controls="mega-diensten">Diensten<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><button type="button" data-mega="mega-werk" aria-expanded="false" aria-controls="mega-werk">Werk<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/inzichten/">Inzichten</a></nav>
     <div class="acties"><a class="knop" href="/contact/#boeken" data-atelier-booking>Boek een call</a><button class="menuknop" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mmenu" data-mmknop><span class="s s1"></span><span class="s s2"></span></button></div>
   </div>
 </header>
 <div class="gordijn" aria-hidden="true"></div>
-<div class="mega glas b11" id="mega-ai-team" role="region" aria-label="AI-team"><div class="mega11b"><a href="/ai-team/#top"><img loading="lazy" decoding="async" src="/assets/r11/n-overrand.webp" alt=""><span class="t"><b>Hoe het werkt</b><span>Jij geeft de opdracht, je team voert hem uit</span></span></a><a href="/ai-team/#agents"><img loading="lazy" decoding="async" src="/assets/r11/m-waaier.webp" alt=""><span class="t"><b>De afdelingen</b><span>10 agents in vijf afdelingen</span></span></a><a href="/ai-team/#roi"><img loading="lazy" decoding="async" src="/assets/r11/m-prijs.webp" alt=""><span class="t"><b>Prijs</b><span>Vanaf € 1.499, helder vooraf</span></span></a><a href="/ai-team/#optioneel"><img loading="lazy" decoding="async" src="/assets/r11/n-duwen.webp" alt=""><span class="t"><b>Optionele specialisten</b><span>Erbij als je groeit, prijs op aanvraag</span></span></a><div class="voet11"><span>Je AI-team<b>vanaf € 1.499</b></span><a class="knop" href="/ai-team/">Bekijk het team</a></div></div></div>
-<div class="mega glas" id="mega-diensten" role="region" aria-label="Diensten"><div class="rooster"><div class="it" style="--n:1"><h4>Bouwen</h4><div class="lijst"><a href="/pakketten/#website">Website<span>vanaf € 999</span></a><a href="/pakketten/#webshop">Shopify-webshop<span>vanaf € 2.900</span></a><a href="/pakketten/#onderhoud">Onderhoud en uitbreiding<span>op maat</span></a></div></div><div class="it" style="--n:2"><h4>Groeien</h4><div class="lijst"><a href="/pakketten/#vindbaarheid">Online vindbaarheid<span>vanaf € 1.250</span></a><a href="/pakketten/#adverteren">Adverteren<span>vanaf € 399</span></a><a href="/pakketten/#social">Socialmediabeheer<span>op maat</span></a><a href="/pakketten/#conversie">Conversie en optimalisatie<span>op maat</span></a></div></div><div class="it" style="--n:3"><h4>Automatiseren</h4><div class="lijst"><a href="/ai-team/">Atelier Commerce 360<span>vanaf € 1.499</span></a><a href="/pakketten/#ai-agents">Eén AI-agent<span>vanaf € 250</span></a><a href="/pakketten/#vergelijk">Alles vergelijken<span>›</span></a></div></div></div></div><div class="mega glas" id="mega-werk" role="region" aria-label="Werk"><div class="rooster" style="grid-template-columns:1fr 2fr"><div class="it" style="--n:1"><h4>Geselecteerd werk</h4><div class="lijst"><a href="/werk/">Overzicht<span>een selectie</span></a><a href="/werk/ellecera/">ElleCera<span>Skincare &amp; Beauty</span></a><a href="/werk/scillasdotter/">Scillasdotter<span>Haute Couture</span></a><a href="/werk/doggy-en-cats/">Doggy & Cats<span>Pet Care</span></a><a href="/werk/the-focus-club/">The Focus Club<span>Focus &amp; Wellbeing</span></a></div></div><div class="it casethumbs" style="--n:2"><a href="/werk/ellecera/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><video class="ecv" muted playsinline loop preload="none" poster="/assets/r11/ec-hero-desk-poster.webp" aria-label="ElleCera op een MacBook"><source src="/assets/r11/ec-hero-desk.mp4" type="video/mp4"></video></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><video class="ecv" muted playsinline loop preload="none" poster="/assets/r11/ec-hero-tel-poster.webp" aria-label="ElleCera op een iPhone"><source src="/assets/r11/ec-hero-tel.mp4" type="video/mp4"></video></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>ElleCera</span></a><a href="/werk/scillasdotter/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-scillasdotter-desk.webp" alt="Scillasdotter op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-scillasdotter-tel.webp" alt="Scillasdotter op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>Scillasdotter</span></a><a href="/werk/doggy-en-cats/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-doggy-en-cats-desk.webp" alt="Doggy &amp; Cats op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-doggy-en-cats-tel.webp" alt="Doggy &amp; Cats op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>Doggy & Cats</span></a><a href="/werk/the-focus-club/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-the-focus-club-desk.webp" alt="The Focus Club op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-the-focus-club-tel.webp" alt="The Focus Club op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>The Focus Club</span></a></div></div></div>
-<div class="mmenu m1" id="mmenu" aria-label="Menu" data-niveau="1"><div class="niv n1" data-niv="1"><ul class="groot1"><li><button type="button" data-naar="ai">AI-team<span aria-hidden="true">›</span></button></li><li><button type="button" data-naar="di">Diensten<span aria-hidden="true">›</span></button></li><li><button type="button" data-naar="wk">Werk<span aria-hidden="true">›</span></button></li><li><a href="/werkwijze/">Werkwijze</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/inzichten/">Inzichten</a></li></ul><ul class="klein"><li><a href="/contact/">Contact</a></li><li><a href="mailto:hello@webshopatelier.nl">hello@webshopatelier.nl</a></li></ul></div><div class="niv n2" data-niv="ai"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">AI-team</p><ul class="groot2"><li><a href="/ai-team/#top">Hoe het werkt<small>Jij geeft de opdracht, je team voert hem uit</small></a></li><li><a href="/ai-team/#agents">De afdelingen<small>10 agents in vijf afdelingen</small></a></li><li><a href="/ai-team/#roi">Prijs<small>Vanaf € 1.499, helder vooraf</small></a></li><li><a href="/ai-team/#optioneel">Optionele specialisten<small>Erbij als je groeit, prijs op aanvraag</small></a></li></ul><div class="afd11m"><a href="/ai-team/#groep-0"><img loading="lazy" decoding="async" src="/assets/r11/m-waaier.webp" alt="">Directie</a><a href="/ai-team/#groep-1"><img loading="lazy" decoding="async" src="/assets/r11/m-megafoon.webp" alt="">Marketing</a><a href="/ai-team/#groep-2"><img loading="lazy" decoding="async" src="/assets/r11/m-prijs.webp" alt="">Webshop en design</a><a href="/ai-team/#groep-3"><img loading="lazy" decoding="async" src="/assets/r11/m-schrijf.webp" alt="">Data en financiën</a><a href="/ai-team/#groep-4"><img loading="lazy" decoding="async" src="/assets/r11/n-zitten.webp" alt="">Klant en kwaliteit</a></div></div><div class="niv n2" data-niv="di"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">Diensten</p><ul class="lijst2"><li><a href="/pakketten/#website">Website<small>vanaf € 999</small></a></li><li><a href="/pakketten/#webshop">Shopify-webshop<small>vanaf € 2.900</small></a></li><li><a href="/pakketten/#ai-agents">AI-agents op maat<small>vanaf € 250</small></a></li><li><a href="/pakketten/#vindbaarheid">Online vindbaarheid<small>vanaf € 1.250</small></a></li><li><a href="/pakketten/#adverteren">Adverteren<small>vanaf € 399</small></a></li><li><a href="/pakketten/#social">Socialmediabeheer<small>op maat</small></a></li><li><a href="/pakketten/#conversie">Conversie en optimalisatie<small>op maat</small></a></li><li><a href="/pakketten/#onderhoud">Onderhoud en uitbreiding<small>op maat</small></a></li><li><a href="/pakketten/">Alle diensten vergelijken</a></li></ul></div><div class="niv n2" data-niv="wk"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">Werk, een selectie</p><ul class="lijst2"><li><a href="/werk/ellecera/">ElleCera<small>Skincare &amp; Beauty Brand</small></a></li><li><a href="/werk/scillasdotter/">Scillasdotter<small>Haute Couture Studio</small></a></li><li><a href="/werk/doggy-en-cats/">Doggy &amp; Cats<small>Pet Care Brand</small></a></li><li><a href="/werk/the-focus-club/">The Focus Club<small>Focus &amp; Wellbeing Brand</small></a></li><li><a href="/werk/">Overzicht</a></li></ul></div><div class="m1onder"><a class="knop" href="/contact/#boeken" data-atelier-booking>Boek een call</a><img loading="lazy" decoding="async" src="/assets/r11/n-zitten.webp" alt=""></div></div>
-<main id="top"><section style="padding-top:calc(var(--balk) + 48px)"><div class="binnen tekst11"><h1>Deze pagina bestaat niet (meer).</h1><p class="lede">Misschien is hij verhuisd. Kies hieronder waar je heen wilt.</p><ul><li><a href="/">Home</a></li><li><a href="/ai-team/">AI-team</a></li><li><a href="/pakketten/">Pakketten</a></li><li><a href="/werk/">Werk</a></li><li><a href="/inzichten/">Inzichten</a></li><li><a href="/contact/">Contact</a></li></ul></div></section></main>
-<footer class="voet9"><div class="binnen"><div class="post11"><span class="cov11" aria-hidden="true"><img loading="lazy" decoding="async" src="/assets/r11/m-cape.webp" alt=""></span><span class="t11"><b>Atelierpost + gratis e-book</b><span>Het AI-team voor je webshop, als PDF</span></span><a class="knop" href="https://tally.so/r/7XNLlL" data-tally-nl="7XNLlL" data-tally-en="bZWjVe">Stuur me het e-book</a></div><div class="merkrij"><span class="held9 " aria-hidden="true"><img loading="lazy" decoding="async" src="/assets/r11/m-cape.webp" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg110" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg110)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span><p class="merkvoet9">WebshopAtelier<i>.</i></p></div><div class="kolommen"><div><p style="color:var(--grijs);max-width:30ch">Websites, Shopify-webshops en AI-agents voor ondernemers.</p><p style="margin-top:6.4px"><a href="mailto:hello@webshopatelier.nl" style="color:var(--accent-donker);padding:0">hello@webshopatelier.nl</a></p><span class="soc11"><a href="https://www.instagram.com/webshopatelier/" aria-label="Instagram" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.facebook.com/profile.php?id=61596635106877" aria-label="Facebook" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.5V21h3z"/></svg></a></span></div><div><h3 class="vh4">Diensten</h3><a href="/pakketten/#website">Website</a><a href="/pakketten/#webshop">Shopify-webshop</a><a href="/pakketten/#ai-agents">AI-agents op maat</a><a href="/pakketten/#vindbaarheid">Online vindbaarheid</a><a href="/pakketten/#adverteren">Adverteren</a></div><div><h3 class="vh4">Werk</h3><a href="/werk/ellecera/">ElleCera</a><a href="/werk/scillasdotter/">Scillasdotter</a><a href="/werk/doggy-en-cats/">Doggy & Cats</a><a href="/werk/the-focus-club/">The Focus Club</a></div><div><h3 class="vh4">Atelier</h3><a href="/ai-team/">AI-team</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/inzichten/">Inzichten</a><a href="/contact/">Contact</a></div></div><div class="wettelijk"><span>© 2026 Webshopatelier. KvK 98797298. Amsterdam.</span><a href="/bedrijfsgegevens/">Bedrijfsgegevens</a><a href="/privacy/">Privacyverklaring</a><a href="/cookies/">Cookiebeleid</a><a href="/voorwaarden/">Algemene voorwaarden</a><a href="/klachten/">Klachtenregeling</a></div></div></footer><div class="chat9"><div class="bubbel" role="status"><button type="button" aria-label="Sluiten">×</button>Hoi, ik ben de atelier-minion. Vraag me iets over het AI-team, prijzen of een kennismaking.</div><div class="paneel" role="dialog" aria-label="Chat met de atelier-minion"><div class="ph9"><span class="held9 " aria-hidden="true"><img loading="lazy" decoding="async" src="/assets/r11/m-cape.webp" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg107" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg107)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span><div><b>Atelier-minion</b><small><i></i>Antwoordt met AI</small></div><button class="dicht" type="button" aria-label="Chat sluiten">×</button></div><div class="berichten" aria-live="polite"><div class="msg">Hoi! Ik ben de atelier-minion.</div><div class="msg">Vraag het me, of kies hieronder.<div class="pillen"><button type="button" data-i="0">Wat kost het AI-team?</button><button type="button" data-i="1">Bouwen jullie ook een webshop?</button><button type="button" data-i="2">Kan ik iemand spreken?</button></div></div></div><form class="invoer9"><input type="text" aria-label="Typ je vraag" placeholder="Typ je vraag"><button type="submit" aria-label="Versturen">›</button></form><p class="noot9">AI kan fouten maken.</p></div><button class="knop9" type="button" aria-label="Chat met de atelier-minion" aria-expanded="false"><span class="held9 " aria-hidden="true"><img loading="lazy" decoding="async" src="/assets/r11/m-cape.webp" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg108" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg108)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span></button></div>
-<script type="application/json" id="data9">{"werklog": [["Chief of Staff", "verdeelt de vraag van vanochtend over drie afdelingen"], ["Operations Associate", "zet de bestanden van deze week op hun plek"], ["Head of Copy", "schrijft 3 hooks voor de nieuwe campagne"], ["Creative Director", "maakt drie nieuwe video-advertenties"], ["Media Buyer", "zet een campagne klaar, op pauze tot jouw akkoord"], ["Brand Strategist", "scherpt de doelgroep van je nieuwe lijn aan"], ["Google Ads Specialist", "controleert de productfeed voor Google"], ["Design Director", "ontwerpt een nieuwe landingspagina"], ["E-commerce Developer", "bouwt de nieuwe sectie in de werkkopie"], ["Onboarding Specialist", "koppelt je winkel aan het dashboard"], ["Performance Analyst", "zoekt uit waarom de conversie gisteren zakte"], ["Market Research Analyst", "scoort vijf productkandidaten"], ["Financial Controller", "rekent de marge van de nieuwe bundel door"], ["Bookkeeper", "zet de btw van dit kwartaal klaar"], ["Customer Service Manager", "beantwoordt 12 klantmails, klaar voor jouw akkoord"], ["Quality Auditor", "controleert het werk van de afdeling marketing"], ["Compliance Officer", "toetst de nieuwe advertenties aan het beleid"], ["Supply Chain Monitor", "checkt de orders zonder track-en-trace"]], "chat": [["Wat kost het AI-team?", "Atelier Commerce 360 start vanaf € 1.499, eenmalig en exclusief btw. Implementatie en training gaan op offerte."], ["Bouwen jullie ook een webshop?", "Ja. Een Shopify-webshop start vanaf € 2.900, een website vanaf € 999."], ["Kan ik iemand spreken?", "Zeker. Plan een kennismaking van 15 minuten, dan bellen we jou. Of mail naar hello@webshopatelier.nl."]], "tijden": ["2026-11-26T09:00:00Z", "2026-11-26T14:45:00Z", "2026-11-27T08:00:00Z", "2026-11-27T12:00:00Z", "2026-11-30T09:15:00Z", "2026-11-30T13:30:00Z", "2026-12-01T10:00:00Z", "2026-12-01T14:15:00Z"]}</script>
+<div class="mega glas b11" id="mega-ai-team" role="region" aria-label="AI-team"><div class="mega11b"><a href="/ai-team/#top"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-18-gluur-over-rand-600.webp" srcset="/assets/r12/mt-18-gluur-over-rand-300.webp 300w, /assets/r12/mt-18-gluur-over-rand-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="438" alt=""><span class="t"><b>Hoe het werkt</b><span>Jij geeft de opdracht, je team voert hem uit</span></span></a><a href="/ai-team/#agents"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-11-waaier-600.webp" srcset="/assets/r12/mt-11-waaier-300.webp 300w, /assets/r12/mt-11-waaier-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="769" alt=""><span class="t"><b>De afdelingen</b><span>10 agents in vijf afdelingen</span></span></a><a href="/ai-team/#roi"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-08-prijs-600.webp" srcset="/assets/r12/mt-08-prijs-300.webp 300w, /assets/r12/mt-08-prijs-600.webp 600w, /assets/r12/mt-08-prijs-900.webp 900w" sizes="(max-width:699px) 120px, 200px" height="1102" alt=""><span class="t"><b>Prijs</b><span>Vanaf € 1.499, helder vooraf</span></span></a><a href="/ai-team/#optioneel"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-02-duw-600.webp" srcset="/assets/r12/mt-02-duw-300.webp 300w, /assets/r12/mt-02-duw-600.webp 600w, /assets/r12/mt-02-duw-900.webp 900w" sizes="(max-width:699px) 120px, 200px" height="961" alt=""><span class="t"><b>Optionele specialisten</b><span>Erbij als je groeit, prijs op aanvraag</span></span></a><div class="voet11"><span>Je AI-team<b>vanaf € 1.499</b></span><a class="knop" href="/ai-team/">Bekijk het team</a></div></div></div>
+<div class="mega glas m12" id="mega-diensten" role="region" aria-label="Diensten"><div class="m12in"><div class="dkol12"><div class="dg12"><h4>Bouwen</h4><a class="dk12" href="/pakketten/website/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-23-bouwer-768.webp" srcset="/assets/r12/mn-23-bouwer-480.webp 480w, /assets/r12/mn-23-bouwer-768.webp 768w, /assets/r12/mn-23-bouwer-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Website</b><small>Een site die bezoekers naar een aanvraag leidt.</small><span class="pil12">Vanaf € 999</span></span></a><a class="dk12" href="/pakketten/webshop/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-19-bezorger-768.webp" srcset="/assets/r12/mn-19-bezorger-480.webp 480w, /assets/r12/mn-19-bezorger-768.webp 768w, /assets/r12/mn-19-bezorger-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Shopify-webshop</b><small>Een Shopify-winkel die klanten helpt kiezen en bestellen.</small><span class="pil12">Vanaf € 2.900</span></span></a><a class="dk12" href="/pakketten/onderhoud-uitbreiding/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-28-tandwielen-768.webp" srcset="/assets/r12/mn-28-tandwielen-480.webp 480w, /assets/r12/mn-28-tandwielen-768.webp 768w, /assets/r12/mn-28-tandwielen-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Onderhoud en uitbreiding</b><small>Je site en winkel in topvorm, met nieuwe onderdelen als je groeit.</small><span class="pil12">Op maat</span></span></a></div><div class="dg12"><h4>Groeien</h4><a class="dk12" href="/pakketten/vindbaarheid/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-25-verrekijker-768.webp" srcset="/assets/r12/mn-25-verrekijker-480.webp 480w, /assets/r12/mn-25-verrekijker-768.webp 768w, /assets/r12/mn-25-verrekijker-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Online vindbaarheid</b><small>Gevonden worden via Google en AI-zoekdiensten.</small><span class="pil12">Vanaf € 1.250</span></span></a><a class="dk12" href="/pakketten/social-advertising/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-07-megafoon-768.webp" srcset="/assets/r12/mn-07-megafoon-480.webp 480w, /assets/r12/mn-07-megafoon-768.webp 768w, /assets/r12/mn-07-megafoon-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Adverteren</b><small>Eén campagne op Meta of TikTok, inclusief pixelkoppeling.</small><span class="pil12">Vanaf € 399</span></span></a><a class="dk12" href="/pakketten/socialmedia/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-21-camera-768.webp" srcset="/assets/r12/mn-21-camera-480.webp 480w, /assets/r12/mn-21-camera-768.webp 768w, /assets/r12/mn-21-camera-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Socialmediabeheer</b><small>We plannen, maken en publiceren content voor je kanalen.</small><span class="pil12">Op maat</span></span></a><a class="dk12" href="/pakketten/conversie-optimalisatie/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-24-grafiek-768.webp" srcset="/assets/r12/mn-24-grafiek-480.webp 480w, /assets/r12/mn-24-grafiek-768.webp 768w, /assets/r12/mn-24-grafiek-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Conversie en optimalisatie</b><small>Meer bestellingen uit dezelfde bezoekers.</small><span class="pil12">Op maat</span></span></a></div><div class="dg12"><h4>Automatiseren</h4><a class="dk12" href="/pakketten/ai-agents/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-13-ceo-768.webp" srcset="/assets/r12/mn-13-ceo-480.webp 480w, /assets/r12/mn-13-ceo-768.webp 768w, /assets/r12/mn-13-ceo-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Eén AI-agent</b><small>AI neemt terugkerend werk over, met jouw goedkeuring.</small><span class="pil12">Vanaf € 250</span></span></a><a class="dk12" href="/ai-team/"><span class="dt12"><img loading="lazy" decoding="async" src="/assets/r12/mn-17-groepsfoto-768.webp" srcset="/assets/r12/mn-17-groepsfoto-480.webp 480w, /assets/r12/mn-17-groepsfoto-768.webp 768w, /assets/r12/mn-17-groepsfoto-1024.webp 1024w" sizes="52px" alt=""></span><span class="dx12"><b>Atelier Commerce 360</b><small>Je complete AI-team: 10 agents in vijf afdelingen.</small><span class="pil12">Vanaf € 1.499</span></span></a></div></div><div class="voet11"><span>Websites, webshops en AI-agents<b>vergelijk alle pakketten</b></span><a class="knop" href="/pakketten/">Bekijk alle diensten</a></div></div></div><div class="mega glas" id="mega-werk" role="region" aria-label="Werk"><div class="rooster" style="grid-template-columns:1fr 2fr"><div class="it" style="--n:1"><h4>Geselecteerd werk</h4><div class="lijst"><a href="/werk/">Overzicht<span>een selectie</span></a><a href="/werk/ellecera/">ElleCera<span>Skincare &amp; Beauty</span></a><a href="/werk/scillasdotter/">Scillasdotter<span>Haute Couture</span></a><a href="/werk/doggy-en-cats/">Doggy & Cats<span>Pet Care</span></a><a href="/werk/the-focus-club/">The Focus Club<span>Focus &amp; Wellbeing</span></a></div></div><div class="it casethumbs" style="--n:2"><a href="/werk/ellecera/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><video class="ecv" muted playsinline loop preload="none" poster="/assets/r11/ec-hero-desk-poster.webp" aria-label="ElleCera op een MacBook"><source src="/assets/r11/ec-hero-desk.mp4" type="video/mp4"></video></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><video class="ecv" muted playsinline loop preload="none" poster="/assets/r11/ec-hero-tel-poster.webp" aria-label="ElleCera op een iPhone"><source src="/assets/r11/ec-hero-tel.mp4" type="video/mp4"></video></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>ElleCera</span></a><a href="/werk/scillasdotter/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-scillasdotter-desk.webp" alt="Scillasdotter op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-scillasdotter-tel.webp" alt="Scillasdotter op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>Scillasdotter</span></a><a href="/werk/doggy-en-cats/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-doggy-en-cats-desk.webp" alt="Doggy &amp; Cats op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-doggy-en-cats-tel.webp" alt="Doggy &amp; Cats op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>Doggy & Cats</span></a><a href="/werk/the-focus-club/"><div class="mini10"><div class="podium10"><div class="toestel"><div class="mac"><div class="lid"><div class="scherm"><img class="rol" style="--duur:28s" src="/assets/r11/thuis-the-focus-club-desk.webp" alt="The Focus Club op een MacBook" loading="lazy"></div><i class="cam"></i></div><div class="voet"></div></div><div class="iphone"><div class="scherm"><img class="rol" style="--duur:22s" src="/assets/r11/thuis-the-focus-club-tel.webp" alt="The Focus Club op een iPhone" loading="lazy"></div><i class="eiland"></i><span class="tijd" aria-hidden="true">9:41</span></div></div></div></div><span>The Focus Club</span></a></div></div><div class="voet11"><span>Een selectie uit het atelier<b>vier merken, vier markten</b></span><a class="knop" href="/werk/">Bekijk al ons werk</a></div></div>
+<div class="mmenu m1" id="mmenu" aria-label="Menu" data-niveau="1"><div class="niv n1" data-niv="1"><ul class="groot1"><li><button type="button" data-naar="ai">AI-team<span aria-hidden="true">›</span></button></li><li><button type="button" data-naar="di">Diensten<span aria-hidden="true">›</span></button></li><li><button type="button" data-naar="wk">Werk<span aria-hidden="true">›</span></button></li><li><a href="/werkwijze/">Werkwijze</a></li><li><a href="/over-ons/">Over ons</a></li><li><a href="/inzichten/">Inzichten</a></li></ul><ul class="klein"><li><a href="/contact/">Contact</a></li><li><a href="mailto:hello@webshopatelier.nl">hello@webshopatelier.nl</a></li></ul></div><div class="niv n2" data-niv="ai"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">AI-team</p><ul class="groot2"><li><a href="/ai-team/#top">Hoe het werkt<small>Jij geeft de opdracht, je team voert hem uit</small></a></li><li><a href="/ai-team/#agents">De afdelingen<small>10 agents in vijf afdelingen</small></a></li><li><a href="/ai-team/#roi">Prijs<small>Vanaf € 1.499, helder vooraf</small></a></li><li><a href="/ai-team/#optioneel">Optionele specialisten<small>Erbij als je groeit, prijs op aanvraag</small></a></li></ul><div class="afd11m"><a href="/ai-team/#groep-0"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-11-waaier-600.webp" srcset="/assets/r12/mt-11-waaier-300.webp 300w, /assets/r12/mt-11-waaier-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="769" alt="">Directie</a><a href="/ai-team/#groep-1"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-07-megafoon-600.webp" srcset="/assets/r12/mt-07-megafoon-300.webp 300w, /assets/r12/mt-07-megafoon-600.webp 600w, /assets/r12/mt-07-megafoon-900.webp 900w" sizes="(max-width:699px) 120px, 200px" height="1192" alt="">Marketing</a><a href="/ai-team/#groep-2"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-08-prijs-600.webp" srcset="/assets/r12/mt-08-prijs-300.webp 300w, /assets/r12/mt-08-prijs-600.webp 600w, /assets/r12/mt-08-prijs-900.webp 900w" sizes="(max-width:699px) 120px, 200px" height="1102" alt="">Webshop en design</a><a href="/ai-team/#groep-3"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-09-schrijf-300.webp" srcset="/assets/r12/mt-09-schrijf-300.webp 300w" sizes="(max-width:699px) 120px, 200px" height="1004" alt="">Data en financiën</a><a href="/ai-team/#groep-4"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-13-zit-op-rand-600.webp" srcset="/assets/r12/mt-13-zit-op-rand-300.webp 300w, /assets/r12/mt-13-zit-op-rand-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="1492" alt="">Klant en kwaliteit</a></div></div><div class="niv n2" data-niv="di"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">Diensten</p><ul class="lijst12"><li><a class="mr12" href="/pakketten/website/"><img loading="lazy" decoding="async" src="/assets/r12/mn-23-bouwer-768.webp" srcset="/assets/r12/mn-23-bouwer-480.webp 480w, /assets/r12/mn-23-bouwer-768.webp 768w, /assets/r12/mn-23-bouwer-1024.webp 1024w" sizes="44px" alt=""><span><b>Website</b><small>vanaf € 999</small></span></a></li><li><a class="mr12" href="/pakketten/webshop/"><img loading="lazy" decoding="async" src="/assets/r12/mn-19-bezorger-768.webp" srcset="/assets/r12/mn-19-bezorger-480.webp 480w, /assets/r12/mn-19-bezorger-768.webp 768w, /assets/r12/mn-19-bezorger-1024.webp 1024w" sizes="44px" alt=""><span><b>Shopify-webshop</b><small>vanaf € 2.900</small></span></a></li><li><a class="mr12" href="/pakketten/onderhoud-uitbreiding/"><img loading="lazy" decoding="async" src="/assets/r12/mn-28-tandwielen-768.webp" srcset="/assets/r12/mn-28-tandwielen-480.webp 480w, /assets/r12/mn-28-tandwielen-768.webp 768w, /assets/r12/mn-28-tandwielen-1024.webp 1024w" sizes="44px" alt=""><span><b>Onderhoud en uitbreiding</b><small>op maat</small></span></a></li><li><a class="mr12" href="/pakketten/vindbaarheid/"><img loading="lazy" decoding="async" src="/assets/r12/mn-25-verrekijker-768.webp" srcset="/assets/r12/mn-25-verrekijker-480.webp 480w, /assets/r12/mn-25-verrekijker-768.webp 768w, /assets/r12/mn-25-verrekijker-1024.webp 1024w" sizes="44px" alt=""><span><b>Online vindbaarheid</b><small>vanaf € 1.250</small></span></a></li><li><a class="mr12" href="/pakketten/social-advertising/"><img loading="lazy" decoding="async" src="/assets/r12/mn-07-megafoon-768.webp" srcset="/assets/r12/mn-07-megafoon-480.webp 480w, /assets/r12/mn-07-megafoon-768.webp 768w, /assets/r12/mn-07-megafoon-1024.webp 1024w" sizes="44px" alt=""><span><b>Adverteren</b><small>vanaf € 399</small></span></a></li><li><a class="mr12" href="/pakketten/socialmedia/"><img loading="lazy" decoding="async" src="/assets/r12/mn-21-camera-768.webp" srcset="/assets/r12/mn-21-camera-480.webp 480w, /assets/r12/mn-21-camera-768.webp 768w, /assets/r12/mn-21-camera-1024.webp 1024w" sizes="44px" alt=""><span><b>Socialmediabeheer</b><small>op maat</small></span></a></li><li><a class="mr12" href="/pakketten/conversie-optimalisatie/"><img loading="lazy" decoding="async" src="/assets/r12/mn-24-grafiek-768.webp" srcset="/assets/r12/mn-24-grafiek-480.webp 480w, /assets/r12/mn-24-grafiek-768.webp 768w, /assets/r12/mn-24-grafiek-1024.webp 1024w" sizes="44px" alt=""><span><b>Conversie en optimalisatie</b><small>op maat</small></span></a></li><li><a class="mr12" href="/pakketten/ai-agents/"><img loading="lazy" decoding="async" src="/assets/r12/mn-13-ceo-768.webp" srcset="/assets/r12/mn-13-ceo-480.webp 480w, /assets/r12/mn-13-ceo-768.webp 768w, /assets/r12/mn-13-ceo-1024.webp 1024w" sizes="44px" alt=""><span><b>Eén AI-agent</b><small>vanaf € 250</small></span></a></li><li><a class="mr12" href="/ai-team/"><img loading="lazy" decoding="async" src="/assets/r12/mn-17-groepsfoto-768.webp" srcset="/assets/r12/mn-17-groepsfoto-480.webp 480w, /assets/r12/mn-17-groepsfoto-768.webp 768w, /assets/r12/mn-17-groepsfoto-1024.webp 1024w" sizes="44px" alt=""><span><b>Atelier Commerce 360</b><small>vanaf € 1.499</small></span></a></li></ul><div class="mvast12"><a class="knop" href="/pakketten/">Bekijk alle diensten</a></div></div><div class="niv n2" data-niv="wk"><button type="button" class="terug" data-naar="1">‹ Menu</button><p class="kopje">Werk, een selectie</p><ul class="lijst2"><li><a href="/werk/ellecera/">ElleCera<small>Skincare &amp; Beauty Brand</small></a></li><li><a href="/werk/scillasdotter/">Scillasdotter<small>Haute Couture Studio</small></a></li><li><a href="/werk/doggy-en-cats/">Doggy &amp; Cats<small>Pet Care Brand</small></a></li><li><a href="/werk/the-focus-club/">The Focus Club<small>Focus &amp; Wellbeing Brand</small></a></li><li><a href="/werk/">Overzicht</a></li></ul></div><div class="m1onder"><a class="knop" href="/contact/#boeken" data-atelier-booking>Boek een call</a></div></div>
+<main id="top"><section style="padding-top:calc(var(--balk) + 48px)"><div class="binnen n404"><div><h1>Deze pagina bestaat niet (meer).</h1><p class="lede">Misschien is hij verhuisd. Kies hieronder waar je heen wilt.</p><ul><li><a href="/">Home</a></li><li><a href="/ai-team/">AI-team</a></li><li><a href="/pakketten/">Pakketten</a></li><li><a href="/werk/">Werk</a></li><li><a href="/inzichten/">Inzichten</a></li><li><a href="/contact/">Contact</a></li></ul></div><img class="slaap12" src="/assets/r12/mn-16-slaap-404-768.webp" srcset="/assets/r12/mn-16-slaap-404-480.webp 480w, /assets/r12/mn-16-slaap-404-768.webp 768w, /assets/r12/mn-16-slaap-404-1024.webp 1024w" sizes="300px" alt="Een minion slaapt op zijn toetsenbord"></div></section></main>
+<footer class="voet9 voet12"><div class="binnen"><div class="post11 post12"><span class="cov11" aria-hidden="true"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-01-cape-600.webp" srcset="/assets/r12/mt-01-cape-300.webp 300w, /assets/r12/mt-01-cape-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="1014" alt=""></span><span class="t11"><b>Atelierpost + gratis e-book</b><span>Het AI-team voor je webshop, als PDF</span></span><a class="knop" href="https://tally.so/r/7XNLlL" data-tally-nl="7XNLlL" data-tally-en="bZWjVe">Stuur me het e-book</a></div><div class="kolommen kol12"><div class="intro12"><p class="merkvoet9">WebshopAtelier<i>.</i></p><p class="zin12">Websites, Shopify-webshops en AI-agents voor ondernemers.</p><p><a class="mail12" href="mailto:hello@webshopatelier.nl">hello@webshopatelier.nl</a></p><span class="soc11 soc12"><a href="https://www.instagram.com/webshopatelier/" aria-label="Instagram" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></svg></a><a href="https://www.facebook.com/profile.php?id=61596635106877" aria-label="Facebook" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h-2.5A4.5 4.5 0 0 0 9 7.5V10H6.5v3.8H9V21h3.8v-7.2h2.9l.6-3.8h-3.5V8a1 1 0 0 1 1-1H16z"/></svg></a></span></div><div><h3 class="vh4">Diensten</h3><a href="/pakketten/website/">Website</a><a href="/pakketten/webshop/">Shopify-webshop</a><a href="/pakketten/onderhoud-uitbreiding/">Onderhoud en uitbreiding</a><a href="/pakketten/vindbaarheid/">Online vindbaarheid</a><a href="/pakketten/social-advertising/">Adverteren</a><a href="/pakketten/socialmedia/">Socialmediabeheer</a><a href="/pakketten/conversie-optimalisatie/">Conversie en optimalisatie</a><a href="/pakketten/ai-agents/">Eén AI-agent</a></div><div><h3 class="vh4">Atelier</h3><a href="/werk/">Ons werk</a><a href="/ai-team/">AI-team</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/inzichten/">Inzichten</a><a href="/contact/">Contact</a></div></div><div class="wettelijk"><span>© 2026 Webshopatelier. KvK 98797298. Amsterdam.</span><a href="/bedrijfsgegevens/">Bedrijfsgegevens</a><a href="/privacy/">Privacyverklaring</a><a href="/cookies/">Cookiebeleid</a><a href="/voorwaarden/">Algemene voorwaarden</a><a href="/klachten/">Klachtenregeling</a></div></div></footer><div class="chat9"><div class="bubbel" role="status"><button type="button" aria-label="Sluiten">×</button>Hoi, ik ben de atelier-minion. Vraag me iets over het AI-team, prijzen of een kennismaking.</div><div class="paneel" role="dialog" aria-label="Chat met de atelier-minion"><div class="ph9"><span class="held9 " aria-hidden="true"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-01-cape-600.webp" srcset="/assets/r12/mt-01-cape-300.webp 300w, /assets/r12/mt-01-cape-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="1014" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg107" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg107)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span><div><b>Atelier-minion</b><small><i></i>Antwoordt met AI</small></div><button class="dicht" type="button" aria-label="Chat sluiten">×</button></div><div class="berichten" aria-live="polite"><div class="msg">Hoi! Ik ben de atelier-minion.</div><div class="msg">Vraag het me, of kies hieronder.<div class="pillen"><button type="button" data-i="0">Wat kost het AI-team?</button><button type="button" data-i="1">Bouwen jullie ook een webshop?</button><button type="button" data-i="2">Kan ik iemand spreken?</button></div></div></div><form class="invoer9"><input type="text" aria-label="Typ je vraag" placeholder="Typ je vraag"><button type="submit" aria-label="Versturen">›</button></form><p class="noot9">AI kan fouten maken.</p></div><button class="knop9" type="button" aria-label="Chat met de atelier-minion" aria-expanded="false"><span class="held9 " aria-hidden="true"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-01-cape-600.webp" srcset="/assets/r12/mt-01-cape-300.webp 300w, /assets/r12/mt-01-cape-600.webp 600w" sizes="(max-width:699px) 120px, 200px" height="1014" alt=""><svg viewBox="0 0 300 360" aria-hidden="true"><defs><linearGradient id="mg108" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3c"/><stop offset="1" stop-color="#b8381a"/></linearGradient></defs><path fill="url(#mg108)" fill-rule="evenodd" d="M56 96 C60 80 74 72 92 76 C106 79 116 84 125 88 C134 84 144 79 158 76 C176 72 190 80 194 96 C196 108 186 118 170 119 C154 120 140 114 125 106 C110 114 96 120 80 119 C64 118 54 108 56 96 Z M82 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z M138 96 a15 11 0 1 0 30 0 a15 11 0 1 0 -30 0 Z"/><path d="M70 84 C84 77 100 78 114 85" stroke="rgba(255,255,255,.45)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span></button></div>
+<script type="application/json" id="data9">{"werklog": [["Chief of Staff", "verdeelt de vraag van vanochtend over drie afdelingen"], ["Operations Associate", "zet de bestanden van deze week op hun plek"], ["Head of Copy", "schrijft 3 hooks voor de nieuwe campagne"], ["Media Buyer", "zet drie nieuwe video-advertenties klaar, op pauze"], ["Media Buyer", "zet een campagne klaar, op pauze tot jouw akkoord"], ["Brand Strategist", "scherpt de doelgroep van je nieuwe lijn aan"], ["Google Ads Specialist", "controleert de productfeed voor Google"], ["Design Director", "ontwerpt een nieuwe landingspagina"], ["E-commerce Developer", "bouwt de nieuwe sectie in de werkkopie"], ["Onboarding Specialist", "koppelt je winkel aan het dashboard"], ["Performance Analyst", "zoekt uit waarom de conversie gisteren zakte"], ["Market Research Analyst", "scoort vijf productkandidaten"], ["Financial Controller", "rekent de marge van de nieuwe bundel door"], ["Bookkeeper", "zet de btw van dit kwartaal klaar"], ["Customer Service Manager", "beantwoordt 12 klantmails, klaar voor jouw akkoord"], ["Quality Auditor", "controleert het werk van de afdeling marketing"], ["Compliance Officer", "toetst de nieuwe advertenties aan het beleid"], ["Supply Chain Monitor", "checkt de orders zonder track-en-trace"]], "chat": [["Wat kost het AI-team?", "Atelier Commerce 360 start vanaf € 1.499, eenmalig en exclusief btw. Implementatie en training gaan op offerte."], ["Bouwen jullie ook een webshop?", "Ja. Een Shopify-webshop start vanaf € 2.900, een website vanaf € 999."], ["Kan ik iemand spreken?", "Zeker. Plan een kennismaking van 15 minuten, dan bellen we jou. Of mail naar hello@webshopatelier.nl."]], "tijden": ["2026-11-26T09:00:00Z", "2026-11-26T14:45:00Z", "2026-11-27T08:00:00Z", "2026-11-27T12:00:00Z", "2026-11-30T09:15:00Z", "2026-11-30T13:30:00Z", "2026-12-01T10:00:00Z", "2026-12-01T14:15:00Z"]}</script>
 <script>// Gedeeld gedrag voor de drie mockups. Geen bibliotheken, niets van buiten.
 (function () {
   var html = document.documentElement;
@@ -1796,5 +2295,45 @@ details.pakket11 .inhoud .pbeeld{width:100%;aspect-ratio:21/8;object-fit:cover;b
 <script>(function(){var v=[].slice.call(document.querySelectorAll('video.ecv'));if(!v.length||matchMedia('(prefers-reduced-motion: reduce)').matches||/stand=eind/.test(location.search)||!('IntersectionObserver' in window))return;
 var io=new IntersectionObserver(function(it){it.forEach(function(e){var x=e.target;if(e.isIntersecting&&x.offsetParent!==null){x.preload='auto';var p=x.play();if(p&&p.catch)p.catch(function(){})}else x.pause()})},{rootMargin:'150px'});v.forEach(function(x){io.observe(x)})})();</script><script>(function(){var m=document.querySelector('.mmenu.m1');if(!m)return;m.querySelectorAll('[data-naar]').forEach(function(b){b.addEventListener('click',function(){m.dataset.niveau=b.dataset.naar;var d=m.querySelector('[data-niv="'+b.dataset.naar+'"]');var f=d&&d.querySelector('a,button');if(f)setTimeout(function(){f.focus()},260)})});
 var k=document.querySelector('[data-mmknop]');if(k)k.addEventListener('click',function(){m.dataset.niveau='1'})})();</script><script>(function(){var k=document.querySelector('[data-mega="mega-ai-team"]'),p=document.getElementById('mega-ai-team');if(!k||!p||!p.classList.contains('b11'))return;
-function zet(){var r=k.getBoundingClientRect();p.style.left=Math.max(8,Math.round(r.left-10))+'px';p.style.translate='0 0'}zet();addEventListener('resize',zet);k.addEventListener('mouseenter',zet);k.addEventListener('focus',zet)})();</script><script>(function(){function open(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},30)}}addEventListener('hashchange',open);open()})();</script><script defer src="/assets/booking-dialog.js"></script><script defer src="/assets/atelier-direct-forms.js"></script></body>
+function zet(){var r=k.getBoundingClientRect();p.style.left=Math.max(8,Math.round(r.left-10))+'px';p.style.translate='0 0'}zet();addEventListener('resize',zet);k.addEventListener('mouseenter',zet);k.addEventListener('focus',zet)})();</script><script>(function(){function open(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},30)}}addEventListener('hashchange',open);open()})();</script><script defer src="/assets/r11/chat11.js"></script><script defer src="/assets/booking-dialog.js"></script><script defer src="/assets/atelier-direct-forms.js"></script><script defer src="/assets/r12/boek12.js"></script><script>
+(function(){
+  var rustig = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // stille loops spelen alleen in beeld; bij minder beweging blijft de poster staan
+  var vids = document.querySelectorAll('video[data-auto12]');
+  if (vids.length) {
+    var smal = matchMedia('(max-aspect-ratio: 3/4)').matches;
+    vids.forEach(function (v) {
+      if (smal && v.poster.indexOf('opdracht-loop-liggend') > -1) v.poster = v.poster.replace('liggend', 'staand');
+      if (window.innerWidth < 700 && v.poster.indexOf('diensten-loop-liggend') > -1) v.poster = v.poster.replace('liggend', 'staand');
+    });
+    if (!rustig && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); p && p.catch(function () {}); } else v.pause(); });
+      }, { threshold: .25 });
+      vids.forEach(function (v) { io.observe(v); });
+    }
+  }
+  // diensten: filter boven de veegrij en een voortgangslijn bij de pijlen
+  var ov = document.querySelector('.overzicht12');
+  if (ov) {
+    var spoor = ov.querySelector('[data-spoor]'), lijn = ov.querySelector('.stip12 i');
+    var zet = function () {
+      if (!lijn || !spoor) return;
+      var max = spoor.scrollWidth - spoor.clientWidth, d = Math.min(1, spoor.clientWidth / spoor.scrollWidth);
+      lijn.style.setProperty('--d', (d * 100) + '%');
+      lijn.style.setProperty('--x', (max > 0 ? (spoor.scrollLeft / max) * ((1 - d) / d) * 100 : 0) + '%');
+    };
+    spoor && spoor.addEventListener('scroll', zet, { passive: true }); window.addEventListener('resize', zet); zet();
+    ov.querySelectorAll('.filter12 button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-f');
+        ov.querySelectorAll('.filter12 button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        ov.querySelectorAll('a.dienst12').forEach(function (k) { k.hidden = !(f === 'alles' || k.getAttribute('data-groep') === f); });
+        if (spoor) spoor.scrollTo({ left: 0, behavior: rustig ? 'auto' : 'smooth' });
+        setTimeout(zet, 60);
+      });
+    });
+  }
+})();
+</script></body>
 </html>

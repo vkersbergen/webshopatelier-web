@@ -1,1 +1,41 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>WebshopAtelier</title><link rel="canonical" href="https://webshopatelier.nl/werk/ellecera/"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=/werk/ellecera/"></head><body><p><a href="/werk/ellecera/">Continue to the case</a></p></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>WebshopAtelier</title><link rel="canonical" href="https://webshopatelier.nl/werk/ellecera/"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=/werk/ellecera/"></head><body><p><a href="/werk/ellecera/">Continue to the case</a></p><script defer src="/assets/r12/boek12.js"></script><script>
+(function(){
+  var rustig = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // stille loops spelen alleen in beeld; bij minder beweging blijft de poster staan
+  var vids = document.querySelectorAll('video[data-auto12]');
+  if (vids.length) {
+    var smal = matchMedia('(max-aspect-ratio: 3/4)').matches;
+    vids.forEach(function (v) {
+      if (smal && v.poster.indexOf('opdracht-loop-liggend') > -1) v.poster = v.poster.replace('liggend', 'staand');
+      if (window.innerWidth < 700 && v.poster.indexOf('diensten-loop-liggend') > -1) v.poster = v.poster.replace('liggend', 'staand');
+    });
+    if (!rustig && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); p && p.catch(function () {}); } else v.pause(); });
+      }, { threshold: .25 });
+      vids.forEach(function (v) { io.observe(v); });
+    }
+  }
+  // diensten: filter boven de veegrij en een voortgangslijn bij de pijlen
+  var ov = document.querySelector('.overzicht12');
+  if (ov) {
+    var spoor = ov.querySelector('[data-spoor]'), lijn = ov.querySelector('.stip12 i');
+    var zet = function () {
+      if (!lijn || !spoor) return;
+      var max = spoor.scrollWidth - spoor.clientWidth, d = Math.min(1, spoor.clientWidth / spoor.scrollWidth);
+      lijn.style.setProperty('--d', (d * 100) + '%');
+      lijn.style.setProperty('--x', (max > 0 ? (spoor.scrollLeft / max) * ((1 - d) / d) * 100 : 0) + '%');
+    };
+    spoor && spoor.addEventListener('scroll', zet, { passive: true }); window.addEventListener('resize', zet); zet();
+    ov.querySelectorAll('.filter12 button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-f');
+        ov.querySelectorAll('.filter12 button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        ov.querySelectorAll('a.dienst12').forEach(function (k) { k.hidden = !(f === 'alles' || k.getAttribute('data-groep') === f); });
+        if (spoor) spoor.scrollTo({ left: 0, behavior: rustig ? 'auto' : 'smooth' });
+        setTimeout(zet, 60);
+      });
+    });
+  }
+})();
+</script></body></html>
