@@ -1887,8 +1887,6 @@ section[aria-labelledby="pr-kop"]{padding-bottom:32px!important}
 .overzicht12 a.dienst12 > p:not(.prijs){min-height:3lh;margin-bottom:14px}
 .overzicht12 a.dienst12 .werkbeeld,.overzicht12 a.dienst12 .werkbeeld.staand{aspect-ratio:10/9;margin-top:auto}
 .overzicht12 a.dienst12.groot .sitebeeld{width:42%}
-/* casebeelden van links boven bijsnijden, zodat de kop van de pagina heel blijft */
-.overzicht12 a.dienst12 .werkbeeld{object-position:0 0}
 .voet13{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .voet13 .prijs{position:static!important;margin:0!important;align-self:auto}
 .voet13 .meer12{position:static;flex:none}
@@ -1907,6 +1905,9 @@ section[aria-labelledby="pr-kop"]{padding-bottom:32px!important}
 .knop.verder13 small{font-weight:400;font-size:14px;opacity:.86;font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:no-preference){.knop.verder13{animation:verder13 .22s cubic-bezier(.23,1,.32,1) both}}
 @keyframes verder13{from{opacity:0;transform:translateY(4px)}}
+
+/* Punt 6: eigen dienstbeelden (10:9), gecentreerd */
+.overzicht12 a.dienst12 .werkbeeld.db13{object-position:50% 50%}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Wat kost een website laten maken? Zo vergelijk je offertes", "description": "Een website bij WebshopAtelier begint bij € 999. Bereken je kosten voor het eerste jaar en vergelijk offertes op ontwerp, inhoud, beheer en oplevering.", "url": "https://webshopatelier.nl/inzichten/website/", "mainEntityOfPage": "https://webshopatelier.nl/inzichten/website/", "image": "https://webshopatelier.nl/assets/pakketmenu/website.webp", "inLanguage": "nl", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "WebshopAtelier", "url": "https://webshopatelier.nl/over-ons/"}, "publisher": {"@type": "Organization", "name": "WebshopAtelier", "url": "https://webshopatelier.nl/"}}</script>
 <link rel="icon" type="image/png" href="/assets/atelier/b8701834ad455966bb27.png"><meta name="atelier-booking-api" content="https://atelier-booking-api.atelier-booking-api.workers.dev"><link rel="stylesheet" href="/assets/booking-dialog.css"><link rel="stylesheet" href="/assets/booking-inline.css"><link rel="stylesheet" href="/assets/atelier-direct-forms.css"></head>
