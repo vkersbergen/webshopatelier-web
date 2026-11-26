@@ -71,7 +71,7 @@
     frame.src=embedded.href;
     const toolbar=document.createElement('div');
     const title=document.createElement('h2');
-    title.textContent=english() ? 'Studio notes' : 'Atelierpost';
+    title.textContent=english() ? 'Atelier Newsletter' : 'Atelier-Nieuwsbrief';
     toolbar.append(title,close);
     dialog.append(toolbar, frame);
     document.body.append(dialog);
