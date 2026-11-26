@@ -2202,6 +2202,43 @@ ul.nietzelf li{background:none!important;box-shadow:none!important;border-radius
 @media (max-width:699px){.ca14 .atelier-contact-inline iframe{height:432px}}
 @media (min-width:700px){.voet12 .wettelijk{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px}.voet12 .wettelijk .links14{margin-left:0}}
 
+/* ===== r15-mockup (alleen mobiel) ===== */
+@media (max-width:699px){
+  /* A: afdelingen als tabs, alleen de gekozen afdeling zichtbaar */
+  .afdtabs15{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:14px calc(50% - 50vw) 12px;padding:0 var(--rand);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .afdtabs15::-webkit-scrollbar{display:none}
+  .afdtabs15 button{flex:none;border:0;font:500 15px var(--letter);min-height:44px;padding:0 16px;border-radius:999px;background:#fff;color:var(--inkt);box-shadow:inset 0 0 0 1px #d2d2d7;cursor:pointer}
+  .afdtabs15 button[aria-selected="true"]{background:var(--inkt);color:#fff;box-shadow:none}
+  .afdelingen12.tabs15 .afd12{display:none;margin:0!important}
+  .afdelingen12.tabs15 .afd12.aan{display:block}
+  .afdelingen12.tabs15 .afd12>h3{display:none}
+  /* A: werklog compact, twee regels */
+  .werklog12 ol li:nth-child(n+3){display:none}
+  .werklog12 .leef12{display:none}
+  .werklog12{padding:16px!important;margin-top:18px!important}
+  /* B: vijf regels en "toon alle" */
+  ul.nietzelf:not(.open15) li:nth-child(n+6){display:none!important}
+  .toon15{display:flex;justify-content:center;align-items:center;gap:6px;width:100%;min-height:48px;margin-top:10px;border:0;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px #d2d2d7;font:600 15px var(--letter);color:var(--inkt);cursor:pointer}
+  /* C: het 1/2/3-beeld bij elke stap, geen gat onder de kop */
+  section#werkwijze.stappen-sec{padding-top:4px!important}
+  #werkwijze .binnen,#werkwijze .verhaal,#werkwijze .stappen-lijst{padding-top:0!important;margin-top:0!important}
+  .ww14kop{padding-bottom:0!important}
+  #werkwijze .stap{display:grid!important;grid-template-columns:96px 1fr;gap:4px 16px;align-items:center;padding:14px 0!important}
+  #werkwijze .stap>h3,#werkwijze .stap>p{grid-column:2}
+  #werkwijze .stapbeeld15{display:block;grid-row:1 / span 2;grid-column:1;position:relative;width:96px;height:112px;border-radius:20px;background:linear-gradient(180deg,#f5f5f7,#ececf0);box-shadow:inset 1px 1px 0 #fff,0 6px 16px -10px rgba(29,29,31,.4);overflow:hidden}
+  #werkwijze .stapbeeld15 .nr{position:absolute;left:10px;bottom:-6px;font:700 64px/1 var(--letter-kop);color:rgba(204,65,25,.2)}
+  #werkwijze .stapbeeld15 img{position:absolute;right:6px;bottom:6px;height:88px;width:auto;filter:drop-shadow(2px 6px 6px rgba(29,29,31,.3))}
+  #werkwijze .stapbeeld15 img.tel{height:96px;border-radius:10px;bottom:8px;right:12px}
+}
+.stapbeeld15{display:none}
+/* D: chatpil pas na de eerste schermhoogte */
+.chat9.boven15:not(.open){opacity:0;translate:0 10px;pointer-events:none}
+/* vinklijst: geen gestaffelde inloop meer, dus nooit half vervaagde regels */
+ul.nietzelf li{transition:none!important;opacity:1!important;transform:none!important}
+/* afdelingstabs: balk en pijlen (via rijnav14) alleen op de telefoon */
+@media (min-width:700px){.afdtabs15,.afdtabs15+.rijnav14{display:none!important}}
+@media (max-width:699px){.afdtabs15{margin-bottom:4px}.afdtabs15+.rijnav14{margin:0 0 12px}}
+
 /* ===== r14 mobiele ronde (mockup) ===== */
 /* M1: herofilm begint niet meer op een zwarte plaat */
 /* M4: veegrijen krijgen dezelfde balk en pijlen als "Alle pakketten" */
@@ -2302,9 +2339,9 @@ ul.nietzelf li{background:none!important;box-shadow:none!important;border-radius
         <div class="scene s3"><span class="nr">3</span><span class="staand"><img class="mt12" loading="lazy" decoding="async" src="/assets/r12/mt-07-megafoon-600.webp" srcset="/assets/r12/mt-07-megafoon-300.webp 300w, /assets/r12/mt-07-megafoon-600.webp 600w, /assets/r12/mt-07-megafoon-900.webp 900w" sizes="(max-width:699px) 120px, 200px" height="1192" alt=""><span class="contact"></span></span><div class="meter glas">Live<b>eerste bestelling</b></div></div>
       </div>
       <div class="stappen-lijst">
-        <div class="stap" data-stap-blok="1"><h3>Bepaal het <span>doel.</span></h3><p>Samen bepalen we wat er nodig is, wat het kost en welk resultaat telt.</p></div>
-        <div class="stap" data-stap-blok="2"><h3>Bekijk het <span>ontwerp.</span></h3><p>Je ziet eerst het mobiele ontwerp. Na je akkoord bouwen en testen we.</p></div>
-        <div class="stap" data-stap-blok="3"><h3>Ga live en <span>meet.</span></h3><p>Wij regelen de livegang, dragen de toegang over en bekijken samen de eerste resultaten.</p></div>
+        <div class="stap" data-stap-blok="1"><div class="stapbeeld15" aria-hidden="true"><span class="nr">1</span><img class="mt12" loading="eager" decoding="async" src="/assets/r12/mt-09-schrijf-300.webp" height="1004" alt=""></div><h3>Bepaal het <span>doel.</span></h3><p>Samen bepalen we wat er nodig is, wat het kost en welk resultaat telt.</p></div>
+        <div class="stap" data-stap-blok="2"><div class="stapbeeld15" aria-hidden="true"><span class="nr">2</span><img loading="eager" decoding="async" class="tel" src="/assets/r11/case-ellecera-tel.webp" alt=""></div><h3>Bekijk het <span>ontwerp.</span></h3><p>Je ziet eerst het mobiele ontwerp. Na je akkoord bouwen en testen we.</p></div>
+        <div class="stap" data-stap-blok="3"><div class="stapbeeld15" aria-hidden="true"><span class="nr">3</span><img class="mt12" loading="eager" decoding="async" src="/assets/r12/mt-07-megafoon-600.webp" height="1192" alt=""></div><h3>Ga live en <span>meet.</span></h3><p>Wij regelen de livegang, dragen de toegang over en bekijken samen de eerste resultaten.</p></div>
       </div>
     </div>
     <p class="belofte"><b>No cure, no pay.</b> Bij geschikte opdrachten spreken we vooraf af welk resultaat telt, hoe we het meten en wanneer je betaalt.</p>
@@ -2763,5 +2800,5 @@ function zet(){var r=k.getBoundingClientRect();p.style.left=Math.max(8,Math.roun
     });
   }
 })();
-</script><script>(function(){document.querySelectorAll('.split14').forEach(function(s){var a=s.querySelector('a'),b=s.querySelector('button');a.addEventListener('mouseenter',function(){b.dispatchEvent(new MouseEvent('mouseenter'));b.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));});});})();</script><script>(function(){var pijl=function(r){return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="'+(r?'m9 6 6 6-6 6':'m15 6-6 6 6 6')+'"/></svg>'};document.querySelectorAll('.wkrij12,.opt11rij,.werk .deck,.afd14.a,.afd14.b,.aiblok .groepen').forEach(function(rij){if(rij.nextElementSibling&&rij.nextElementSibling.classList.contains('rijnav14'))return;var n=document.createElement('div');n.className='rijnav14'+(rij.closest('.werk')?' donker':'');n.innerHTML='<div class="balk14"><i></i></div><button type="button" aria-label="Vorige">'+pijl(0)+'</button><button type="button" aria-label="Volgende">'+pijl(1)+'</button>';rij.after(n);var i=n.querySelector('i'),b=n.querySelectorAll('button');function zet(){var max=rij.scrollWidth-rij.clientWidth,d=Math.min(1,rij.clientWidth/rij.scrollWidth);i.style.setProperty('--d',d*100+'%');i.style.setProperty('--x',(max>0?rij.scrollLeft/max*((1-d)/d)*100:0)+'%');b[0].disabled=rij.scrollLeft<4;b[1].disabled=rij.scrollLeft>max-4}var stap=function(r){var k=rij.firstElementChild;rij.scrollBy({left:(r?1:-1)*(k?k.getBoundingClientRect().width+12:rij.clientWidth*.8),behavior:'smooth'})};b[0].onclick=function(){stap(0)};b[1].onclick=function(){stap(1)};rij.addEventListener('scroll',zet,{passive:true});addEventListener('resize',zet);zet()})})();</script><script>(function(){var c=document.querySelector('.chat9');if(!c||!('IntersectionObserver' in window))return;var zicht=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?zicht.add(e.target):zicht.delete(e.target)});c.classList.toggle('weg14',zicht.size>0)},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('#boeken,footer,form,.atelier-contact-inline,.inschrijf12,[data-boek12]').forEach(function(x){io.observe(x)})})();</script></body>
+</script><script>(function(){document.querySelectorAll('.split14').forEach(function(s){var a=s.querySelector('a'),b=s.querySelector('button');a.addEventListener('mouseenter',function(){b.dispatchEvent(new MouseEvent('mouseenter'));b.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));});});})();</script><script>(function(){var a=document.querySelector('.afdelingen12');if(a){var afd=[].slice.call(a.querySelectorAll('.afd12'));if(afd.length){a.classList.add('tabs15');var bar=document.createElement('div');bar.className='afdtabs15';bar.setAttribute('role','tablist');afd.forEach(function(d,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=d.querySelector('h3').textContent;b.setAttribute('aria-selected',i?'false':'true');b.onclick=function(){afd.forEach(function(x,j){x.classList.toggle('aan',j===i)});bar.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-selected',j===i?'true':'false')})};bar.appendChild(b)});afd[0].classList.add('aan');a.before(bar)}}var u=document.querySelector('ul.nietzelf');if(u&&u.children.length>5){var t=document.createElement('button');t.type='button';t.className='toon15';var n=u.children.length,en=document.documentElement.lang.indexOf('en')===0;t.textContent=en?'Show all '+n:'Toon alle '+n;t.setAttribute('aria-expanded','false');t.onclick=function(){var o=u.classList.toggle('open15');t.setAttribute('aria-expanded',o);t.textContent=o?(en?'Show less':'Toon minder'):(en?'Show all '+n:'Toon alle '+n)};u.after(t)}var c=document.querySelector('.chat9');if(c){var z=function(){c.classList.toggle('boven15',scrollY<innerHeight*.9)};addEventListener('scroll',z,{passive:true});z()}})();</script><script>(function(){var pijl=function(r){return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="'+(r?'m9 6 6 6-6 6':'m15 6-6 6 6 6')+'"/></svg>'};document.querySelectorAll('.wkrij12,.opt11rij,.werk .deck,.afd14.a,.afd14.b,.aiblok .groepen,.afdtabs15').forEach(function(rij){if(rij.nextElementSibling&&rij.nextElementSibling.classList.contains('rijnav14'))return;var n=document.createElement('div');n.className='rijnav14'+(rij.closest('.werk')?' donker':'');n.innerHTML='<div class="balk14"><i></i></div><button type="button" aria-label="Vorige">'+pijl(0)+'</button><button type="button" aria-label="Volgende">'+pijl(1)+'</button>';rij.after(n);var i=n.querySelector('i'),b=n.querySelectorAll('button');function zet(){var max=rij.scrollWidth-rij.clientWidth,d=Math.min(1,rij.clientWidth/rij.scrollWidth);i.style.setProperty('--d',d*100+'%');i.style.setProperty('--x',(max>0?rij.scrollLeft/max*((1-d)/d)*100:0)+'%');b[0].disabled=rij.scrollLeft<4;b[1].disabled=rij.scrollLeft>max-4}var stap=function(r){var k=rij.firstElementChild;rij.scrollBy({left:(r?1:-1)*(k?k.getBoundingClientRect().width+12:rij.clientWidth*.8),behavior:'smooth'})};b[0].onclick=function(){stap(0)};b[1].onclick=function(){stap(1)};rij.addEventListener('scroll',zet,{passive:true});addEventListener('resize',zet);zet()})})();</script><script>(function(){var c=document.querySelector('.chat9');if(!c||!('IntersectionObserver' in window))return;var zicht=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?zicht.add(e.target):zicht.delete(e.target)});c.classList.toggle('weg14',zicht.size>0)},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('#boeken,footer,form,.atelier-contact-inline,.inschrijf12,[data-boek12]').forEach(function(x){io.observe(x)})})();</script></body>
 </html>
